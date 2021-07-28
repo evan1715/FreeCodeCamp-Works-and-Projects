@@ -64,3 +64,30 @@ function myReplace(str, before, after) {
 myReplace("A quick brown fox jumped over the lazy dog", "jumped", "leaped");
 
 
+
+//DNA Pairing
+function pairElement(str) {
+    let arr = [];
+
+    str.split("").map(cake => {
+        if (cake === 'A') {
+            arr.push(['A', 'T']);
+        }
+        if (cake === 'T') {
+            arr.push(['T', 'A']);
+        }
+        if (cake === 'C') {
+            arr.push(['C', 'G']);
+        }
+        if (cake === 'G') {
+            arr.push(['G', 'C']);
+        }
+    });
+
+    return arr;
+}
+pairElement("GCG");
+pairElement("ATCGA");
+
+
+
