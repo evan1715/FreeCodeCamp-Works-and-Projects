@@ -91,3 +91,21 @@ pairElement("ATCGA");
 
 
 
+//Missing Letters
+function fearNotLetter(str) {
+    let arr = [];
+    let letter = undefined;
+  
+    for (var i = 0; i < str.length; i++) {
+      arr.push(str.charCodeAt(i));
+    }
+  
+    for (var i = 0; i < str.length; i++) {
+      if (arr[i]+1 < arr[i + 1]) {
+        letter = String.fromCharCode(arr[i]+1);
+      }
+    }
+  
+    return letter;
+}
+fearNotLetter("abce");
