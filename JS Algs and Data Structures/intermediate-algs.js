@@ -47,3 +47,20 @@ translatePigLatin("consonant");
 
 
 
+//Search and Replace
+function myReplace(str, before, after) {
+    let newAfter = after;
+  
+    if ((/^[A-Z]/).test(before)) {
+        const cake = after.charAt(0).toUpperCase();
+        newAfter = after.replace(after.charAt(0), cake);
+    } else if ((/^[a-z]/).test(before)) {
+        const cake = after.charAt(0).toLowerCase();
+        newAfter = after.replace(after.charAt(0), cake);
+    }
+  
+    return str.replace(before, newAfter);
+}
+myReplace("A quick brown fox jumped over the lazy dog", "jumped", "leaped");
+
+
