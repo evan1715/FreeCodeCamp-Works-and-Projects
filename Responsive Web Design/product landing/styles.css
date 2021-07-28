@@ -1,0 +1,19 @@
+#header {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+  
+#main {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+  
+@media screen and (max-width: 1400px) {
+    main {
+        background-color: gray;
+    }
+}

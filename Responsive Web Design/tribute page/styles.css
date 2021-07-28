@@ -1,0 +1,11 @@
+#title {
+    display: flex;
+    justify-content: center;
+}
+  
+#img-div, #image-caption, #tribute-info {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
