@@ -109,3 +109,24 @@ function fearNotLetter(str) {
     return letter;
 }
 fearNotLetter("abce");
+
+
+
+//Sorted Union
+function uniteUnique(...arrays) {
+    //The flat() method creates a new array with all sub-array elements concatenated into it recursively up to the specified depth.
+    //https://developer.mozilla.org/en-US/docs/web/javascript/reference/global_objects/array/flat
+    const arr4 = arrays.flat();
+    let newArray = [];
+
+    for (var i = 0; i < arr4.length; i++) {
+        if (!newArray.includes(arr4[i]) && arr4[i]) {
+            newArray.push(arr4[i]);
+        }
+    }
+
+    return newArray;
+}
+uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]);
+uniteUnique([1, 2, 3], [5, 2, 1]);
+uniteUnique([1, 2, 3], [5, 2, 1, 4], [2, 1], [6, 7, 8]);
