@@ -130,3 +130,20 @@ function uniteUnique(...arrays) {
 uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]);
 uniteUnique([1, 2, 3], [5, 2, 1]);
 uniteUnique([1, 2, 3], [5, 2, 1, 4], [2, 1], [6, 7, 8]);
+
+
+
+//Convert HTML Entities
+function convertHTML(str) {
+    const values = { 
+        '&': '&amp;', 
+        '<': '&lt;', 
+        '>': '&gt;',
+        '"': '&quot;', 
+        "'": '&apos;',
+    }
+    const value = str.replace(/[&<>"']/g, match => values[match]);
+
+    return value;
+}
+convertHTML("Dolce & Gabbana");
