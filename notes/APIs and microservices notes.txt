@@ -1,0 +1,306 @@
+MANAGING PACKAGES WITH NPM: {
+
+    Introduction to the Managing Packages with npm Challenges {
+
+        The Node Package Manager (npm) is a command-line tool used by developers to share and control modules (or packages) of JavaScript code written for use with Node.js.
+
+        When starting a new project, npm generates a package.json file. This file lists the package dependencies for your project. Since npm packages are regularly updated, the package.json file allows you to set specific version numbers for each dependency. This ensures that updates to a package don't break your project.
+
+        npm saves packages in a folder named node_modules. These packages can be installed in two ways:
+
+            globally in a root node_modules folder, accessible by all projects.
+            locally within a project's own node_modules folder, accessible only to that project.
+
+        Most developers prefer to install packages local to each project to create a separation between the dependencies of different projects. Working on these challenges will involve you writing your code on Repl.it on our starter project. After completing each challenge you can copy your public Repl.it URL (to the homepage of your app) into the challenge screen to test it! Optionally you may choose to write your project on another platform but it must be publicly visible for our testing.
+
+        Start this project on Repl.it using this link or clone this repository on GitHub! If you use Repl.it, remember to save the link to your project somewhere safe!
+    }
+
+
+
+    Managing Packages with Npm - Add a Description to Your package.json {
+
+        The next part of a good package.json file is the description field; where a short, but informative description about your project belongs.
+
+        If you some day plan to publish a package to npm, this is the string that should sell your idea to the user when they decide whether to install your package or not. However, that’s not the only use case for the description, it’s a great way to summarize what a project does. It’s just as important in any Node.js project to help other developers, future maintainers or even your future self understand the project quickly.
+
+        Regardless of what you plan for your project, a description is definitely recommended. Here's an example:
+
+        "description": "A project that does something awesome",
+    }
+
+
+
+    Managing Packages with Npm - Add Keywords to Your package.json {
+
+        The keywords field is where you can describe your project using related keywords. Here's an example:
+
+        "keywords": [ "descriptive", "related", "words" ],
+
+        As you can see, this field is structured as an array of double-quoted strings.
+    }
+
+
+
+    Managing Packages with Npm - Add a License to Your package.json {
+
+        The license field is where you inform users of what they are allowed to do with your project.
+
+        Some common licenses for open source projects include MIT and BSD. License information is not required, and copyright laws in most countries will give you ownership of what you create by default. However, it’s always a good practice to explicitly state what users can and can’t do. Here's an example of the license field:
+
+        "license": "MIT",
+    }
+
+
+
+    Managing Packages with Npm - Add a Version to Your package.json {
+
+        A version is one of the required fields of your package.json file. This field describes the current version of your project. Here's an example:
+
+        "version": "1.2.0",
+    }
+
+
+
+    Managing Packages with Npm - Expand Your Project with External Packages from npm {
+
+        One of the biggest reasons to use a package manager, is their powerful dependency management. Instead of manually having to make sure that you get all dependencies whenever you set up a project on a new computer, npm automatically installs everything for you. But how can npm know exactly what your project needs? Meet the dependencies section of your package.json file.
+
+        In this section, packages your project requires are stored using the following format:
+
+        "dependencies": {
+            "package-name": "version",
+            "express": "4.14.0"
+        }
+    }
+
+
+
+    Managing Packages with Npm - Manage npm Dependencies By Understanding Semantic Versioning {
+
+        Versions of the npm packages in the dependencies section of your package.json file follow what’s called Semantic Versioning (SemVer), an industry standard for software versioning aiming to make it easier to manage dependencies. Libraries, frameworks or other tools published on npm should use SemVer in order to clearly communicate what kind of changes projects can expect if they update.
+
+        Knowing SemVer can be useful when you develop software that uses external dependencies (which you almost always do). One day, your understanding of these numbers will save you from accidentally introducing breaking changes to your project without understanding why things that worked yesterday suddenly don’t work today. This is how Semantic Versioning works according to the official website:
+
+        "package": "MAJOR.MINOR.PATCH"
+
+        The MAJOR version should increment when you make incompatible API changes. The MINOR version should increment when you add functionality in a backwards-compatible manner. The PATCH version should increment when you make backwards-compatible bug fixes. This means that PATCHes are bug fixes and MINORs add new features but neither of them break what worked before. Finally, MAJORs add changes that won’t work with earlier versions.
+    }
+
+
+
+    Managing Packages with Npm - Use the Tilde-Character to Always Use the Latest Patch Version of a Dependency {
+
+        In the last challenge, you told npm to only include a specific version of a package. That’s a useful way to freeze your dependencies if you need to make sure that different parts of your project stay compatible with each other. But in most use cases, you don’t want to miss bug fixes since they often include important security patches and (hopefully) don’t break things in doing so.
+
+        To allow an npm dependency to update to the latest PATCH version, you can prefix the dependency’s version with the tilde (~) character. Here's an example of how to allow updates to any 1.3.x version.
+
+        "package": "~1.3.8"
+
+        This would allow updates to any 1.x.x version of the package.
+    }
+
+
+
+    Managing Packages with Npm - Remove a Package from Your Dependencies {
+
+        You have now tested a few ways you can manage dependencies of your project by using the package.json's dependencies section. You have also included external packages by adding them to the file and even told npm what types of versions you want, by using special characters such as the tilde or the caret.
+
+        But what if you want to remove an external package that you no longer need? You might already have guessed it, just remove the corresponding key-value pair for that package from your dependencies.
+
+        This same method applies to removing other fields in your package.json as well
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BASIC NODE AND EXPRESS {
+
+    Introduction to the Basic Node and Express Challenges {
+
+        Node.js is a JavaScript runtime that allows developers to write backend (server-side) programs in JavaScript. Node.js comes with a handful of built-in modules - small, independent programs - that help facilitate this purpose. Some of the core modules include:
+
+            HTTP: a module that acts as a server
+            File System: a module that reads and modifies files
+            Path: a module for working with directory and file paths
+            Assertion Testing: a module that checks code against prescribed constraints
+
+        Express, while not included with Node.js, is another module often used with it. Express runs between the server created by Node.js and the frontend pages of a web application. Express also handles an application's routing. Routing directs users to the correct page based on their interaction with the application. While there are alternatives to using Express, its simplicity makes it a good place to begin when learning the interaction between a backend powered by Node.js and the frontend.
+
+        Working on these challenges will involve you writing your code on Repl.it on our starter project. After completing each challenge you can copy your public Repl.it URL (to the homepage of your app) into the challenge screen to test it! Optionally you may choose to write your project on another platform but it must be publicly visible for our testing.
+
+        Start this project on Repl.it using this link or clone this repository on GitHub! If you use Repl.it, remember to save the link to your project somewhere safe!
+    }
+
+
+
+    Basic Node and Express - Meet the Node console {
+
+        During the development process, it is important to be able to check what’s going on in your code.
+
+        Node is just a JavaScript environment. Like client side JavaScript, you can use the console to display useful debug information. On your local machine, you would see console output in a terminal. On Repl.it, a terminal is open in the right pane by default.
+
+        We recommend to keep the terminal open while working at these challenges. By reading the output in the terminal, you can see any errors that may occur.
+    }
+
+
+
+    Basic Node and Express - Start a Working Express Server {
+
+        In the first two lines of the file myApp.js, you can see how easy it is to create an Express app object. This object has several methods, and you will learn many of them in these challenges. One fundamental method is app.listen(port). It tells your server to listen on a given port, putting it in running state. You can see it at the bottom of the file. It is inside comments because, for testing reasons, we need the app to be running in the background. All the code that you may want to add goes between these two fundamental parts. Repl.it stores the port number in the environment variable process.env.PORT. Its value is 3000.
+
+        Let’s serve our first string! In Express, routes takes the following structure: app.METHOD(PATH, HANDLER). METHOD is an http method in lowercase. PATH is a relative path on the server (it can be a string, or even a regular expression). HANDLER is a function that Express calls when the route is matched.
+
+        Handlers take the form function(req, res) {...}, where req is the request object, and res is the response object. For example, the handler
+
+        function(req, res) {
+            res.send('Response String');
+        }
+
+        will serve the string 'Response String'.
+
+        If you had a website at “example.com/ 127” and wanted to serve a string such as “Hello Express” to whoever visits the root domain you could do so easily using Node and/or express:
+
+        app.get("/", function(req, res) {
+            res.send("Hello Express");
+        });
+
+        Also, with the modern ES6 syntax you can save a few keystrokes by using arrow functions:
+
+        app.get("/", (req, res) => {
+            res.send("Hello Express");
+        });
+    }
+
+
+
+    Basic Node and Express - Serve an HTML File {
+
+        You can respond to requests with a file using the res.sendFile(path) method. You can put it inside the app.get('/', ...) route handler. Behind the scenes, this method will set the appropriate headers to instruct your browser on how to handle the file you want to send, according to its type. Then it will read and send the file. This method needs an absolute file path. We recommend you to use the Node global variable __dirname to calculate the path like this:
+
+        absolutePath = __dirname + relativePath/file.ext
+
+        Send the /views/index.html file as a response to GET requests to the / path. If you view your live app, you should see a big HTML heading (and a form that we will use later…), with no style applied.
+
+        Note: You can edit the solution of the previous challenge or create a new one. If you create a new solution, keep in mind that Express evaluates routes from top to bottom, and executes the handler for the first match. You have to comment out the preceding solution, or the server will keep responding with a string.
+    }
+
+
+
+    Basic Node and Express - Serve Static Assets {
+
+        An HTML server usually has one or more directories that are accessible by the user. You can place there the static assets needed by your application (stylesheets, scripts, images). In Express, you can put in place this functionality using the middleware express.static(path), where the path parameter is the absolute path of the folder containing the assets. If you don’t know what middleware is... don’t worry, we will discuss in detail later. Basically, middleware are functions that intercept route handlers, adding some kind of information. A middleware needs to be mounted using the method app.use(path, middlewareFunction). The first path argument is optional. If you don’t pass it, the middleware will be executed for all requests.
+
+        Mount the express.static() middleware for all requests with app.use(). The absolute path to the assets folder is __dirname + /public.
+
+        Now your app should be able to serve a CSS stylesheet. From outside, the public folder will appear mounted to the root directory. Your front-page should look a little better now!
+
+        Serving static webpages and assets is fairly simple with express. This could be useful for building your own portfolio website or blog, single-page web applications etc.
+
+        To serve static assets from the public folder you can use the express.static() method as the middleware. This method takes the endpoint and the absolute path to the directory containing the static assets as arguments and exposes the files in that folder at the given endpoint. By default, if the endpoint is not passed to the method, the folder is exposed at the root endpoint i.e. / for the application.
+
+        The __dirname variable is a string containing the absolute path to the root of your project which has to be concatenated with the folder containing the assets.
+
+        Add the following line to your file above all defined routes to achieve the desired result:
+
+        // Normal usage
+        app.use(express.static(__dirname + "/public"));
+
+        // Assets at the /assets route
+        app.use("/assets", express.static(__dirname + "/public"));
+    }
+
+
+
+    Basic Node and Express - Serve JSON on a Specific Route {
+
+        While an HTML server serves (you guessed it!) HTML, an API serves data. A REST (REpresentational State Transfer) API allows data exchange in a simple way, without the need for clients to know any detail about the server. The client only needs to know where the resource is (the URL), and the action it wants to perform on it (the verb). The GET verb is used when you are fetching some information, without modifying anything. These days, the preferred data format for moving information around the web is JSON. Simply put, JSON is a convenient way to represent a JavaScript object as a string, so it can be easily transmitted.
+
+        Let's create a simple API by creating a route that responds with JSON at the path /json. You can do it as usual, with the app.get() method. Inside the route handler, use the method res.json(), passing in an object as an argument. This method closes the request-response loop, returning the data. Behind the scenes, it converts a valid JavaScript object into a string, then sets the appropriate headers to tell your browser that you are serving JSON, and sends the data back. A valid object has the usual structure {key: data}. data can be a number, a string, a nested object or an array. data can also be a variable or the result of a function call, in which case it will be evaluated before being converted into a string.
+
+        Serve the object {"message": "Hello json"} as a response, in JSON format, to GET requests to the /json route. Then point your browser to your-app-url/json, you should see the message on the screen.
+    }
+
+
+
+    Basic Node and Express - Use the .env File {
+
+        The .env file is a hidden file that is used to pass environment variables to your application. This file is secret, no one but you can access it, and it can be used to store data that you want to keep private or hidden. For example, you can store API keys from external services or your database URI. You can also use it to store configuration options. By setting configuration options, you can change the behavior of your application, without the need to rewrite some code.
+
+        The environment variables are accessible from the app as process.env.VAR_NAME. The process.env object is a global Node object, and variables are passed as strings. By convention, the variable names are all uppercase, with words separated by an underscore. The .env is a shell file, so you don’t need to wrap names or values in quotes. It is also important to note that there cannot be space around the equals sign when you are assigning values to your variables, e.g. VAR_NAME=value. Usually, you will put each variable definition on a separate line.
+
+        Let's add an environment variable as a configuration option.
+
+        Store the variable MESSAGE_STYLE=uppercase in the .env file. Then tell the GET /json route handler that you created in the last challenge to transform the response object’s message to uppercase if process.env.MESSAGE_STYLE equals uppercase. The response object should become {"message": "HELLO JSON"}.
+    }
+
+
+
+    Basic Node and Express - Implement a Root-Level Request Logger Middleware {
+
+        Earlier, you were introduced to the express.static() middleware function. Now it’s time to see what middleware is, in more detail. Middleware functions are functions that take 3 arguments: the request object, the response object, and the next function in the application’s request-response cycle. These functions execute some code that can have side effects on the app, and usually add information to the request or response objects. They can also end the cycle by sending a response when some condition is met. If they don’t send the response when they are done, they start the execution of the next function in the stack. This triggers calling the 3rd argument, next().
+
+        Look at the following example:
+
+        function(req, res, next) {
+            console.log("I'm a middleware...");
+            next();
+        }
+
+        Let’s suppose you mounted this function on a route. When a request matches the route, it displays the string “I’m a middleware…”, then it executes the next function in the stack. In this exercise, you are going to build root-level middleware. As you have seen in challenge 4, to mount a middleware function at root level, you can use the app.use(<mware-function>) method. In this case, the function will be executed for all the requests, but you can also set more specific conditions. For example, if you want a function to be executed only for POST requests, you could use app.post(<mware-function>). Analogous methods exist for all the HTTP verbs (GET, DELETE, PUT, …).
+
+        Build a simple logger. For every request, it should log to the console a string taking the following format: method path - ip. An example would look like this: GET /json - ::ffff:127.0.0.1. Note that there is a space between method and path and that the dash separating path and ip is surrounded by a space on both sides. You can get the request method (http verb), the relative route path, and the caller’s ip from the request object using req.method, req.path and req.ip. Remember to call next() when you are done, or your server will be stuck forever. Be sure to have the ‘Logs’ opened, and see what happens when some request arrives.
+
+        Note: Express evaluates functions in the order they appear in the code. This is true for middleware too. If you want it to work for all the routes, it should be mounted before them.
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}

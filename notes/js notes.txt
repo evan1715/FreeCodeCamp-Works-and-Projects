@@ -1,0 +1,4272 @@
+BASIC JAVASCRIPT {
+    Basic JavaScript: Understanding Uninitialized Variables
+
+    When JavaScript variables are declared, they have an initial value of undefined. If you do a mathematical operation on an undefined variable your result will be NaN which means "Not a Number". If you concatenate a string with an undefined variable, you will get a literal string of "undefined".
+
+
+    remainder {
+        The remainder operator % gives the remainder of the division of two numbers.
+
+        Example:
+            5 % 2 = 1 because
+            Math.floor(5 / 2) = 2 (Quotient)
+            2 * 2 = 4
+            5 - 4 = 1 (Remainder)
+
+        Usage:
+        In mathematics, a number can be checked to be even or odd by checking the remainder of the division of the number by 2.
+            17 % 2 = 1 (17 is Odd)
+            48 % 2 = 0 (48 is Even)
+
+        Note: The remainder operator is sometimes incorrectly referred to as the "modulus" operator. It is very similar to modulus, but does not work properly with negative numbers.
+    }
+
+
+    Basic JavaScript: Escaping Literal Quotes in Strings {
+        When you are defining a string you must start and end with a single or double quote. What happens when you need a literal quote: " or ' inside of your string?
+
+        In JavaScript, you can escape a quote from considering it as an end of string quote by placing a backslash (\) in front of the quote.
+
+        var sampleStr = "Alan said, \"Peter is learning JavaScript\".";
+
+        This signals to JavaScript that the following quote is not the end of the string, but should instead appear inside the string. So if you were to print this to the console, you would get:
+
+        Alan said, "Peter is learning JavaScript".
+    }
+
+
+    Basic JavaScript: Quoting Strings with Single Quotes {
+        String values in JavaScript may be written with single or double quotes, as long as you start and end with the same type of quote. Unlike some other programming languages, single and double quotes work the same in JavaScript.
+
+        doubleQuoteStr = "This is a string"; 
+        singleQuoteStr = 'This is also a string';
+
+        The reason why you might want to use one type of quote over the other is if you want to use both in a string. This might happen if you want to save a conversation in a string and have the conversation in quotes. Another use for it would be saving an <a> tag with various attributes in quotes, all within a string.
+
+        conversation = 'Finn exclaims to Jake, "Algebraic!"';
+
+        However, this becomes a problem if you need to use the outermost quotes within it. Remember, a string has the same kind of quote at the beginning and end. But if you have that same quote somewhere in the middle, the string will stop early and throw an error.
+
+        goodStr = 'Jake asks Finn, "Hey, let\'s go on an adventure?"'; 
+        badStr = 'Finn responds, "Let's go!"'; // Throws an error
+
+        In the goodStr above, you can use both quotes safely by using the backslash \ as an escape character. Note
+        The backslash \ should not be confused with the forward slash /. They do not do the same thing.
+    }
+
+
+
+    Basic JavaScript: Escape Sequences in Strings {
+
+        Quotes are not the only characters that can be escaped inside a string. There are two reasons to use escaping characters:
+
+            To allow you to use characters you may not otherwise be able to type out, such as a carriage return.
+            To allow you to represent multiple quotes in a string without JavaScript misinterpreting what you mean.
+
+        Code	Output
+        \'	single quote
+        \"	double quote
+        \\	backslash
+        \n	newline
+        \r	carriage return
+        \t	tab
+        \b	word boundary
+        \f	form feed
+
+        Note that the backslash itself must be escaped in order to display as a backslash.
+    }
+
+
+
+    Basic JavaScript: Concatenating Strings with the Plus Equals Operator {
+        We can also use the += operator to concatenate a string onto the end of an existing string variable. This can be very helpful to break a long string over several lines.
+
+        Note: Watch out for spaces. Concatenation does not add spaces between concatenated strings, so you'll need to add them yourself.
+
+        Example:
+        var ourStr = "I come first. ";
+        ourStr += "I come second.";
+        // ourStr is now "I come first. I come second."
+    }
+
+
+
+    Basic JavaScript: Appending Variables to Strings {
+        Just as we can build a string over multiple lines out of string literals, we can also append variables to a string using the plus equals (+=) operator.
+
+        Example:
+        var anAdjective = "awesome!";
+        var ourStr = "freeCodeCamp is ";
+        ourStr += anAdjective;
+        // ourStr is now "freeCodeCamp is awesome!"
+    }
+
+
+
+    Basic JavaScript: Use Bracket Notation to Find the First Character in a String {
+        Bracket notation is a way to get a character at a specific index within a string.
+
+        Most modern programming languages, like JavaScript, don't start counting at 1 like humans do. They start at 0. This is referred to as Zero-based indexing.
+
+        For example, the character at index 0 in the word "Charles" is "C". So if var firstName = "Charles", you can get the value of the first letter of the string by using firstName[0].
+
+        Example:
+        var firstName = "Charles";
+        var firstLetter = firstName[0]; // firstLetter is "C"
+    }
+
+
+
+    Basic JavaScript: Understand String ImmutabilityPassed {
+        In JavaScript, String values are immutable, which means that they cannot be altered once created.
+
+        For example, the following code:
+        var myStr = "Bob";
+        myStr[0] = "J";
+        cannot change the value of myStr to "Job", because the contents of myStr cannot be altered. Note that this does not mean that myStr cannot be changed, just that the individual characters of a string literal cannot be changed. The only way to change myStr would be to assign it with a new string, like this:
+        var myStr = "Bob";
+        myStr = "Job";
+    }
+
+
+
+    Basic JavaScript: Manipulate Arrays With push() {
+        An easy way to append data to the end of an array is via the push() function.
+        .push() takes one or more parameters and "pushes" them onto the end of the array.
+
+        Examples:
+        var arr1 = [1,2,3];
+        arr1.push(4);
+        // arr1 is now [1,2,3,4]
+
+        var arr2 = ["Stimpson", "J", "cat"];
+        arr2.push(["happy", "joy"]);
+        // arr2 now equals ["Stimpson", "J", "cat", ["happy", "joy"]]
+    }
+
+
+
+    Basic JavaScript: Manipulate Arrays With pop() {
+        Another way to change the data in an array is with the .pop() function.
+
+        .pop() is used to "pop" a value off of the end of an array. We can store this "popped off" value by assigning it to a variable. In other words, .pop() removes the last element from an array and returns that element.
+
+        Any type of entry can be "popped" off of an array - numbers, strings, even nested arrays.
+
+        var threeArr = [1, 4, 6];
+        var oneDown = threeArr.pop();
+        console.log(oneDown); // Returns 6
+        console.log(threeArr); // Returns [1, 4]
+    }
+
+
+
+    Basic JavaScript: Manipulate Arrays With shift() {
+        pop() always removes the last element of an array. What if you want to remove the first?
+
+        That's where .shift() comes in. It works just like .pop(), except it removes the first element instead of the last.
+
+        Example:
+        var ourArray = ["Stimpson", "J", ["cat"]];
+        var removedFromOurArray = ourArray.shift();
+        // removedFromOurArray now equals "Stimpson" and ourArray now equals ["J", ["cat"]].
+    }
+
+
+
+    Basic JavaScript: Global Scope and Functions {
+        In JavaScript, scope refers to the visibility of variables. Variables which are defined outside of a function block have Global scope. This means, they can be seen everywhere in your JavaScript code.
+
+        Variables which are used without the var keyword are automatically created in the global scope. This can create unintended consequences elsewhere in your code or when running a function again. You should always declare your variables with var.
+    }
+
+
+
+    Basic JavaScript: Comparison with the Strict Equality Operator {
+        Strict equality (===) is the counterpart to the equality operator (==). However, unlike the equality operator, which attempts to convert both values being compared to a common type, the strict equality operator does not perform a type conversion.
+
+        If the values being compared have different types, they are considered unequal, and the strict equality operator will return false.
+
+        Examples
+        3 ===  3   // true
+        3 === '3'  // false
+        In the second example, 3 is a Number type and '3' is a String type.
+
+        If the values being compared are not of the same type, the equality operator will perform a type conversion, and then evaluate the values. However, the strict equality operator will compare both the data type and value as-is, without converting one type to the other.
+
+        Examples
+        3 == '3'  // returns true because JavaScript performs type conversion from string to number
+        3 === '3' // returns false because the types are different and type conversion is not performed
+
+        Note
+        In JavaScript, you can determine the type of a variable or a value with the typeof operator, as follows:
+        typeof 3   // returns 'number'
+        typeof '3' // returns 'string'
+    }
+
+
+
+    Basic JavaScript: Comparison with the Strict Inequality Operator {
+        The strict inequality operator (!==) is the logical opposite of the strict equality operator. It means "Strictly Not Equal" and returns false where strict equality would return true and vice versa. Strict inequality will not convert data types.
+
+        Examples
+        3 !==  3   // false
+        3 !== '3'  // true
+        4 !==  3   // true
+    }
+
+
+
+    Switch: {
+
+        Basic JavaScript: Selecting from Many Options with Switch Statements {
+            If you have many options to choose from, use a switch statement. A switch statement tests a value and can have many case statements which define various possible values. Statements are executed from the first matched case value until a break is encountered.
+
+            Here is an example of a switch statement:
+            switch(lowercaseLetter) {
+            case "a":
+                console.log("A");
+                break;
+            case "b":
+                console.log("B");
+                break;
+            }
+            case values are tested with strict equality (===). The break tells JavaScript to stop executing statements. If the break is omitted, the next statement will be executed.
+        }
+
+        Basic JavaScript: Adding a Default Option in Switch Statements {
+            In a switch statement you may not be able to specify all possible values as case statements. Instead, you can add the default statement which will be executed if no matching case statements are found. Think of it like the final else statement in an if/else chain.
+
+            A default statement should be the last case.
+
+            switch (num) {
+            case value1:
+                statement1;
+                break;
+            case value2:
+                statement2;
+                break;
+            ...
+            default:
+                defaultStatement;
+                break;
+            }
+        }
+
+        Basic JavaScript: Multiple Identical Options in Switch Statements {
+            If the break statement is omitted from a switch statement's case, the following case statement(s) are executed until a break is encountered. If you have multiple inputs with the same output, you can represent them in a switch statement like this:
+
+            switch(val) {
+            case 1:
+            case 2:
+            case 3:
+                result = "1, 2, or 3";
+                break;
+            case 4:
+                result = "4 alone";
+            }
+
+            Cases for 1, 2, and 3 will all produce the same result.
+        }
+    }
+
+
+
+    Basic JavaScript: Returning Boolean Values from Functions {
+        You may recall from Comparison with the Equality Operator that all comparison operators return a boolean true or false value.
+        Sometimes people use an if/else statement to do a comparison, like this:
+        function isEqual(a,b) {
+        if (a === b) {
+            return true;
+        } else {
+            return false;
+        }
+        }
+
+        But there's a better way to do this. Since === returns true or false, we can return the result of the comparison:
+        function isEqual(a,b) {
+        return a === b;
+        }
+    }
+
+
+
+    Counting Cards {
+        var count = 0;
+
+        function cc(card) {
+        if (card > 1 && card < 7) {
+            count++;
+        } else if (card == 10 || card == "J" || card == "Q" || card == "K" || card == "A") {
+            count--;
+        }
+
+        if (count > 0) {
+            return count +" Bet";
+        } else {
+            return count +" Hold";
+        }
+        }
+
+        cc(2); cc(3); cc(7); cc('K'); cc('A');
+    }
+
+
+    Object Properties: {
+
+        Basic JavaScript: Accessing Object Properties with Dot Notation {
+            There are two ways to access the properties of an object: dot notation (.) and bracket notation ([]), similar to an array.
+            Dot notation is what you use when you know the name of the property you're trying to access ahead of time.
+
+            Here is a sample of using dot notation (.) to read an object's property:
+            var myObj = {
+            prop1: "val1",
+            prop2: "val2"
+            };
+            var prop1val = myObj.prop1; // val1
+            var prop2val = myObj.prop2; // val2
+        }
+
+        Basic JavaScript: Accessing Object Properties with Bracket Notation {
+            The second way to access the properties of an object is bracket notation ([]). If the property of the object you are trying to access has a space in its name, you will need to use bracket notation. However, you can still use bracket notation on object properties without spaces.
+
+            Here is a sample of using bracket notation to read an object's property:
+            var myObj = {
+            "Space Name": "Kirk",
+            "More Space": "Spock",
+            "NoSpace": "USS Enterprise"
+            };
+            myObj["Space Name"]; // Kirk
+            myObj['More Space']; // Spock
+            myObj["NoSpace"];    // USS Enterprise
+
+            Note that property names with spaces in them must be in quotes (single or double).
+        }
+
+        Basic JavaScript: Accessing Object Properties with Variables {
+            Another use of bracket notation on objects is to access a property which is stored as the value of a variable. This can be very useful for iterating through an object's properties or when accessing a lookup table.
+
+            Here is an example of using a variable to access a property:
+            var dogs = {
+                Fido: "Mutt",  Hunter: "Doberman",  Snoopie: "Beagle"
+            };
+            var myDog = "Hunter";
+            var myBreed = dogs[myDog];
+            console.log(myBreed); // "Doberman"
+
+            Another way you can use this concept is when the property's name is collected dynamically during the program execution, as follows:
+                var someObj = {
+                propName: "John"
+            };
+            function propPrefix(str) {
+                var s = "prop";
+                return s + str;
+            }
+            var someProp = propPrefix("Name"); // someProp now holds the value 'propName'
+            console.log(someObj[someProp]); // "John"
+
+            Note that we do not use quotes around the variable name when using it to access the property because we are using the value of the variable, not the name.
+        }
+
+        Basic JavaScript: Add New Properties to a JavaScript Object {
+
+            You can add new properties to existing JavaScript objects the same way you would modify them.
+
+            Here's how we would add a "bark" property to ourDog:
+            ourDog.bark = "bow-wow";
+            or
+            ourDog["bark"] = "bow-wow";
+
+            Now when we evaluate ourDog.bark, we'll get his bark, "bow-wow".
+
+            Example:
+            var ourDog = {
+            "name": "Camper",
+            "legs": 4,
+            "tails": 1,
+            "friends": ["everything!"]
+            };
+
+            ourDog.bark = "bow-wow";
+        }
+
+        Basic JavaScript: Delete Properties from a JavaScript Object {
+            We can also delete properties from objects like this:
+
+            delete ourDog.bark;
+
+            Example:
+            var ourDog = {
+            "name": "Camper",
+            "legs": 4,
+            "tails": 1,
+            "friends": ["everything!"],
+            "bark": "bow-wow"
+            };
+
+            delete ourDog.bark;
+
+            After the last line shown above, ourDog looks like:
+            {
+            "name": "Camper",
+            "legs": 4,
+            "tails": 1,
+            "friends": ["everything!"]
+            }
+        }
+
+        Basic JavaScript: Using Objects for Lookups {
+            Objects can be thought of as a key/value storage, like a dictionary. If you have tabular data, you can use an object to "lookup" values rather than a switch statement or an if/else chain. This is most useful when you know that your input data is limited to a certain range.
+
+            Here is an example of a simple reverse alphabet lookup:
+            var alpha = {
+            1:"Z",
+            2:"Y",
+            3:"X",
+            4:"W",
+            ...
+            24:"C",
+            25:"B",
+            26:"A"
+            };
+            alpha[2]; // "Y"
+            alpha[24]; // "C"
+
+            var value = 2;
+            alpha[value]; // "Y"
+        }
+
+        Basic JavaScript: Testing Objects for Properties {
+            Sometimes it is useful to check if the property of a given object exists or not. We can use the .hasOwnProperty(propname) method of objects to determine if that object has the given property name. .hasOwnProperty() returns true or false if the property is found or not.
+
+            Example:
+            var myObj = {
+                top: "hat",
+                bottom: "pants"
+            };
+            myObj.hasOwnProperty("top");    // true
+            myObj.hasOwnProperty("middle"); // false
+
+            Example:
+            function checkObj(obj, checkProp) {
+                if (obj.hasOwnProperty(checkProp)) {
+                    return obj[checkProp];
+                } else {
+                    return "Not Found";
+                }
+            }
+        }
+
+        Basic JavaScript: Manipulating Complex Objects {
+            Sometimes you may want to store data in a flexible Data Structure. A JavaScript object is one way to handle flexible data. They allow for arbitrary combinations of strings, numbers, booleans, arrays, functions, and objects.
+
+            Here's an example of a complex data structure:
+            var ourMusic = [
+            {
+                "artist": "Daft Punk",
+                "title": "Homework",
+                "release_year": 1997,
+                "formats": [ 
+                "CD", 
+                "Cassette", 
+                "LP"
+                ],
+                "gold": true
+            }
+            ];
+
+            This is an array which contains one object inside. The object has various pieces of metadata about an album. It also has a nested "formats" array. If you want to add more album records, you can do this by adding records to the top level array. Objects hold data in a property, which has a key-value format. In the example above, "artist": "Daft Punk" is a property that has a key of "artist" and a value of "Daft Punk". JavaScript Object Notation or JSON is a related data interchange format used to store data.
+
+            {
+            "artist": "Daft Punk",
+            "title": "Homework",
+            "release_year": 1997,
+            "formats": [ 
+                "CD",
+                "Cassette",
+                "LP"
+            ],
+            "gold": true
+            }
+
+            Note
+            You will need to place a comma after every object in the array, unless it is the last object in the array.
+        }
+
+        Basic JavaScript: Accessing Nested Objects {
+            The sub-properties of objects can be accessed by chaining together the dot or bracket notation.
+            Here is a nested object:
+
+            var ourStorage = {
+            "desk": {
+                "drawer": "stapler"
+            },
+            "cabinet": {
+                "top drawer": { 
+                "folder1": "a file",
+                "folder2": "secrets"
+                },
+                "bottom drawer": "soda"-
+            }
+            };
+            ourStorage.cabinet["top drawer"].folder2;  // "secrets"
+            ourStorage.desk.drawer; // "stapler"
+        }
+    }
+
+
+    Loops: {
+        Basic JavaScript: Iterate with JavaScript For Loops {
+            You can run the same code multiple times by using a loop.
+
+            The most common type of JavaScript loop is called a for loop because it runs "for" a specific number of times.
+
+            For loops are declared with three optional expressions separated by semicolons:
+
+            for ([initialization]; [condition]; [final-expression])
+
+            The initialization statement is executed one time only before the loop starts. It is typically used to define and setup your loop variable.
+
+            The condition statement is evaluated at the beginning of every loop iteration and will continue as long as it evaluates to true. When condition is false at the start of the iteration, the loop will stop executing. This means if condition starts as false, your loop will never execute.
+
+            The final-expression is executed at the end of each loop iteration, prior to the next condition check and is usually used to increment or decrement your loop counter.
+
+            In the following example we initialize with i = 0 and iterate while our condition i < 5 is true. We'll increment i by 1 in each loop iteration with i++ as our final-expression.
+
+            var ourArray = [];
+            for (var i = 0; i < 5; i++) {
+            ourArray.push(i);
+            }
+        }
+
+        Basic JavaScript: Iterate Through an Array with a For Loop {
+            A common task in JavaScript is to iterate through the contents of an array. One way to do that is with a for loop. This code will output each element of the array arr to the console:
+
+            var arr = [10, 9, 8, 7, 6];
+            for (var i = 0; i < arr.length; i++) {
+            console.log(arr[i]);
+            }
+
+            Remember that arrays have zero-based indexing, which means the last index of the array is length - 1. Our condition for this loop is i < arr.length, which stops the loop when i is equal to length. In this case the last iteration is i === 4 i.e. when i becomes equal to arr.length and outputs 6 to the console.
+        }
+
+        Basic JavaScript: Nesting For Loops {
+            If you have a multi-dimensional array, you can use the same logic as the prior waypoint to loop through both the array and any sub-arrays. Here is an example:
+
+            var arr = [
+                [1,2], [3,4], [5,6]
+            ];
+            for (var i=0; i < arr.length; i++) {
+                for (var j=0; j < arr[i].length; j++) {
+                    console.log(arr[i][j]);
+                }
+            }
+            This outputs each sub-element in arr one at a time. Note that for the inner loop, we are checking the .length of arr[i], since arr[i] is itself an array.
+        }
+
+        Basic JavaScript: Iterate with JavaScript Do...While Loops {
+            The next type of loop you will learn is called a do...while loop. It is called a do...while loop because it will first do one pass of the code inside the loop no matter what, and then continue to run the loop while the specified condition evaluates to true.
+
+            var ourArray = [];
+            var i = 0;
+            do {
+                ourArray.push(i);
+            i++;
+            } while (i < 5);
+
+            The example above behaves similar to other types of loops, and the resulting array will look like [0, 1, 2, 3, 4]. However, what makes the do...while different from other loops is how it behaves when the condition fails on the first check. Let's see this in action: Here is a regular while loop that will run the code in the loop as long as i < 5:
+
+            var ourArray = []; 
+            var i = 5;
+            while (i < 5) {
+                ourArray.push(i);
+            i++;
+            }
+
+            In this example, we initialize the value of ourArray to an empty array and the value of i to 5. When we execute the while loop, the condition evaluates to false because i is not less than 5, so we do not execute the code inside the loop. The result is that ourArray will end up with no values added to it, and it will still look like [] when all of the code in the example above has completed running. Now, take a look at a do...while loop:
+
+            var ourArray = []; 
+            var i = 5;
+            do {
+                ourArray.push(i);
+            i++;
+            } while (i < 5);
+
+            In this case, we initialize the value of i to 5, just like we did with the while loop. When we get to the next line, there is no condition to evaluate, so we go to the code inside the curly braces and execute it. We will add a single element to the array and then increment i before we get to the condition check. When we finally evaluate the condition i < 5 on the last line, we see that i is now 6, which fails the conditional check, so we exit the loop and are done. At the end of the above example, the value of ourArray is [5]. Essentially, a do...while loop ensures that the code inside the loop will run at least once. Let's try getting a do...while loop to work by pushing values to an array.
+        }
+    }
+
+
+
+    Basic JavaScript: Replace Loops using Recursion {
+        Recursion is the concept that a function can be expressed in terms of itself. To help understand this, start by thinking about the following task: multiply the first n elements of an array to create the product of those elements. Using a for loop, you could do this:
+
+        function multiply(arr, n) {
+            var product = 1;
+            for (var i = 0; i < n; i++) {
+                product *= arr[i];
+            }
+            return product;
+        }
+
+        However, notice that multiply(arr, n) == multiply(arr, n - 1) * arr[n - 1]. That means you can rewrite multiply in terms of itself and never need to use a loop.
+
+        function multiply(arr, n) {
+            if (n <= 0) {
+                return 1;
+            } else {
+                return multiply(arr, n - 1) * arr[n - 1];
+            }
+        }
+
+        The recursive version of multiply breaks down like this. In the base case, where n <= 0, it returns 1. For larger values of n, it calls itself, but with n - 1. That function call is evaluated in the same way, calling multiply again until n <= 0. At this point, all the functions can return and the original multiply returns the answer.
+
+        Note: Recursive functions must have a base case when they return without calling the function again (in this example, when n <= 0), otherwise they can never finish executing.
+    }
+
+
+
+
+
+    Basic JavaScript: Profile Lookup {
+
+        We have an array of objects representing different people in our contacts lists.
+        A lookUpProfile function that takes name and a property (prop) as arguments has been pre-written for you.
+        The function should check if name is an actual contact's firstName and the given property (prop) is a property of that contact.
+        If both are true, then return the "value" of that property.
+        If name does not correspond to any contacts then return "No such contact".
+        If prop does not correspond to any valid properties of a contact found to match name then return "No such property".
+
+        // Setup
+        var contacts = [
+            {
+                "firstName": "Akira",
+                "lastName": "Laine",
+                "number": "0543236543",
+                "likes": ["Pizza", "Coding", "Brownie Points"]
+            },
+            {
+                "firstName": "Harry",
+                "lastName": "Potter",
+                "number": "0994372684",
+                "likes": ["Hogwarts", "Magic", "Hagrid"]
+            },
+            {
+                "firstName": "Sherlock",
+                "lastName": "Holmes",
+                "number": "0487345643",
+                "likes": ["Intriguing Cases", "Violin"]
+            },
+            {
+                "firstName": "Kristian",
+                "lastName": "Vos",
+                "number": "unknown",
+                "likes": ["JavaScript", "Gaming", "Foxes"]
+            }
+        ];
+
+
+        function lookUpProfile(name, prop){
+        // Only change code below this line
+            for (var i=0; i < contacts.length; i++) {
+
+                if (name == contacts[i].firstName) {
+                    if (contacts[i].hasOwnProperty(prop)) {
+                        return contacts[i][prop];
+                    } else {
+                        return "No such property";
+                    }
+                }
+            }
+
+            if (name != contacts.firstName) {
+                return "No such contact";
+            }
+        // Only change code above this line
+        }
+
+        lookUpProfile("Akira", "likes");
+    }
+
+
+
+
+
+
+    Random Numbers: {
+
+        Basic JavaScript: Generate Random Fractions with JavaScript {
+            Random numbers are useful for creating random behavior.
+            JavaScript has a Math.random() function that generates a random decimal number between 0 (inclusive) and not quite up to 1 (exclusive). Thus Math.random() can return a 0 but never quite return a 1
+
+            Note
+            Like Storing Values with the Equal Operator, all function calls will be resolved before the return executes, so we can return the value of the Math.random() function.
+        }
+
+
+        Basic JavaScript: Generate Random Whole Numbers with JavaScript {
+            It's great that we can generate random decimal numbers, but it's even more useful if we use it to generate random whole numbers.
+
+                Use Math.random() to generate a random decimal.
+                Multiply that random decimal by 20.
+                Use another function, Math.floor() to round the number down to its nearest whole number.
+
+            Remember that Math.random() can never quite return a 1 and, because we're rounding down, it's impossible to actually get 20. This technique will give us a whole number between 0 and 19.
+            Putting everything together, this is what our code looks like:
+
+            Math.floor(Math.random() * 20);
+
+            We are calling Math.random(), multiplying the result by 20, then passing the value to Math.floor() function to round the value down to the nearest whole number.
+        }
+
+
+        Basic JavaScript: Generate Random Whole Numbers within a Range {
+            Instead of generating a random number between zero and a given number like we did before, we can generate a random number that falls within a range of two specific numbers.
+            To do this, we'll define a minimum number min and a maximum number max.
+            Here's the formula we'll use. Take a moment to read it and try to understand what this code is doing:
+
+            Math.floor(Math.random() * (max - min + 1)) + min
+        }
+    }
+
+
+
+    Basic JavaScript: Use the parseInt Function {
+        The parseInt() function parses a string and returns an integer. Here's an example:
+
+        var a = parseInt("007");
+
+        The above function converts the string "007" to an integer 7. If the first character in the string can't be converted into a number, then it returns NaN.
+    }
+
+
+
+    Basic JavaScript: Use the parseInt Function with a Radix {
+        The parseInt() function parses a string and returns an integer. It takes a second argument for the radix, which specifies the base of the number in the string. The radix can be an integer between 2 and 36.
+
+        The function call looks like:
+        parseInt(string, radix);
+
+        And here's an example:
+        var a = parseInt("11", 2);
+
+        The radix variable says that "11" is in the binary system, or base 2. This example converts the string "11" to an integer 3.
+    }
+
+
+
+    Basic JavaScript: Use the Conditional (Ternary) Operator {
+        The conditional operator, also called the ternary operator, can be used as a one line if-else expression.
+
+        The syntax is:
+        condition ? statement-if-true : statement-if-false;
+
+        The following function uses an if-else statement to check a condition:
+        function findGreater(a, b) {
+            if(a > b) {
+                return "a is greater";
+            } else {
+                return "b is greater";
+            }
+        }
+
+        This can be re-written using the conditional operator:
+        function findGreater(a, b) {
+            return a > b ? "a is greater" : "b is greater";
+        }
+    }
+
+
+    Basic JavaScript: Use Multiple Conditional (Ternary) Operators {
+        In the previous challenge, you used a single conditional operator. You can also chain them together to check for multiple conditions.
+        The following function uses if, else if, and else statements to check multiple conditions:
+
+        function findGreaterOrEqual(a, b) {
+            if (a === b) {
+                return "a and b are equal";
+            }
+            else if (a > b) {
+                return "a is greater";
+            }
+            else {
+                return "b is greater";
+            }
+        }
+
+        The above function can be re-written using multiple conditional operators:
+
+        function findGreaterOrEqual(a, b) {
+        return (a === b) ? "a and b are equal" 
+            : (a > b) ? "a is greater" 
+            : "b is greater";
+        }
+
+        However, this should be used with care as using multiple conditional operators without proper indentation may make your code hard to read. For example:
+
+        function findGreaterOrEqual(a, b) {
+        return (a === b) ? "a and b are equal" : (a > b) ? "a is greater" : "b is greater";
+        }
+    }
+
+
+
+    Basic JavaScript: Use Multiple Conditional (Ternary) Operators {
+        In the previous challenge, you used a single conditional operator. You can also chain them together to check for multiple conditions.
+
+        The following function uses if, else if, and else statements to check multiple conditions:
+        function findGreaterOrEqual(a, b) {
+            if (a === b) {
+                return "a and b are equal";
+            }
+            else if (a > b) {
+                return "a is greater";
+            }
+            else {
+                return "b is greater";
+            }
+        }
+
+        The above function can be re-written using multiple conditional operators:
+        function findGreaterOrEqual(a, b) {
+            return (a === b) ? "a and b are equal" 
+                : (a > b) ? "a is greater" 
+                : "b is greater";
+        }
+
+        However, this should be used with care as using multiple conditional operators without proper indentation may make your code hard to read. For example:
+        function findGreaterOrEqual(a, b) {
+            return (a === b) ? "a and b are equal" : (a > b) ? "a is greater" : "b is greater";
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+~~~~~~~~~~~~~~ES6~~~~~~~~~~~~~~ {
+
+    ES6: Explore Differences Between the var and let Keywords {
+
+        One of the biggest problems with declaring variables with the var keyword is that you can overwrite variable declarations without an error.
+
+        var camper = 'James';
+        var camper = 'David';
+        console.log(camper);
+        // logs 'David'
+
+        As you can see in the code above, the camper variable is originally declared as James and then overridden to be David. In a small application, you might not run into this type of problem, but when your code becomes larger, you might accidentally overwrite a variable that you did not intend to overwrite. Because this behavior does not throw an error, searching and fixing bugs becomes more difficult.
+        A new keyword called let was introduced in ES6 to solve this potential issue with the var keyword. If you were to replace var with let in the variable declarations of the code above, the result would be an error.
+
+        let camper = 'James';
+        let camper = 'David'; // throws an error
+
+        This error can be seen in the console of your browser. So unlike var, when using let, a variable with the same name can only be declared once. Note the "use strict". This enables Strict Mode, which catches common coding mistakes and "unsafe" actions. For instance:
+
+        "use strict";
+        x = 3.14; // throws an error because x is not declared
+    }
+
+
+
+    ES6: Compare Scopes of the var and let Keywords {
+
+        When you declare a variable with the var keyword, it is declared globally, or locally if declared inside a function.
+        The let keyword behaves similarly, but with some extra features. When you declare a variable with the let keyword inside a block, statement, or expression, its scope is limited to that block, statement, or expression.
+
+        For example:
+
+        var numArray = [];
+        for (var i = 0; i < 3; i++) {
+            numArray.push(i);
+        }
+        console.log(numArray);
+        // returns [0, 1, 2]
+        console.log(i);
+        // returns 3
+
+        With the var keyword, i is declared globally. So when i++ is executed, it updates the global variable. This code is similar to the following:
+
+        var numArray = [];
+        var i;
+        for (i = 0; i < 3; i++) {
+            numArray.push(i);
+        }
+        console.log(numArray);
+        // returns [0, 1, 2]
+        console.log(i);
+        // returns 3
+
+        This behavior will cause problems if you were to create a function and store it for later use inside a for loop that uses the i variable. This is because the stored function will always refer to the value of the updated global i variable.
+
+        var printNumTwo;
+        for (var i = 0; i < 3; i++) {
+            if (i === 2) {
+                printNumTwo = function() {
+                return i;
+                };
+            }
+        }
+        console.log(printNumTwo());
+        // returns 3
+
+        As you can see, printNumTwo() prints 3 and not 2. This is because the value assigned to i was updated and the printNumTwo() returns the global i and not the value i had when the function was created in the for loop. The let keyword does not follow this behavior:
+
+        'use strict';
+        let printNumTwo;
+        for (let i = 0; i < 3; i++) {
+            if (i === 2) {
+                printNumTwo = function() {
+                return i;
+                };
+            }
+        }
+        console.log(printNumTwo());
+        // returns 2
+        console.log(i);
+        // returns "i is not defined"
+
+        i is not defined because it was not declared in the global scope. It is only declared within the for loop statement. printNumTwo() returned the correct value because three different i variables with unique values (0, 1, and 2) were created by the let keyword within the loop statement.
+    }
+
+
+
+    ES6: Declare a Read-Only Variable with the const Keyword {
+
+        The keyword let is not the only new way to declare variables. In ES6, you can also declare variables using the const keyword.
+        const has all the awesome features that let has, with the added bonus that variables declared using const are read-only. They are a constant value, which means that once a variable is assigned with const, it cannot be reassigned.
+
+        "use strict";
+        const FAV_PET = "Cats";
+        FAV_PET = "Dogs"; // returns error
+
+        As you can see, trying to reassign a variable declared with const will throw an error. You should always name variables you don't want to reassign using the const keyword. This helps when you accidentally attempt to reassign a variable that is meant to stay constant. A common practice when naming constants is to use all uppercase letters, with words separated by an underscore.
+
+        Note: It is common for developers to use uppercase variable identifiers for immutable values and lowercase or camelCase for mutable values (objects and arrays). In a later challenge you will see an example of a lowercase variable identifier being used for an array.
+    }
+
+
+
+    ES6: Mutate an Array Declared with const {
+
+        The const declaration has many use cases in modern JavaScript.
+
+        Some developers prefer to assign all their variables using const by default, unless they know they will need to reassign the value. Only in that case, they use let.
+
+        However, it is important to understand that objects (including arrays and functions) assigned to a variable using const are still mutable. Using the const declaration only prevents reassignment of the variable identifier.
+
+        "use strict";
+        const s = [5, 6, 7];
+        s = [1, 2, 3]; // throws error, trying to assign a const
+        s[2] = 45; // works just as it would with an array declared with var or let
+        console.log(s); // returns [5, 6, 45]
+
+        As you can see, you can mutate the object [5, 6, 7] itself and the variable s will still point to the altered array [5, 6, 45]. Like all arrays, the array elements in s are mutable, but because const was used, you cannot use the variable identifier s to point to a different array using the assignment operator.
+    }
+
+
+
+    ES6: Prevent Object Mutation {
+
+        As seen in the previous challenge, const declaration alone doesn't really protect your data from mutation. To ensure your data doesn't change, JavaScript provides a function Object.freeze to prevent data mutation.
+
+        Once the object is frozen, you can no longer add, update, or delete properties from it. Any attempt at changing the object will be rejected without an error.
+
+        let obj = {
+            name:"FreeCodeCamp",
+            review:"Awesome"
+        };
+        Object.freeze(obj);
+        obj.review = "bad"; // will be ignored. Mutation not allowed
+        obj.newProp = "Test"; // will be ignored. Mutation not allowed
+        console.log(obj); 
+        // { name: "FreeCodeCamp", review:"Awesome"}
+    }
+
+
+
+    ES6: Use Arrow Functions to Write Concise Anonymous Functions {
+
+        In JavaScript, we often don't need to name our functions, especially when passing a function as an argument to another function. Instead, we create inline functions. We don't need to name these functions because we do not reuse them anywhere else.
+
+        To achieve this, we often use the following syntax:
+
+        const myFunc = function() {
+            const myVar = "value";
+            return myVar;
+        }
+
+        ES6 provides us with the syntactic sugar to not have to write anonymous functions this way. Instead, you can use arrow function syntax:
+
+        const myFunc = () => {
+            const myVar = "value";
+            return myVar;
+        }
+
+        When there is no function body, and only a return value, arrow function syntax allows you to omit the keyword return as well as the brackets surrounding the code. This helps simplify smaller functions into one-line statements:
+
+        const myFunc = () => "value";
+
+        This code will still return value by default.
+    }
+
+
+
+    ES6: Write Arrow Functions with Parameters {
+
+        Just like a regular function, you can pass arguments into an arrow function.
+
+        // doubles input value and returns it
+        const doubler = (item) => item * 2;
+
+        If an arrow function has a single argument, the parentheses enclosing the argument may be omitted.
+
+        // the same function, without the argument parentheses
+        const doubler = item => item * 2;
+
+        It is possible to pass more than one argument into an arrow function.
+
+        // multiplies the first input value by the second and returns it
+        const multiplier = (item, multi) => item * multi;
+    }
+
+
+
+    ES6: Set Default Parameters for Your Functions {
+
+        In order to help us create more flexible functions, ES6 introduces default parameters for functions.
+
+        Check out this code:
+
+        const greeting = (name = "Anonymous") => "Hello " + name;
+
+        console.log(greeting("John")); // Hello John
+        console.log(greeting()); // Hello Anonymous
+
+        The default parameter kicks in when the argument is not specified (it is undefined). As you can see in the example above, the parameter name will receive its default value "Anonymous" when you do not provide a value for the parameter. You can add default values for as many parameters as you want.
+    }
+
+
+
+    ES6: Use the Rest Parameter with Function Parameters {
+
+        In order to help us create more flexible functions, ES6 introduces the rest parameter for function parameters. With the rest parameter, you can create functions that take a variable number of arguments. These arguments are stored in an array that can be accessed later from inside the function.
+
+        Check out this code:
+
+        function howMany(...args) {
+        return "You have passed " + args.length + " arguments.";
+        }
+        console.log(howMany(0, 1, 2)); // You have passed 3 arguments.
+        console.log(howMany("string", null, [1, 2, 3], { })); // You have passed 4 arguments.
+
+        The rest parameter eliminates the need to check the args array and allows us to apply map(), filter() and reduce() on the parameters array.
+
+        Example:
+        const sum = (x, y, z) => {
+            const args = [x, y, z];
+            return args.reduce((a, b) => a + b, 0);
+        }
+
+        Changes to: 
+
+        const sum = (...args) => {
+            return args.reduce((a, b) => a + b, 0);
+        } 
+    }
+
+
+
+    ES6: Use the Spread Operator to Evaluate Arrays In-Place {
+
+        ES6 introduces the spread operator, which allows us to expand arrays and other expressions in places where multiple parameters or elements are expected.
+
+        The ES5 code below uses apply() to compute the maximum value in an array:
+
+        var arr = [6, 89, 3, 45];
+        var maximus = Math.max.apply(null, arr); // returns 89
+
+        We had to use Math.max.apply(null, arr) because Math.max(arr) returns NaN. Math.max() expects comma-separated arguments, but not an array. The spread operator makes this syntax much better to read and maintain.
+
+        const arr = [6, 89, 3, 45];
+        const maximus = Math.max(...arr); // returns 89
+
+        ...arr returns an unpacked array. In other words, it spreads the array. However, the spread operator only works in-place, like in an argument to a function or in an array literal. The following code will not work:
+
+        const spreaded = ...arr; // will throw a syntax error
+    }
+
+    Destructing Assignment: {
+
+        ES6: Use Destructuring Assignment to Extract Values from Objects {
+
+            Destructuring assignment is special syntax introduced in ES6, for neatly assigning values taken directly from an object.
+
+            Consider the following ES5 code:
+
+            const user = { name: 'John Doe', age: 34 };
+
+            const name = user.name; // name = 'John Doe'
+            const age = user.age; // age = 34
+
+            Here's an equivalent assignment statement using the ES6 destructuring syntax:
+
+            const { name, age } = user;
+            // name = 'John Doe', age = 34
+
+            Here, the name and age variables will be created and assigned the values of their respective values from the user object. You can see how much cleaner this is.
+
+            You can extract as many or few values from the object as you want.
+        }
+
+
+        ES6: Use Destructuring Assignment to Assign Variables from Objects {
+
+            Destructuring allows you to assign a new variable name when extracting values. You can do this by putting the new name after a colon when assigning the value.
+
+            Using the same object from the last example:
+
+            const user = { name: 'John Doe', age: 34 };
+
+            Here's how you can give new variable names in the assignment:
+
+            const { name: userName, age: userAge } = user;
+            // userName = 'John Doe', userAge = 34
+
+            You may read it as "get the value of user.name and assign it to a new variable named userName" and so on.
+        }
+
+
+        ES6: Use Destructuring Assignment to Assign Variables from Nested Objects {
+
+            You can use the same principles from the previous two lessons to destructure values from nested objects.
+
+            Using an object similar to previous examples:
+
+            const user = {
+                johnDoe: { 
+                    age: 34,
+                    email: 'johnDoe@freeCodeCamp.com'
+                }
+            };
+
+            Here's how to extract the values of object properties and assign them to variables with the same name:
+
+            const { johnDoe: { age, email }} = user;
+
+            And here's how you can assign an object properties' values to variables with different names:
+
+            const { johnDoe: { age: userAge, email: userEmail }} = user;
+        }
+
+
+        ES6: Use Destructuring Assignment to Assign Variables from Arrays {
+
+            ES6 makes destructuring arrays as easy as destructuring objects.
+
+            One key difference between the spread operator and array destructuring is that the spread operator unpacks all contents of an array into a comma-separated list. Consequently, you cannot pick or choose which elements you want to assign to variables.
+
+            Destructuring an array lets us do exactly that:
+
+            const [a, b] = [1, 2, 3, 4, 5, 6];
+            console.log(a, b); // 1, 2
+
+            The variable a is assigned the first value of the array, and b is assigned the second value of the array. We can also access the value at any index in an array with destructuring by using commas to reach the desired index:
+
+            const [a, b,,, c] = [1, 2, 3, 4, 5, 6];
+            console.log(a, b, c); // 1, 2, 5
+        }
+
+
+        ES6: Use Destructuring Assignment with the Rest Parameter to Reassign Array Elements {
+
+            In some situations involving array destructuring, we might want to collect the rest of the elements into a separate array.
+
+            The result is similar to Array.prototype.slice(), as shown below:
+
+            const [a, b, ...arr] = [1, 2, 3, 4, 5, 7];
+            console.log(a, b); // 1, 2
+            console.log(arr); // [3, 4, 5, 7]
+
+            Variables a and b take the first and second values from the array. After that, because of the rest parameter's presence, arr gets the rest of the values in the form of an array. The rest element only works correctly as the last variable in the list. As in, you cannot use the rest parameter to catch a subarray that leaves out the last element of the original array.
+        }
+
+
+        ES6: Use Destructuring Assignment to Pass an Object as a Function's Parameters {
+
+            In some cases, you can destructure the object in a function argument itself.
+
+            Consider the code below:
+
+            const profileUpdate = (profileData) => {
+            const { name, age, nationality, location } = profileData;
+            // do something with these variables
+            }
+
+            This effectively destructures the object sent into the function. This can also be done in-place:
+
+            const profileUpdate = ({ name, age, nationality, location }) => {
+            /* do something with these fields */
+            }
+
+            This removes some extra lines and makes our code look neat. This has the added benefit of not having to manipulate an entire object in a function — only the fields that are needed are copied inside the function.
+
+            Example:
+            const half = (stats) => (stats.max + stats.min) / 2.0; 
+
+            Changes to:
+
+            const half = ({max, min}) => (max + min) / 2.0;
+        }
+    }
+
+
+
+    ES6: Create Strings using Template Literals {
+
+        A new feature of ES6 is the template literal. This is a special type of string that makes creating complex strings easier.
+
+        Template literals allow you to create multi-line strings and to use string interpolation features to create strings.
+
+        Consider the code below:
+
+        const person = {
+        name: "Zodiac Hasbro",
+        age: 56
+        };
+
+        // Template literal with multi-line and string interpolation
+        const greeting = `Hello, my name is ${person.name}!
+        I am ${person.age} years old.`;
+
+        console.log(greeting); // prints
+        // Hello, my name is Zodiac Hasbro!
+        // I am 56 years old.
+
+        A lot of things happened there. Firstly, the example uses backticks (`), not quotes (' or "), to wrap the string. Secondly, notice that the string is multi-line, both in the code and the output. This saves inserting \n within strings. The ${variable} syntax used above is a placeholder. Basically, you won't have to use concatenation with the + operator anymore. To add variables to strings, you just drop the variable in a template string and wrap it with ${ and }. Similarly, you can include other expressions in your string literal, for example ${a + b}. This new way of creating strings gives you more flexibility to create robust strings.
+    }
+
+
+
+    ES6: Write Concise Object Literal Declarations Using Object Property Shorthand {
+
+        ES6 adds some nice support for easily defining object literals.
+
+        Consider the following code:
+
+        const getMousePosition = (x, y) => ({
+        x: x,
+        y: y
+        });
+
+        getMousePosition is a simple function that returns an object containing two properties. ES6 provides the syntactic sugar to eliminate the redundancy of having to write x: x. You can simply write x once, and it will be converted tox: x (or something equivalent) under the hood. Here is the same function from above rewritten to use this new syntax:
+
+        const getMousePosition = (x, y) => ({ x, y });
+
+        Example:
+            return {
+                name: name,
+                age: age,
+                gender: gender
+            };
+
+            Changes to:
+
+            return ({ name, age, gender });
+    }
+
+
+
+    ES6: Write Concise Declarative Functions with ES6 {
+
+        When defining functions within objects in ES5, we have to use the keyword function as follows:
+
+        const person = {
+            name: "Taylor",
+            sayHello: function() {
+                return `Hello! My name is ${this.name}.`;
+            }
+        };
+
+        With ES6, You can remove the function keyword and colon altogether when defining functions in objects. Here's an example of this syntax:
+
+        const person = {
+            name: "Taylor",
+            sayHello() {
+                return `Hello! My name is ${this.name}.`;
+            }
+        };
+    }
+
+
+
+    ES6: Use class Syntax to Define a Constructor Function {
+
+        ES6 provides a new syntax to create objects, using the class keyword.
+
+        It should be noted that the class syntax is just syntax, and not a full-fledged class-based implementation of an object-oriented paradigm, unlike in languages such as Java, Python, Ruby, etc.
+
+        In ES5, we usually define a constructor function and use the new keyword to instantiate an object.
+
+        var SpaceShuttle = function(targetPlanet){
+            this.targetPlanet = targetPlanet;
+        }
+        var zeus = new SpaceShuttle('Jupiter');
+
+        The class syntax simply replaces the constructor function creation:
+
+        class SpaceShuttle {
+            constructor(targetPlanet) {
+                this.targetPlanet = targetPlanet;
+            }
+        }
+        const zeus = new SpaceShuttle('Jupiter');
+
+        It should be noted that the class keyword declares a new function, to which a constructor is added. This constructor is invoked when new is called to create a new object.
+        Notes:
+
+            UpperCamelCase should be used by convention for ES6 class names, as in SpaceShuttle used above.
+            The constructor method is a special method for creating and initializing an object created with a class. You will learn more about it in the Object Oriented Programming section of the JavaScript Algorithms And Data Structures Certification.
+    }
+
+
+    ES6: Use getters and setters to Control Access to an Object {
+
+        You can obtain values from an object and set the value of a property within an object.
+
+        These are classically called getters and setters.
+
+        Getter functions are meant to simply return (get) the value of an object's private variable to the user without the user directly accessing the private variable.
+
+        Setter functions are meant to modify (set) the value of an object's private variable based on the value passed into the setter function. This change could involve calculations, or even overwriting the previous value completely.
+
+        class Book {
+            constructor(author) {
+                this._author = author;
+            }
+            // getter
+            get writer() {
+                return this._author;
+            }
+            // setter
+            set writer(updatedAuthor) {
+                this._author = updatedAuthor;
+            }
+        }
+        const lol = new Book('anonymous');
+        console.log(lol.writer);  // anonymous
+        lol.writer = 'wut';
+        console.log(lol.writer);  // wut
+
+        Notice the syntax used to invoke the getter and setter. They do not even look like functions. Getters and setters are important because they hide internal implementation details. 
+        Note: It is convention to precede the name of a private variable with an underscore (_). However, the practice itself does not make a variable private.
+
+        Example: 
+        class Thermostat {
+            constructor(F) {
+                this._F = F;
+            }
+            get temperature() {
+                return (5/9 * (this._F - 32));
+            }
+            set temperature(C) {
+                this._F = (C * 9.0 / 5 + 32)
+            }
+        }
+        const thermos = new Thermostat(76); // Setting in Fahrenheit scale
+        let temp = thermos.temperature; // 24.44 in Celsius
+        thermos.temperature = 26;
+        temp = thermos.temperature; // 26 in Celsius
+    }
+
+
+
+    ES6: Create a Module Script {
+
+        JavaScript started with a small role to play on an otherwise mostly HTML web. Today, it’s huge, and some websites are built almost entirely with JavaScript. In order to make JavaScript more modular, clean, and maintainable; ES6 introduced a way to easily share code among JavaScript files. This involves exporting parts of a file for use in one or more other files, and importing the parts you need, where you need them. In order to take advantage of this functionality, you need to create a script in your HTML document with a type of module. Here’s an example:
+
+        <script type="module" src="filename.js"></script>
+
+        A script that uses this module type can now use the import and export features you will learn about in the upcoming challenges.
+    }
+
+
+
+    ES6: Use export to Share a Code Block {
+
+        Imagine a file called math_functions.js that contains several functions related to mathematical operations. One of them is stored in a variable, add, that takes in two numbers and returns their sum. You want to use this function in several different JavaScript files. In order to share it with these other files, you first need to export it.
+
+        export const add = (x, y) => {
+            return x + y;
+        }
+
+        The above is a common way to export a single function, but you can achieve the same thing like this:
+
+        const add = (x, y) => {
+            return x + y;
+        }
+
+        export { add };
+
+        When you export a variable or function, you can import it in another file and use it without having to rewrite the code. You can export multiple things by repeating the first example for each thing you want to export, or by placing them all in the export statement of the second example, like this:
+
+        export { add, subtract };
+    }
+
+
+
+    ES6: Reuse JavaScript Code Using import {
+
+        import allows you to choose which parts of a file or module to load. In the previous lesson, the examples exported add from the math_functions.js file. Here's how you can import it to use in another file:
+
+        import { add } from './math_functions.js';
+
+        Here, import will find add in math_functions.js, import just that function for you to use, and ignore the rest. The ./ tells the import to look for the math_functions.js file in the same folder as the current file. The relative file path (./) and file extension (.js) are required when using import in this way.
+
+        You can import more than one item from the file by adding them in the import statement like this:
+
+        import { add, subtract } from './math_functions.js';
+    }
+
+
+
+    ES6: Use * to Import Everything from a File {
+
+        Suppose you have a file and you wish to import all of its contents into the current file. This can be done with the import * as syntax. Here's an example where the contents of a file named math_functions.js are imported into a file in the same directory:
+
+        import * as myMathModule from "./math_functions.js";
+
+        The above import statement will create an object called myMathModule. This is just a variable name, you can name it anything. The object will contain all of the exports from math_functions.js in it, so you can access the functions like you would any other object property. Here's how you can use the add and subtract functions that were imported:
+
+        myMathModule.add(2,3);
+        myMathModule.subtract(5,3);
+    }
+
+
+    ES6: Create an Export Fallback with export default {
+
+        In the export lesson, you learned about the syntax referred to as a named export. This allowed you to make multiple functions and variables available for use in other files.
+
+        There is another export syntax you need to know, known as export default. Usually you will use this syntax if only one value is being exported from a file. It is also used to create a fallback value for a file or module.
+
+        Below are examples using export default:
+
+        // named function
+        export default function add(x, y) {
+            return x + y;
+        }
+
+        // anonymous function
+        export default function(x, y) {
+            return x + y;
+        }
+
+        Since export default is used to declare a fallback value for a module or file, you can only have one value be a default export in each module or file. Additionally, you cannot use export default with var, let, or const
+    }
+
+
+
+    ES6: Import a Default Export {
+
+        In the last challenge, you learned about export default and its uses. To import a default export, you need to use a different import syntax. In the following example, add is the default export of the math_functions.js file. Here is how to import it:
+
+        import add from "./math_functions.js";
+
+        The syntax differs in one key place. The imported value, add, is not surrounded by curly braces ({}). add here is simply a variable name for whatever the default export of the math_functions.js file is. You can use any name here when importing a default.
+    }
+
+
+    ES6: Create a JavaScript Promise {
+
+        A promise in JavaScript is exactly what it sounds like - you use it to make a promise to do something, usually asynchronously. When the task completes, you either fulfill your promise or fail to do so. Promise is a constructor function, so you need to use the new keyword to create one. It takes a function, as its argument, with two parameters - resolve and reject. These are methods used to determine the outcome of the promise. The syntax looks like this:
+
+        const myPromise = new Promise((resolve, reject) => {
+
+        });
+    }
+
+
+
+    ES6: Complete a Promise with resolve and reject {
+
+        A promise has three states: pending, fulfilled, and rejected. The promise you created in the last challenge is forever stuck in the pending state because you did not add a way to complete the promise. The resolve and reject parameters given to the promise argument are used to do this. resolve is used when you want your promise to succeed, and reject is used when you want it to fail. These are methods that take an argument, as seen below.
+
+        const myPromise = new Promise((resolve, reject) => {
+        if(condition here) {
+            resolve("Promise was fulfilled");
+        } else {
+            reject("Promise was rejected");
+        }
+        });
+
+        The example above uses strings for the argument of these functions, but it can really be anything. Often, it might be an object, that you would use data from, to put on your website or elsewhere.
+    }
+
+
+
+    ES6: Handle a Fulfilled Promise with then {
+
+        Promises are most useful when you have a process that takes an unknown amount of time in your code (i.e. something asynchronous), often a server request. When you make a server request it takes some amount of time, and after it completes you usually want to do something with the response from the server. This can be achieved by using the then method. The then method is executed immediately after your promise is fulfilled with resolve. Here’s an example:
+
+        myPromise.then(result => {
+        // do something with the result.
+        });
+
+        result comes from the argument given to the resolve method.
+    }
+
+
+
+    ES6: Handle a Rejected Promise with catch {
+
+        catch is the method used when your promise has been rejected. It is executed immediately after a promise's reject method is called. Here’s the syntax:
+
+        myPromise.catch(error => {
+        // do something with the error.
+        });
+
+        error is the argument passed in to the reject method.
+
+        Note: the then and catch methods can be chained to the promise declaration if you choose.
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+REGULAR EXPRESSIONS: {
+    Introduction to the Regular Expression Challenges
+
+    Regular expressions are special strings that represent a search pattern. Also known as "regex" or "regexp", they help programmers match, search, and replace text. Regular expressions can appear cryptic because a few characters have special meaning. The goal is to combine the symbols and text into a pattern that matches what you want, but only what you want. This section will cover the characters, a few shortcuts, and the common uses for writing regular expressions.
+
+
+
+    Regular Expressions: Using the Test Method {
+
+        Regular expressions are used in programming languages to match parts of strings. You create patterns to help you do that matching.
+
+        If you want to find the word "the" in the string "The dog chased the cat", you could use the following regular expression: /the/. Notice that quote marks are not required within the regular expression.
+
+        JavaScript has multiple ways to use regexes. One way to test a regex is using the .test() method. The .test() method takes the regex, applies it to a string (which is placed inside the parentheses), and returns true or false if your pattern finds something or not.
+
+        let testStr = "freeCodeCamp";
+        let testRegex = /Code/;
+        testRegex.test(testStr);
+        // Returns true
+    }
+
+
+
+    Regular Expressions: Match Literal Strings {
+
+        In the last challenge, you searched for the word "Hello" using the regular expression /Hello/. That regex searched for a literal match of the string "Hello". Here's another example searching for a literal match of the string "Kevin":
+
+        let testStr = "Hello, my name is Kevin.";
+        let testRegex = /Kevin/;
+        testRegex.test(testStr);
+        // Returns true
+
+        Any other forms of "Kevin" will not match. For example, the regex /Kevin/ will not match "kevin" or "KEVIN".
+
+        let wrongRegex = /kevin/;
+        wrongRegex.test(testStr);
+        // Returns false
+
+        A future challenge will show how to match those other forms as well.
+    }
+
+
+
+    Regular Expressions: Match a Literal String with Different Possibilities {
+
+        Using regexes like /coding/, you can look for the pattern "coding" in another string.
+
+        This is powerful to search single strings, but it's limited to only one pattern. You can search for multiple patterns using the alternation or OR operator: |.
+
+        This operator matches patterns either before or after it. For example, if you wanted to match "yes" or "no", the regex you want is /yes|no/.
+
+        You can also search for more than just two patterns. You can do this by adding more patterns with more OR operators separating them, like /yes|no|maybe/.
+    }
+
+
+
+    Regular Expressions: Ignore Case While Matching {
+
+        Up until now, you've looked at regexes to do literal matches of strings. But sometimes, you might want to also match case differences.
+
+        Case (or sometimes letter case) is the difference between uppercase letters and lowercase letters. Examples of uppercase are "A", "B", and "C". Examples of lowercase are "a", "b", and "c".
+
+        You can match both cases using what is called a flag. There are other flags but here you'll focus on the flag that ignores case - the i flag. You can use it by appending it to the regex. An example of using this flag is /ignorecase/i. This regex can match the strings "ignorecase", "igNoreCase", and "IgnoreCase".
+    }
+
+
+    
+    Regular Expressions: Extract Matches {
+
+        So far, you have only been checking if a pattern exists or not within a string. You can also extract the actual matches you found with the .match() method.
+
+        To use the .match() method, apply the method on a string and pass in the regex inside the parentheses.
+
+        Here's an example:
+
+        "Hello, World!".match(/Hello/);
+        // Returns ["Hello"]
+        let ourStr = "Regular expressions";
+        let ourRegex = /expressions/;
+        ourStr.match(ourRegex);
+        // Returns ["expressions"]
+
+        Note that the .match syntax is the "opposite" of the .test method you have been using thus far:
+
+        'string'.match(/regex/);
+        /regex/.test('string');
+    }
+
+
+
+    Regular Expressions: Find More Than the First Match {
+
+        So far, you have only been able to extract or search a pattern once.
+
+        let testStr = "Repeat, Repeat, Repeat";
+        let ourRegex = /Repeat/;
+        testStr.match(ourRegex);
+        // Returns ["Repeat"]
+
+        To search or extract a pattern more than once, you can use the g flag.
+
+        let repeatRegex = /Repeat/g;
+        testStr.match(repeatRegex);
+        // Returns ["Repeat", "Repeat", "Repeat"]
+
+        Note
+        You can have multiple flags on your regex like /search/gi
+    }
+
+
+
+    Regular Expressions: Match Anything with Wildcard Period {
+
+        Sometimes you won't (or don't need to) know the exact characters in your patterns. Thinking of all words that match, say, a misspelling would take a long time. Luckily, you can save time using the wildcard character: .
+
+        The wildcard character . will match any one character. The wildcard is also called dot and period. You can use the wildcard character just like any other character in the regex. For example, if you wanted to match "hug", "huh", "hut", and "hum", you can use the regex /hu./ to match all four words.
+
+        let humStr = "I'll hum a song";
+        let hugStr = "Bear hug";
+        let huRegex = /hu./;
+        huRegex.test(humStr); // Returns true
+        huRegex.test(hugStr); // Returns true
+    }
+
+
+
+    Regular Expressions: Match Single Character with Multiple Possibilities {
+
+        You learned how to match literal patterns (/literal/) and wildcard character (/./). Those are the extremes of regular expressions, where one finds exact matches and the other matches everything. There are options that are a balance between the two extremes.
+
+        You can search for a literal pattern with some flexibility with character classes. Character classes allow you to define a group of characters you wish to match by placing them inside square ([ and ]) brackets.
+
+        For example, you want to match "bag", "big", and "bug" but not "bog". You can create the regex /b[aiu]g/ to do this. The [aiu] is the character class that will only match the characters "a", "i", or "u".
+
+        let bigStr = "big";
+        let bagStr = "bag";
+        let bugStr = "bug";
+        let bogStr = "bog";
+        let bgRegex = /b[aiu]g/;
+        bigStr.match(bgRegex); // Returns ["big"]
+        bagStr.match(bgRegex); // Returns ["bag"]
+        bugStr.match(bgRegex); // Returns ["bug"]
+        bogStr.match(bgRegex); // Returns null
+    }
+
+
+
+    Regular Expressions: Match Letters of the Alphabet {
+
+        You saw how you can use character sets to specify a group of characters to match, but that's a lot of typing when you need to match a large range of characters (for example, every letter in the alphabet). Fortunately, there is a built-in feature that makes this short and simple.
+
+        Inside a character set, you can define a range of characters to match using a hyphen character: -.
+
+        For example, to match lowercase letters a through e you would use [a-e].
+
+        let catStr = "cat";
+        let batStr = "bat";
+        let matStr = "mat";
+        let bgRegex = /[a-e]at/;
+        catStr.match(bgRegex); // Returns ["cat"]
+        batStr.match(bgRegex); // Returns ["bat"]
+        matStr.match(bgRegex); // Returns null
+    }
+
+
+
+    Regular Expressions: Match Numbers and Letters of the Alphabet {
+
+        Using the hyphen (-) to match a range of characters is not limited to letters. It also works to match a range of numbers.
+
+        For example, /[0-5]/ matches any number between 0 and 5, including the 0 and 5.
+
+        Also, it is possible to combine a range of letters and numbers in a single character set.
+
+        let jennyStr = "Jenny8675309";
+        let myRegex = /[a-z0-9]/ig;
+        // matches all letters and numbers in jennyStr
+        jennyStr.match(myRegex);
+    }
+
+
+
+    Regular Expressions: Match Single Characters Not Specified {
+
+        So far, you have created a set of characters that you want to match, but you could also create a set of characters that you do not want to match. These types of character sets are called negated character sets.
+
+        To create a negated character set, you place a caret character (^) after the opening bracket and before the characters you do not want to match.
+
+        For example, /[^aeiou]/gi matches all characters that are not a vowel. Note that characters like ., !, [, @, / and white space are matched - the negated vowel character set only excludes the vowel characters.
+    }
+
+
+
+    Regular Expressions: Match Characters that Occur One or More Times {
+
+        Sometimes, you need to match a character (or group of characters) that appears one or more times in a row. This means it occurs at least once, and may be repeated.
+
+        You can use the + character to check if that is the case. Remember, the character or pattern has to be present consecutively. That is, the character has to repeat one after the other.
+
+        For example, /a+/g would find one match in "abc" and return ["a"]. Because of the +, it would also find a single match in "aabc" and return ["aa"].
+
+        If it were instead checking the string "abab", it would find two matches and return ["a", "a"] because the a characters are not in a row - there is a b between them. Finally, since there is no "a" in the string "bcd", it wouldn't find a match.
+    }
+
+
+
+    Regular Expressions: Match Characters that Occur Zero or More Times {
+
+        The last challenge used the plus + sign to look for characters that occur one or more times. There's also an option that matches characters that occur zero or more times.
+
+        The character to do this is the asterisk or star: *.
+
+        let soccerWord = "gooooooooal!";
+        let gPhrase = "gut feeling";
+        let oPhrase = "over the moon";
+        let goRegex = /go*/;
+        soccerWord.match(goRegex); // Returns ["goooooooo"]
+        gPhrase.match(goRegex); // Returns ["g"]
+        oPhrase.match(goRegex); // Returns null
+    }
+
+
+
+    Regular Expressions: Find Characters with Lazy Matching {
+
+        In regular expressions, a greedy match finds the longest possible part of a string that fits the regex pattern and returns it as a match. The alternative is called a lazy match, which finds the smallest possible part of the string that satisfies the regex pattern.
+
+        You can apply the regex /t[a-z]*i/ to the string "titanic". This regex is basically a pattern that starts with t, ends with i, and has some letters in between.
+
+        Regular expressions are by default greedy, so the match would return ["titani"]. It finds the largest sub-string possible to fit the pattern.
+
+        However, you can use the ? character to change it to lazy matching. "titanic" matched against the adjusted regex of /t[a-z]*?i/ returns ["ti"].
+
+        Note
+        Parsing HTML with regular expressions should be avoided, but pattern matching an HTML string with regular expressions is completely fine.
+    }
+
+
+
+    Regular Expressions: Find One or More Criminals in a Hunt {
+
+        Time to pause and test your new regex writing skills. A group of criminals escaped from jail and ran away, but you don't know how many. However, you do know that they stay close together when they are around other people. You are responsible for finding all of the criminals at once.
+
+        Here's an example to review how to do this:
+
+        The regex /z+/ matches the letter z when it appears one or more times in a row. It would find matches in all of the following strings:
+
+        "z"
+        "zzzzzz"
+        "ABCzzzz"
+        "zzzzABC"
+        "abczzzzzzzzzzzzzzzzzzzzzabc"
+
+        But it does not find matches in the following strings since there are no letter z characters:
+
+        ""
+        "ABC"
+        "abcabc"
+
+        Write a greedy regex that finds one or more criminals within a group of other people. A criminal is represented by the capital letter C.
+
+        let reCriminals = /CC*/; // Change this line
+    }
+
+
+
+    Regular Expressions: Match Beginning String Patterns {
+
+        Prior challenges showed that regular expressions can be used to look for a number of matches. They are also used to search for patterns in specific positions in strings.
+
+        In an earlier challenge, you used the caret character (^) inside a character set to create a negated character set in the form [^thingsThatWillNotBeMatched]. Outside of a character set, the caret is used to search for patterns at the beginning of strings.
+
+        let firstString = "Ricky is first and can be found.";
+        let firstRegex = /^Ricky/;
+        firstRegex.test(firstString);
+        // Returns true
+        let notFirst = "You can't find Ricky now.";
+        firstRegex.test(notFirst);
+        // Returns false
+    }
+
+
+
+    Regular Expressions: Match Ending String Patterns {
+
+        In the last challenge, you learned to use the caret character to search for patterns at the beginning of strings. There is also a way to search for patterns at the end of strings.
+
+        You can search the end of strings using the dollar sign character $ at the end of the regex.
+
+        let theEnding = "This is a never ending story";
+        let storyRegex = /story$/;
+        storyRegex.test(theEnding);
+        // Returns true
+        let noEnding = "Sometimes a story will have to end";
+        storyRegex.test(noEnding);
+        // Returns false
+    }
+
+
+
+    Regular Expressions: Match All Letters and Numbers {
+
+        Using character classes, you were able to search for all letters of the alphabet with [a-z]. This kind of character class is common enough that there is a shortcut for it, although it includes a few extra characters as well.
+
+        The closest character class in JavaScript to match the alphabet is \w. This shortcut is equal to [A-Za-z0-9_]. This character class matches upper and lowercase letters plus numbers. Note, this character class also includes the underscore character (_).
+
+        let longHand = /[A-Za-z0-9_]+/;
+        let shortHand = /\w+/;
+        let numbers = "42";
+        let varNames = "important_var";
+        longHand.test(numbers); // Returns true
+        shortHand.test(numbers); // Returns true
+        longHand.test(varNames); // Returns true
+        shortHand.test(varNames); // Returns true
+
+        These shortcut character classes are also known as shorthand character classes.
+    }
+
+
+    Regular Expressions: Match Everything But Letters and Numbers {
+
+        You've learned that you can use a shortcut to match alphanumerics [A-Za-z0-9_] using \w. A natural pattern you might want to search for is the opposite of alphanumerics.
+
+        You can search for the opposite of the \w with \W. Note, the opposite pattern uses a capital letter. This shortcut is the same as [^A-Za-z0-9_].
+
+        let shortHand = /\W/;
+        let numbers = "42%";
+        let sentence = "Coding!";
+        numbers.match(shortHand); // Returns ["%"]
+        sentence.match(shortHand); // Returns ["!"]
+    }
+
+
+
+    Regular Expressions: Match All Numbers {
+
+        You've learned shortcuts for common string patterns like alphanumerics. Another common pattern is looking for just digits or numbers.
+
+        The shortcut to look for digit characters is \d, with a lowercase d. This is equal to the character class [0-9], which looks for a single character of any number between zero and nine.
+
+        Written out numbers like "six" instead of "6" do not register.
+    }
+
+
+
+    Regular Expressions: Match All Non-Numbers {
+        The last challenge showed how to search for digits using the shortcut \d with a lowercase d. You can also search for non-digits using a similar shortcut that uses an uppercase D instead.
+
+        The shortcut to look for non-digit characters is \D. This is equal to the character class [^0-9], which looks for a single character that is not a number between zero and nine.
+    }
+
+
+
+    Regular Expressions: Restrict Possible Usernames {
+
+        Usernames are used everywhere on the internet. They are what give users a unique identity on their favorite sites.
+
+        You need to check all the usernames in a database. Here are some simple rules that users have to follow when creating their username.
+
+        1) Usernames can only use alpha-numeric characters.
+
+        2) The only numbers in the username have to be at the end. There can be zero or more of them at the end. Username cannot start with the number.
+
+        3) Username letters can be lowercase and uppercase.
+
+        4) Usernames have to be at least two characters long. A two-character username can only use alphabet letters as characters.
+    }
+
+
+
+    Regular Expressions: Match Whitespace {
+
+        The challenges so far have covered matching letters of the alphabet and numbers. You can also match the whitespace or spaces between letters.
+
+        You can search for whitespace using \s, which is a lowercase s. This pattern not only matches whitespace, but also carriage return, tab, form feed, and new line characters. You can think of it as similar to the character class [ \r\t\f\n\v].
+
+        let whiteSpace = "Whitespace. Whitespace everywhere!"
+        let spaceRegex = /\s/g;
+        whiteSpace.match(spaceRegex);
+        // Returns [" ", " "]
+    }
+
+
+
+    Regular Expressions: Match Non-Whitespace Characters {
+
+        You learned about searching for whitespace using \s, with a lowercase s. You can also search for everything except whitespace.
+
+        Search for non-whitespace using \S, which is an uppercase s. This pattern will not match whitespace, carriage return, tab, form feed, and new line characters. You can think of it being similar to the character class [^ \r\t\f\n\v].
+
+        let whiteSpace = "Whitespace. Whitespace everywhere!"
+        let nonSpaceRegex = /\S/g;
+        whiteSpace.match(nonSpaceRegex).length; // Returns 32
+
+    }
+
+
+
+    Regular Expressions: Specify Upper and Lower Number of Matches {
+
+        Recall that you use the plus sign + to look for one or more characters and the asterisk * to look for zero or more characters. These are convenient but sometimes you want to match a certain range of patterns.
+
+        You can specify the lower and upper number of patterns with quantity specifiers. Quantity specifiers are used with curly brackets ({ and }). You put two numbers between the curly brackets - for the lower and upper number of patterns.
+
+        For example, to match only the letter a appearing between 3 and 5 times in the string "ah", your regex would be /a{3,5}h/.
+
+        let A4 = "aaaah";
+        let A2 = "aah";
+        let multipleA = /a{3,5}h/;
+        multipleA.test(A4); // Returns true
+        multipleA.test(A2); // Returns false
+    }
+
+
+
+    Regular Expressions: Specify Only the Lower Number of Matches {
+
+        You can specify the lower and upper number of patterns with quantity specifiers using curly brackets. Sometimes you only want to specify the lower number of patterns with no upper limit.
+
+        To only specify the lower number of patterns, keep the first number followed by a comma.
+
+        For example, to match only the string "hah" with the letter a appearing at least 3 times, your regex would be /ha{3,}h/.
+
+        let A4 = "haaaah";
+        let A2 = "haah";
+        let A100 = "h" + "a".repeat(100) + "h";
+        let multipleA = /ha{3,}h/;
+        multipleA.test(A4); // Returns true
+        multipleA.test(A2); // Returns false
+        multipleA.test(A100); // Returns true
+    }
+
+
+
+    Regular Expressions: Specify Exact Number of Matches {
+
+        You can specify the lower and upper number of patterns with quantity specifiers using curly brackets. Sometimes you only want a specific number of matches.
+
+        To specify a certain number of patterns, just have that one number between the curly brackets.
+
+        For example, to match only the word "hah" with the letter a 3 times, your regex would be /ha{3}h/.
+
+        let A4 = "haaaah";
+        let A3 = "haaah";
+        let A100 = "h" + "a".repeat(100) + "h";
+        let multipleHA = /ha{3}h/;
+        multipleHA.test(A4); // Returns false
+        multipleHA.test(A3); // Returns true
+        multipleHA.test(A100); // Returns false
+    }
+
+
+
+    Regular Expressions: Check for All or None {
+
+        Sometimes the patterns you want to search for may have parts of it that may or may not exist. However, it may be important to check for them nonetheless.
+
+        You can specify the possible existence of an element with a question mark, ?. This checks for zero or one of the preceding element. You can think of this symbol as saying the previous element is optional.
+
+        For example, there are slight differences in American and British English and you can use the question mark to match both spellings.
+
+        let american = "color";
+        let british = "colour";
+        let rainbowRegex= /colou?r/;
+        rainbowRegex.test(american); // Returns true
+        rainbowRegex.test(british); // Returns true
+    }
+
+
+
+    Regular Expressions: Positive and Negative Lookahead {
+
+        Lookaheads are patterns that tell JavaScript to look-ahead in your string to check for patterns further along. This can be useful when you want to search for multiple patterns over the same string.
+
+        There are two kinds of lookaheads: positive lookahead and negative lookahead.
+
+        A positive lookahead will look to make sure the element in the search pattern is there, but won't actually match it. A positive lookahead is used as (?=...) where the ... is the required part that is not matched.
+
+        On the other hand, a negative lookahead will look to make sure the element in the search pattern is not there. A negative lookahead is used as (?!...) where the ... is the pattern that you do not want to be there. The rest of the pattern is returned if the negative lookahead part is not present.
+
+        Lookaheads are a bit confusing but some examples will help.
+
+        let quit = "qu";
+        let noquit = "qt";
+        let quRegex= /q(?=u)/;
+        let qRegex = /q(?!u)/;
+        quit.match(quRegex); // Returns ["q"]
+        noquit.match(qRegex); // Returns ["q"]
+
+        A more practical use of lookaheads is to check two or more patterns in one string. Here is a (naively) simple password checker that looks for between 3 and 6 characters and at least one number:
+
+        let password = "abc123";
+        let checkPass = /(?=\w{3,6})(?=\D*\d)/;
+        checkPass.test(password); // Returns true
+
+        Use lookaheads in the pwRegex to match passwords that are greater than 5 characters long, do not begin with numbers, and have two consecutive digits.
+        let sampleWord = "astronaut";
+        let pwRegex = /^\D(?=\w{5})(?=\w*\d{2})/; // Change this line
+        let result = pwRegex.test(sampleWord);
+    }
+
+
+
+    Regular Expressions: Check For Mixed Grouping of Characters {
+
+        Sometimes we want to check for groups of characters using a Regular Expression and to achieve that we use parentheses ().
+
+        If you want to find either Penguin or Pumpkin in a string, you can use the following Regular Expression: /P(engu|umpk)in/g
+
+        Then check whether the desired string groups are in the test string by using the test() method.
+
+        let testStr = "Pumpkin";
+        let testRegex = /P(engu|umpk)in/;
+        testRegex.test(testStr);
+        // Returns true
+    }
+
+
+
+    Regular Expressions: Reuse Patterns Using Capture Groups {
+
+        Some patterns you search for will occur multiple times in a string. It is wasteful to manually repeat that regex. There is a better way to specify when you have multiple repeat substrings in your string.
+
+        You can search for repeat substrings using capture groups. Parentheses, ( and ), are used to find repeat substrings. You put the regex of the pattern that will repeat in between the parentheses.
+
+        To specify where that repeat string will appear, you use a backslash (\) and then a number. This number starts at 1 and increases with each additional capture group you use. An example would be \1 to match the first group.
+
+        The example below matches any word that occurs twice separated by a space:
+
+        let repeatStr = "regex regex";
+        let repeatRegex = /(\w+)\s\1/;
+        repeatRegex.test(repeatStr); // Returns true
+        repeatStr.match(repeatRegex); // Returns ["regex regex", "regex"]
+
+        Using the .match() method on a string will return an array with the string it matches, along with its capture group.
+
+        Challenge:
+        Use capture groups in reRegex to match numbers that are repeated only three times in a string, each separated by a space.
+
+        let repeatNum = "42 42 42";
+        let reRegex = /^(\d+)\s\1\s\1$/; //solution
+        let result = reRegex.test(repeatNum);
+    }
+
+
+
+    Regular Expressions: Use Capture Groups to Search and Replace {
+
+        Searching is useful. However, you can make searching even more powerful when it also changes (or replaces) the text you match.
+
+        You can search and replace text in a string using .replace() on a string. The inputs for .replace() is first the regex pattern you want to search for. The second parameter is the string to replace the match or a function to do something.
+
+        let wrongText = "The sky is silver.";
+        let silverRegex = /silver/;
+        wrongText.replace(silverRegex, "blue");
+        // Returns "The sky is blue."
+
+        You can also access capture groups in the replacement string with dollar signs ($).
+
+        "Code Camp".replace(/(\w+)\s(\w+)/, '$2 $1');
+        // Returns "Camp Code"
+
+	Challenge: 
+	Write a regex fixRegex using three capture groups that will search for each word in the string "one two three". Then update the replaceText variable to replace "one two three" with the string "three two one" and assign the result to the result variable. Make sure you are utilizing capture groups in the replacement string using the dollar sign ($) syntax.
+
+	let str = "one two three";
+         let fixRegex = /(\w+)\s(\w+)\s(\w+)/  // Change this line
+         let replaceText = "$3 $2 $1" // Change this line
+         let result = str.replace(fixRegex, replaceText);
+		
+    }
+
+
+
+    Regular Expressions: Remove Whitespace from Start and End {
+        Sometimes whitespace characters around strings are not wanted but are there. Typical processing of strings is to remove the whitespace at the start and end of it.
+
+        Challenge: 
+        Write a regex and use the appropriate string methods to remove whitespace at the beginning and end of strings.
+
+        Note: The String.prototype.trim() method would work here, but you'll need to complete this challenge using regular expressions.
+
+        let hello = "   Hello, World!  ";
+        let wsRegex = /^\s+|\s+$/g; // Change this line
+        let result = hello.replace(wsRegex, ""); // Change this line
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+DEBUGGING: {
+
+    Introduction to the Debugging Challenges {
+        Debugging is a valuable and (unfortunately) necessary tool for programmers. It follows the testing phase of checking if your code works as intended, and discovering it does not. Debugging is the process of finding exactly what isn't working and fixing it. After spending time creating a brilliant block of code, it is tough realizing it may have errors. These issues generally come in three forms:
+
+        syntax errors that prevent a program from running
+        runtime errors when code fails to execute or has unexpected behavior
+        semantic (or logical) errors when code doesn't do what it's meant to.
+        Modern code editors (and experience) can help identify syntax errors. Semantic and runtime errors are harder to find. They may cause your program to crash, make it run forever, or give incorrect output. Think of debugging as trying to understand why your code is behaving the way it is. Example of a syntax error - often detected by the code editor:
+
+        funtcion willNotWork( {
+            console.log("Yuck");
+        }
+        // "function" keyword is misspelled and there's a missing parenthesis
+        Here's an example of a runtime error - often detected while the program executes:
+
+        function loopy() {
+            while(true) {
+                console.log("Hello, world!");
+            }
+        }
+        // Calling loopy starts an infinite loop, which may crash your browser
+        Example of a semantic error - often detected after testing code output:
+
+        function calcAreaOfRect(w, h) {
+            return w + h; // This should be w * h
+        }
+        let myRectArea = calcAreaOfRect(2, 3);
+        // Correct syntax and the program executes, but this gives the wrong answer
+        Debugging is frustrating, but it helps to develop (and follow) a step-by-step approach to review your code. This means checking the intermediate values and types of variables to see if they are what they should be. You can start with a simple process of elimination.
+
+        For example, if function A works and returns what it's supposed to, then function B may have the issue. Or start checking values in a block of code from the middle to try to cut the search space in half. A problem in one spot indicates a bug in the first half of the code. If not, it's likely in the second.
+
+        This section will cover a couple helpful tools to find bugs, and some of the common forms they take. Fortunately, debugging is a learnable skill that just requires a little patience and practice to master.
+    }
+
+
+
+    Debugging: Use the JavaScript Console to Check the Value of a Variable {
+
+        Both Chrome and Firefox have excellent JavaScript consoles, also known as DevTools, for debugging your JavaScript.
+
+        You can find Developer tools in your Chrome's menu or Web Console in Firefox's menu. If you're using a different browser, or a mobile phone, we strongly recommend switching to desktop Firefox or Chrome.
+
+        The console.log() method, which "prints" the output of what's within its parentheses to the console, will likely be the most helpful debugging tool. Placing it at strategic points in your code can show you the intermediate values of variables. It's good practice to have an idea of what the output should be before looking at what it is. Having check points to see the status of your calculations throughout your code will help narrow down where the problem is.
+
+        Here's an example to print 'Hello world!' to the console:
+
+        console.log('Hello world!');
+    }
+
+
+
+    Debugging: Understanding the Differences between the freeCodeCamp and Browser Console {
+
+        You may have noticed that some freeCodeCamp JavaScript challenges include their own console. This console behaves a little differently than the browser console you used in the last challenge.
+
+        The following challenge is meant to highlight the main difference between the freeCodeCamp console and your browser console.
+
+        When you run ordinary JavaScript, the browser's console will display your console.log() statements the exact number of times it is called.
+
+        The freeCodeCamp console will print your console.log() statements a short time after the editor detects a change in the script, as well as during testing.
+
+        The freeCodeCamp console is cleared before the tests are run and, to avoid spam, only prints the logs during the first test (see the note below for exceptions).
+
+        If you would like to see every log for every test, run the tests, and open the browser console. If you prefer to use the browser console, and want it to mimic the freeCodeCamp console, place console.clear() before any other console calls, to clear the browser console.
+
+        Note: console.logs inside functions are printed to the freeCodeCamp console whenever those functions are called, this can help debugging functions that are called during testing.
+    }
+
+
+
+    Debugging: Use typeof to Check the Type of a Variable {
+
+        You can use typeof to check the data structure, or type, of a variable. This is useful in debugging when working with multiple data types. If you think you're adding two numbers, but one is actually a string, the results can be unexpected. Type errors can lurk in calculations or function calls. Be careful especially when you're accessing and working with external data in the form of a JavaScript Object Notation (JSON) object.
+
+        Here are some examples using typeof:
+
+        console.log(typeof ""); // outputs "string"
+        console.log(typeof 0); // outputs "number"
+        console.log(typeof []); // outputs "object"
+        console.log(typeof {}); // outputs "object"
+
+        JavaScript recognizes six primitive (immutable) data types: Boolean, Null, Undefined, Number, String, and Symbol (new with ES6) and one type for mutable items: Object. Note that in JavaScript, arrays are technically a type of object.
+    }
+
+
+
+    Debugging: Catch Misspelled Variable and Function Names {
+
+        The console.log() and typeof methods are the two primary ways to check intermediate values and types of program output. Now it's time to get into the common forms that bugs take. One syntax-level issue that fast typers can commiserate with is the humble spelling error.
+
+        Transposed, missing, or mis-capitalized characters in a variable or function name will have the browser looking for an object that doesn't exist - and complain in the form of a reference error. JavaScript variable and function names are case-sensitive.
+    }
+
+
+
+    Debugging: Catch Unclosed Parentheses, Brackets, Braces and Quotes {
+
+        Another syntax error to be aware of is that all opening parentheses, brackets, curly braces, and quotes have a closing pair. Forgetting a piece tends to happen when you're editing existing code and inserting items with one of the pair types. Also, take care when nesting code blocks into others, such as adding a callback function as an argument to a method.
+
+        One way to avoid this mistake is as soon as the opening character is typed, immediately include the closing match, then move the cursor back between them and continue coding. Fortunately, most modern code editors generate the second half of the pair automatically.
+    }
+
+
+
+    Debugging: Catch Mixed Usage of Single and Double Quotes {
+
+        JavaScript allows the use of both single (') and double (") quotes to declare a string. Deciding which one to use generally comes down to personal preference, with some exceptions.
+
+        Having two choices is great when a string has contractions or another piece of text that's in quotes. Just be careful that you don't close the string too early, which causes a syntax error.
+
+        Here are some examples of mixing quotes:
+
+        // These are correct:
+        const grouchoContraction = "I've had a perfectly wonderful evening, but this wasn't it.";
+        const quoteInString = "Groucho Marx once said 'Quote me as saying I was mis-quoted.'";
+        // This is incorrect:
+        const uhOhGroucho = 'I've had a perfectly wonderful evening, but this wasn't it.';
+        Of course, it is okay to use only one style of quotes. You can escape the quotes inside the string by using the backslash (\) escape character:
+
+        // Correct use of same quotes:
+        const allSameQuotes = 'I\'ve had a perfectly wonderful evening, but this wasn\'t 
+    }
+
+
+
+
+    Debugging: Catch Use of Assignment Operator Instead of Equality Operator {
+
+        Branching programs, i.e. ones that do different things if certain conditions are met, rely on if, else if, and else statements in JavaScript. The condition sometimes takes the form of testing whether a result is equal to a value.
+
+        This logic is spoken (in English, at least) as "if x equals y, then ..." which can literally translate into code using the =, or assignment operator. This leads to unexpected control flow in your program.
+
+        As covered in previous challenges, the assignment operator (=) in JavaScript assigns a value to a variable name. And the == and === operators check for equality (the triple === tests for strict equality, meaning both value and type are the same).
+
+        The code below assigns x to be 2, which evaluates as true. Almost every value on its own in JavaScript evaluates to true, except what are known as the "falsy" values: false, 0, "" (an empty string), NaN, undefined, and null.
+
+        let x = 1;
+        let y = 2;
+        if (x = y) {
+            // this code block will run for any value of y (unless y were originally set as a falsy)
+        } else {
+            // this code block is what should run (but won't) in this example
+        }
+    }
+
+
+
+    Debugging: Catch Missing Open and Closing Parenthesis After a Function Call {
+
+        When a function or method doesn't take any arguments, you may forget to include the (empty) opening and closing parentheses when calling it. Often times the result of a function call is saved in a variable for other use in your code. This error can be detected by logging variable values (or their types) to the console and seeing that one is set to a function reference, instead of the expected value the function returns.
+
+        The variables in the following example are different:
+
+        function myFunction() {
+            return "You rock!";
+        }
+        let varOne = myFunction; // set to equal a function
+        let varTwo = myFunction(); // set to equal the string "You rock!"
+    }
+
+
+
+    Debugging: Catch Arguments Passed in the Wrong Order When Calling a Function {
+
+        Continuing the discussion on calling functions, the next bug to watch out for is when a function's arguments are supplied in the incorrect order. If the arguments are different types, such as a function expecting an array and an integer, this will likely throw a runtime error. If the arguments are the same type (all integers, for example), then the logic of the code won't make sense. Make sure to supply all required arguments, in the proper order to avoid these issues.
+    }
+
+
+
+    Debugging: Catch Off By One Errors When Using Indexing {
+
+        Off by one errors (sometimes called OBOE) crop up when you're trying to target a specific index of a string or array (to slice or access a segment), or when looping over the indices of them. JavaScript indexing starts at zero, not one, which means the last index is always one less than the length of the item. If you try to access an index equal to the length, the program may throw an "index out of range" reference error or print undefined.
+
+        When you use string or array methods that take index ranges as arguments, it helps to read the documentation and understand if they are inclusive (the item at the given index is part of what's returned) or not. Here are some examples of off by one errors:
+
+        let alphabet = "abcdefghijklmnopqrstuvwxyz";
+        let len = alphabet.length;
+        for (let i = 0; i <= len; i++) {
+            // loops one too many times at the end
+            console.log(alphabet[i]);
+        }
+        for (let j = 1; j < len; j++) {
+            // loops one too few times and misses the first character at index 0
+            console.log(alphabet[j]);
+        }
+        for (let k = 0; k < len; k++) {
+            // Goldilocks approves - this is just right
+            console.log(alphabet[k]);
+        }
+    }
+
+
+
+    Debugging: Use Caution When Reinitializing Variables Inside a Loop {
+
+        Sometimes it's necessary to save information, increment counters, or re-set variables within a loop. A potential issue is when variables either should be reinitialized, and aren't, or vice versa. This is particularly dangerous if you accidentally reset the variable being used for the terminal condition, causing an infinite loop.
+
+        Printing variable values with each cycle of your loop by using console.log() can uncover buggy behavior related to resetting, or failing to reset a variable.
+
+        The following function is supposed to create a two-dimensional array with m rows and n columns of zeroes. Unfortunately, it's not producing the expected output because the row variable isn't being reinitialized (set back to an empty array) in the outer loop. Fix the code so it returns a correct 3x2 array of zeroes, which looks like [[0, 0], [0, 0], [0, 0]].
+    }
+
+
+
+    Debugging: Prevent Infinite Loops with a Valid Terminal Condition {
+
+        The final topic is the dreaded infinite loop. Loops are great tools when you need your program to run a code block a certain number of times or until a condition is met, but they need a terminal condition that ends the looping. Infinite loops are likely to freeze or crash the browser, and cause general program execution mayhem, which no one wants.
+
+        There was an example of an infinite loop in the introduction to this section - it had no terminal condition to break out of the while loop inside loopy(). Do NOT call this function!
+
+        function loopy() {
+            while(true) {
+                console.log("Hello, world!");
+            }
+        }
+
+        It's the programmer's job to ensure that the terminal condition, which tells the program when to break out of the loop code, is eventually reached. One error is incrementing or decrementing a counter variable in the wrong direction from the terminal condition. Another one is accidentally resetting a counter or index variable within the loop code, instead of incrementing or decrementing it.
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+DATA STRUCTURES {
+
+    Introduction to the Basic Data Structure Challenges {
+
+        Data can be stored and accessed in many different ways, both in JavaScript and other languages. This section will teach you how to manipulate arrays, as well as access and copy the information within them. It will also teach you how to manipulate and access the data within JavaScript objects, using both dot and bracket notation. When you're done with this section, you should understand the basic properties and differences between arrays and objects, as well as how to choose which to use for a given purpose. 
+    }
+
+
+
+    Basic Data Structures: Use an Array to Store a Collection of Data {
+
+        The below is an example of the simplest implementation of an array data structure. This is known as a one-dimensional array, meaning it only has one level, or that it does not have any other arrays nested within it. Notice it contains booleans, strings, and numbers, among other valid JavaScript data types:
+
+        let simpleArray = ['one', 2, 'three', true, false, undefined, null];
+        console.log(simpleArray.length);
+        // logs 7
+
+        All arrays have a length property, which as shown above, can be very easily accessed with the syntax Array.length. A more complex implementation of an array can be seen below. This is known as a multi-dimensional array, or an array that contains other arrays. Notice that this array also contains JavaScript objects, which we will examine very closely in our next section, but for now, all you need to know is that arrays are also capable of storing complex objects.
+
+        let complexArray = [
+        [
+            {
+            one: 1,
+            two: 2
+            },
+            {
+            three: 3,
+            four: 4
+            }
+        ],
+        [
+            {
+            a: "a",
+            b: "b"
+            },
+            {
+            c: "c",
+            d: "d"
+            }
+        ]
+        ];
+    }
+
+
+
+    Basic Data Structures: Access an Array's Contents Using Bracket Notation {
+
+        The fundamental feature of any data structure is, of course, the ability to not only store data, but to be able to retrieve that data on command. So, now that we've learned how to create an array, let's begin to think about how we can access that array's information.
+
+        When we define a simple array as seen below, there are 3 items in it:
+
+        let ourArray = ["a", "b", "c"];
+
+        In an array, each array item has an index. This index doubles as the position of that item in the array, and how you reference it. However, it is important to note, that JavaScript arrays are zero-indexed, meaning that the first element of an array is actually at the zeroth position, not the first. In order to retrieve an element from an array we can enclose an index in brackets and append it to the end of an array, or more commonly, to a variable which references an array object. This is known as bracket notation. For example, if we want to retrieve the "a" from ourArray and assign it to a variable, we can do so with the following code:
+
+        let ourVariable = ourArray[0];
+        // ourVariable equals "a"
+
+        In addition to accessing the value associated with an index, you can also set an index to a value using the same notation:
+
+        ourArray[1] = "not b anymore";
+        // ourArray now equals ["a", "not b anymore", "c"];
+
+        Using bracket notation, we have now reset the item at index 1 from "b", to "not b anymore".
+    }
+
+
+
+    Basic Data Structures: Add Items to an Array with push() and unshift() {
+
+        An array's length, like the data types it can contain, is not fixed. Arrays can be defined with a length of any number of elements, and elements can be added or removed over time; in other words, arrays are mutable. In this challenge, we will look at two methods with which we can programmatically modify an array: Array.push() and Array.unshift().
+
+        Both methods take one or more elements as parameters and add those elements to the array the method is being called on; the push() method adds elements to the end of an array, and unshift() adds elements to the beginning. Consider the following:
+
+        let twentyThree = 'XXIII';
+        let romanNumerals = ['XXI', 'XXII'];
+
+        romanNumerals.unshift('XIX', 'XX');
+        // now equals ['XIX', 'XX', 'XXI', 'XXII']
+
+        romanNumerals.push(twentyThree);
+        // now equals ['XIX', 'XX', 'XXI', 'XXII', 'XXIII']Notice that we can also pass variables, which allows us even greater flexibility in dynamically modifying our array's data.
+    }
+
+
+
+    Basic Data Structures: Remove Items from an Array with pop() and shift() {
+
+        Both push() and unshift() have corresponding methods that are nearly functional opposites: pop() and shift(). As you may have guessed by now, instead of adding, pop() removes an element from the end of an array, while shift() removes an element from the beginning. The key difference between pop() and shift() and their cousins push() and unshift(), is that neither method takes parameters, and each only allows an array to be modified by a single element at a time.
+
+        Let's take a look:
+
+        let greetings = ['whats up?', 'hello', 'see ya!'];
+
+        greetings.pop();
+        // now equals ['whats up?', 'hello']
+
+        greetings.shift();
+        // now equals ['hello']
+
+        We can also return the value of the removed element with either method like this:
+
+        let popped = greetings.pop();
+        // returns 'hello'
+        // greetings now equals []
+    }
+
+
+
+    Basic Data Structures: Remove Items Using splice() {
+
+        Ok, so we've learned how to remove elements from the beginning and end of arrays using shift() and pop(), but what if we want to remove an element from somewhere in the middle? Or remove more than one element at once? Well, that's where splice() comes in. splice() allows us to do just that: remove any number of consecutive elements from anywhere in an array.
+
+        splice() can take up to 3 parameters, but for now, we'll focus on just the first 2. The first two parameters of splice() are integers which represent indexes, or positions, of the array that splice() is being called upon. And remember, arrays are zero-indexed, so to indicate the first element of an array, we would use 0. splice()'s first parameter represents the index on the array from which to begin removing elements, while the second parameter indicates the number of elements to delete. For example:
+
+        let array = ['today', 'was', 'not', 'so', 'great'];
+
+        array.splice(2, 2);
+        // remove 2 elements beginning with the 3rd element
+        // array now equals ['today', 'was', 'great']
+
+        splice() not only modifies the array it's being called on, but it also returns a new array containing the value of the removed elements:
+
+        let array = ['I', 'am', 'feeling', 'really', 'happy'];
+
+        let newArray = array.splice(3, 2);
+        // newArray equals ['really', 'happy']
+    }
+
+
+
+    Basic Data Structures: Add Items Using splice() {
+
+        Remember in the last challenge we mentioned that splice() can take up to three parameters? Well, you can use the third parameter, comprised of one or more element(s), to add to the array. This can be incredibly useful for quickly switching out an element, or a set of elements, for another.
+
+        const numbers = [10, 11, 12, 12, 15];
+        const startIndex = 3;
+        const amountToDelete = 1;
+
+        numbers.splice(startIndex, amountToDelete, 13, 14);
+        // the second entry of 12 is removed, and we add 13 and 14 at the same index
+        console.log(numbers);
+        // returns [ 10, 11, 12, 13, 14, 15 ]
+
+        Here we begin with an array of numbers. We then pass the following to splice(). The index at which to begin deleting elements (3), the number of elements to be deleted (1), and the elements (13, 14) to be inserted at that same index. Note that there can be any number of elements (separated by commas) following amountToDelete, each of which gets inserted.
+    }
+
+
+
+    Basic Data Structures: Copy Array Items Using slice() {
+
+        The next method we will cover is slice(). Rather than modifying an array, slice() copies or extracts a given number of elements to a new array, leaving the array it is called upon untouched. slice() takes only 2 parameters — the first is the index at which to begin extraction, and the second is the index at which to stop extraction (extraction will occur up to, but not including the element at this index). Consider this:
+
+        let weatherConditions = ['rain', 'snow', 'sleet', 'hail', 'clear'];
+
+        let todaysWeather = weatherConditions.slice(1, 3);
+        // todaysWeather equals ['snow', 'sleet'];
+        // weatherConditions still equals ['rain', 'snow', 'sleet', 'hail', 'clear']
+
+        In effect, we have created a new array by extracting elements from an existing array.
+    }
+
+
+
+    Basic Data Structures: Copy an Array with the Spread Operator {
+
+        While slice() allows us to be selective about what elements of an array to copy, among several other useful tasks, ES6's new spread operator allows us to easily copy all of an array's elements, in order, with a simple and highly readable syntax. The spread syntax simply looks like this: ...
+
+        In practice, we can use the spread operator to copy an array like so:
+
+        let thisArray = [true, true, undefined, false, null];
+        let thatArray = [...thisArray];
+        // thatArray equals [true, true, undefined, false, null]
+        // thisArray remains unchanged, and is identical to thatArray
+    }
+
+
+
+    Basic Data Structures: Combine Arrays with the Spread Operator {
+
+        Another huge advantage of the spread operator, is the ability to combine arrays, or to insert all the elements of one array into another, at any index. With more traditional syntaxes, we can concatenate arrays, but this only allows us to combine arrays at the end of one, and at the start of another. Spread syntax makes the following operation extremely simple:
+
+        let thisArray = ['sage', 'rosemary', 'parsley', 'thyme'];
+
+        let thatArray = ['basil', 'cilantro', ...thisArray, 'coriander'];
+        // thatArray now equals ['basil', 'cilantro', 'sage', 'rosemary', 'parsley', 'thyme', 'coriander']
+
+        Using spread syntax, we have just achieved an operation that would have been more complex and more verbose had we used traditional methods.
+    }
+
+
+
+    Basic Data Structures: Check For The Presence of an Element With indexOf() {
+
+        Since arrays can be changed, or mutated, at any time, there's no guarantee about where a particular piece of data will be on a given array, or if that element even still exists. Luckily, JavaScript provides us with another built-in method, indexOf(), that allows us to quickly and easily check for the presence of an element on an array. indexOf() takes an element as a parameter, and when called, it returns the position, or index, of that element, or -1 if the element does not exist on the array.
+
+        For example:
+
+        let fruits = ['apples', 'pears', 'oranges', 'peaches', 'pears'];
+
+        fruits.indexOf('dates'); // returns -1
+        fruits.indexOf('oranges'); // returns 2
+        fruits.indexOf('pears'); // returns 1, the first index at which the element exists
+    }
+
+
+
+    Basic Data Structures: Iterate Through All an Array's Items Using For Loops {
+
+        Sometimes when working with arrays, it is very handy to be able to iterate through each item to find one or more elements that we might need, or to manipulate an array based on which data items meet a certain set of criteria. JavaScript offers several built in methods that each iterate over arrays in slightly different ways to achieve different results (such as every(), forEach(), map(), etc.), however the technique which is most flexible and offers us the greatest amount of control is a simple for loop.
+
+        Consider the following:
+
+        function greaterThanTen(arr) {
+        let newArr = [];
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] > 10) {
+            newArr.push(arr[i]);
+            }
+        }
+        return newArr;
+        }
+
+        greaterThanTen([2, 12, 8, 14, 80, 0, 1]);
+        // returns [12, 14, 80]
+    }
+
+
+
+    Basic Data Structures: Create complex multi-dimensional arrays {
+
+        Awesome! You have just learned a ton about arrays! This has been a fairly high level overview, and there is plenty more to learn about working with arrays, much of which you will see in later sections. But before moving on to looking at Objects, lets take one more look, and see how arrays can become a bit more complex than what we have seen in previous challenges.
+
+        One of the most powerful features when thinking of arrays as data structures, is that arrays can contain, or even be completely made up of other arrays. We have seen arrays that contain arrays in previous challenges, but fairly simple ones. However, arrays can contain an infinite depth of arrays that can contain other arrays, each with their own arbitrary levels of depth, and so on. In this way, an array can very quickly become very complex data structure, known as a multi-dimensional, or nested array. Consider the following example:
+
+        let nestedArray = [ // top, or first level - the outer most array
+        ['deep'], // an array within an array, 2 levels of depth
+        [
+            ['deeper'], ['deeper'] // 2 arrays nested 3 levels deep
+        ],
+        [
+            [
+            ['deepest'], ['deepest'] // 2 arrays nested 4 levels deep
+            ],
+            [
+            [
+                ['deepest-est?'] // an array nested 5 levels deep
+            ]
+            ]
+        ]
+        ];
+
+        While this example may seem convoluted, this level of complexity is not unheard of, or even unusual, when dealing with large amounts of data. However, we can still very easily access the deepest levels of an array this complex with bracket notation:
+
+        console.log(nestedArray[2][1][0][0][0]);
+        // logs: deepest-est?
+
+        And now that we know where that piece of data is, we can reset it if we need to:
+
+        nestedArray[2][1][0][0][0] = 'deeper still';
+
+        console.log(nestedArray[2][1][0][0][0]);
+        // now logs: deeper still
+    }
+
+
+
+    Basic Data Structures: Add Key-Value Pairs to JavaScript Objects {
+
+        At their most basic, objects are just collections of key-value pairs. In other words, they are pieces of data (values) mapped to unique identifiers called properties (keys). Take a look at an example:
+
+        const tekkenCharacter = {
+        player: 'Hwoarang',
+        fightingStyle: 'Tae Kwon Doe',
+        human: true
+        };
+
+        The above code defines a Tekken video game character object called tekkenCharacter. It has three properties, each of which map to a specific value. If you want to add an additional property, such as "origin", it can be done by assigning origin to the object:
+
+        tekkenCharacter.origin = 'South Korea';
+
+        This uses dot notation. If you were to observe the tekkenCharacter object, it will now include the origin property. Hwoarang also had distinct orange hair. You can add this property with bracket notation by doing:
+
+        tekkenCharacter['hair color'] = 'dyed orange';
+
+        Bracket notation is required if your property has a space in it or if you want to use a variable to name the property. In the above case, the property is enclosed in quotes to denote it as a string and will be added exactly as shown. Without quotes, it will be evaluated as a variable and the name of the property will be whatever value the variable is. Here's an example with a variable:
+
+        const eyes = 'eye color';
+
+        tekkenCharacter[eyes] = 'brown';
+
+        After adding all the examples, the object will look like this:
+
+        {
+        player: 'Hwoarang',
+        fightingStyle: 'Tae Kwon Doe',
+        human: true,
+        origin: 'South Korea',
+        'hair color': 'dyed orange',
+        'eye color': 'brown'
+        };
+    }
+
+
+
+    Basic Data Structures: Modify an Object Nested Within an Object {
+
+        Now let's take a look at a slightly more complex object. Object properties can be nested to an arbitrary depth, and their values can be any type of data supported by JavaScript, including arrays and even other objects. Consider the following:
+
+        let nestedObject = {
+        id: 28802695164,
+        date: 'December 31, 2016',
+        data: {
+            totalUsers: 99,
+            online: 80,
+            onlineStatus: {
+            active: 67,
+            away: 13,
+            busy: 8
+            }
+        }
+        };
+
+        nestedObject has three properties: id (value is a number), date (value is a string), and data (value is an object with its nested structure). While structures can quickly become complex, we can still use the same notations to access the information we need. To assign the value 10 to the busy property of the nested onlineStatus object, we use dot notation to reference the property:
+
+        nestedObject.data.onlineStatus.busy = 10;
+    }
+
+
+
+    Basic Data Structures: Access Property Names with Bracket Notation {
+
+        In the first object challenge we mentioned the use of bracket notation as a way to access property values using the evaluation of a variable. For instance, imagine that our foods object is being used in a program for a supermarket cash register. We have some function that sets the selectedFood and we want to check our foods object for the presence of that food. This might look like:
+
+        let selectedFood = getCurrentFood(scannedItem);
+        let inventory = foods[selectedFood];
+
+        This code will evaluate the value stored in the selectedFood variable and return the value of that key in the foods object, or undefined if it is not present. Bracket notation is very useful because sometimes object properties are not known before runtime or we need to access them in a more dynamic way.
+    }
+
+
+
+    Basic Data Structures: Use the delete Keyword to Remove Object Properties {
+
+        Now you know what objects are and their basic features and advantages. In short, they are key-value stores which provide a flexible, intuitive way to structure data, and, they provide very fast lookup time. Throughout the rest of these challenges, we will describe several common operations you can perform on objects so you can become comfortable applying these useful data structures in your programs.
+
+        In earlier challenges, we have both added to and modified an object's key-value pairs. Here we will see how we can remove a key-value pair from an object.
+
+        Let's revisit our foods object example one last time. If we wanted to remove the apples key, we can remove it by using the delete keyword like this:
+
+        delete foods.apples;
+    }
+
+
+
+    Basic Data Structures: Check if an Object has a Property {
+
+        Now we can add, modify, and remove keys from objects. But what if we just wanted to know if an object has a specific property? JavaScript provides us with two different ways to do this. One uses the hasOwnProperty() method and the other uses the in keyword. If we have an object users with a property of Alan, we could check for its presence in either of the following ways:
+
+        users.hasOwnProperty('Alan');
+        'Alan' in users;
+        // both return true
+    }
+
+
+
+    Basic Data Structures: Iterate Through the Keys of an Object with a for...in Statement {
+
+        Sometimes you may need to iterate through all the keys within an object. This requires a specific syntax in JavaScript called a for...in statement. For our users object, this could look like:
+
+        for (let user in users) {
+        console.log(user);
+        }
+
+        // logs:
+        Alan
+        Jeff
+        Sarah
+        Ryan
+
+        In this statement, we defined a variable user, and as you can see, this variable was reset during each iteration to each of the object's keys as the statement looped through the object, resulting in each user's name being printed to the console. NOTE: Objects do not maintain an ordering to stored keys like arrays do; thus a key's position on an object, or the relative order in which it appears, is irrelevant when referencing or accessing that key.
+    }
+
+
+
+    Basic Data Structures: Generate an Array of All Object Keys with Object.keys() {
+
+        We can also generate an array which contains all the keys stored in an object using the Object.keys() method and passing in an object as the argument. This will return an array with strings representing each property in the object. Again, there will be no specific order to the entries in the array.
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+FUNCTIONAL PROGRAMMING {
+
+    Introduction to the Functional Programming {
+
+        Functional programming is an approach to software development based around the evaluation of functions. Like mathematics, functions in programming map input to output to produce a result. You can combine basic functions in many ways to build more and more complex programs.
+
+        Functional programming follows a few core principles:
+
+            Functions are independent from the state of the program or global variables. They only depend on the arguments passed into them to make a calculation
+            Functions try to limit any changes to the state of the program and avoid changes to the global objects holding data
+            Functions have minimal side effects in the program
+
+        The functional programming software development approach breaks a program into small, testable parts. This section covers basic functional programming principles in JavaScript.
+    }
+
+
+
+    Functional Programming: Learn About Functional Programming {
+
+        Functional programming is a style of programming where solutions are simple, isolated functions, without any side effects outside of the function scope.
+
+        INPUT -> PROCESS -> OUTPUT
+
+        Functional programming is about:
+
+        1) Isolated functions - there is no dependence on the state of the program, which includes global variables that are subject to change
+
+        2) Pure functions - the same input always gives the same output
+
+        3) Functions with limited side effects - any changes, or mutations, to the state of the program outside the function are carefully controlled
+    }
+
+
+
+    Functional Programming: Understand Functional Programming Terminology {
+
+        The FCC Team had a mood swing and now wants two types of tea: green tea and black tea. General Fact: Client mood swings are pretty common.
+
+        With that information, we'll need to revisit the getTea function from last challenge to handle various tea requests. We can modify getTea to accept a function as a parameter to be able to change the type of tea it prepares. This makes getTea more flexible, and gives the programmer more control when client requests change.
+
+        But first, let's cover some functional terminology:
+
+        Callbacks are the functions that are slipped or passed into another function to deci
+
+
+
+        de the invocation of that function. You may have seen them passed to other methods, for example in filter, the callback function tells JavaScript the criteria for how to filter an array.
+
+        Functions that can be assigned to a variable, passed into another function, or returned from another function just like any other normal value, are called first class functions. In JavaScript, all functions are first class functions.
+
+        The functions that take a function as an argument, or return a function as a return value are called higher order functions.
+
+        When the functions are passed in to another function or returned from another function, then those functions which gets passed in or returned can be called a lambda.
+    }
+
+
+
+
+    Functional Programming: Understand the Hazards of Using Imperative Code {
+
+        Functional programming is a good habit. It keeps your code easy to manage, and saves you from sneaky bugs. But before we get there, let's look at an imperative approach to programming to highlight where you may have issues.
+
+        In English (and many other languages), the imperative tense is used to give commands. Similarly, an imperative style in programming is one that gives the computer a set of statements to perform a task.
+
+        Often the statements change the state of the program, like updating global variables. A classic example is writing a for loop that gives exact directions to iterate over the indices of an array.
+
+        In contrast, functional programming is a form of declarative programming. You tell the computer what you want done by calling a method or function.
+
+        JavaScript offers many predefined methods that handle common tasks so you don't need to write out how the computer should perform them. For example, instead of using the for loop mentioned above, you could call the map method which handles the details of iterating over an array. This helps to avoid semantic errors, like the "Off By One Errors" that were covered in the Debugging section.
+
+        Consider the scenario: you are browsing the web in your browser, and want to track the tabs you have opened. Let's try to model this using some simple object-oriented code.
+
+        A Window object is made up of tabs, and you usually have more than one Window open. The titles of each open site in each Window object is held in an array. After working in the browser (opening new tabs, merging windows, and closing tabs), you want to print the tabs that are still open. Closed tabs are removed from the array and new tabs (for simplicity) get added to the end of it.
+
+        The code editor shows an implementation of this functionality with functions for tabOpen(), tabClose(), and join(). The array tabs is part of the Window object that stores the name of the open pages.
+    }
+
+
+
+    Functional Programming: Avoid Mutations and Side Effects Using Functional Programming {
+
+        If you haven't already figured it out, the issue in the previous challenge was with the splice call in the tabClose() function. Unfortunately, splice changes the original array it is called on, so the second call to it used a modified array, and gave unexpected results.
+
+        This is a small example of a much larger pattern - you call a function on a variable, array, or an object, and the function changes the variable or something in the object.
+
+        One of the core principles of functional programming is to not change things. Changes lead to bugs. It's easier to prevent bugs knowing that your functions don't change anything, including the function arguments or any global variable.
+
+        The previous example didn't have any complicated operations but the splice method changed the original array, and resulted in a bug.
+
+        Recall that in functional programming, changing or altering things is called mutation, and the outcome is called a side effect. A function, ideally, should be a pure function, meaning that it does not cause any side effects.
+
+        *Using the increment operator (++) on fixedValue will mutate fixedValue, meaning it will no longer reference the same value it was assigned with.
+    }
+
+
+
+    Functional Programming: Pass Arguments to Avoid External Dependence in a Function {
+
+        The last challenge was a step closer to functional programming principles, but there is still something missing.
+
+        We didn't alter the global variable value, but the function incrementer would not work without the global variable fixedValue being there.
+
+        Another principle of functional programming is to always declare your dependencies explicitly. This means if a function depends on a variable or object being present, then pass that variable or object directly into the function as an argument.
+
+        There are several good consequences from this principle. The function is easier to test, you know exactly what input it takes, and it won't depend on anything else in your program.
+
+        This can give you more confidence when you alter, remove, or add new code. You would know what you can or cannot change and you can see where the potential traps are.
+
+        Finally, the function would always produce the same output for the same set of inputs, no matter what part of the code executes it.
+    }
+
+
+
+
+    Functional Programming: Use the map Method to Extract Data from an Array {
+
+        So far we have learned to use pure functions to avoid side effects in a program. Also, we have seen the value in having a function only depend on its input arguments.
+
+        This is only the beginning. As its name suggests, functional programming is centered around a theory of functions.
+
+        It would make sense to be able to pass them as arguments to other functions, and return a function from another function. Functions are considered first class objects in JavaScript, which means they can be used like any other object. They can be saved in variables, stored in an object, or passed as function arguments.
+
+        Let's start with some simple array functions, which are methods on the array object prototype. In this exercise we are looking at Array.prototype.map(), or more simply map.
+
+        The map method iterates over each item in an array and returns a new array containing the results of calling the callback function on each element. It does this without mutating the original array.
+
+        When the callback is used, it is passed three arguments. The first argument is the current element being processed. The second is the index of that element and the third is the array upon which the map method was called.
+
+        See below for an example using the map method on the users array to return a new array containing only the names of the users as elements. For simplicity, the example only uses the first argument of the callback.
+
+        const users = [
+            { name: 'John', age: 34 },
+            { name: 'Amy', age: 20 },
+            { name: 'camperCat', age: 10 }
+        ];
+
+        const names = users.map(user => user.name);
+        console.log(names); // [ 'John', 'Amy', 'camperCat' ]
+
+        *When using an arrow function, using { } returns a code block. We use ({ }) to return an object.
+        // Only change code below this line
+        const ratings = watchList.map(list => ({ 
+            title: list["Title"], 
+            rating: list["imdbRating"]
+        }));
+        /*
+        var ratings = [];
+        for(var i=0; i < watchList.length; i++){
+            ratings.push({title: watchList[i]["Title"],  rating: watchList[i]["imdbRating"]});
+        }
+        */
+        // Only change code above this line
+    }
+
+
+
+    Functional Programming: Implement map on a Prototype {
+
+        As you have seen from applying Array.prototype.map(), or simply map() earlier, the map method returns an array of the same length as the one it was called on. It also doesn't alter the original array, as long as its callback function doesn't.
+
+        In other words, map is a pure function, and its output depends solely on its inputs. Plus, it takes another function as its argument.
+
+        It would teach us a lot about map to try to implement a version of it that behaves exactly like the Array.prototype.map() with a for loop or Array.prototype.forEach().
+
+        Note: A pure function is allowed to alter local variables defined within its scope, although, it's preferable to avoid that as well.
+    }
+
+
+
+    Functional Programming: Use the filter Method to Extract Data from an Array {
+
+        Another useful array function is Array.prototype.filter(), or simply filter().
+
+        filter calls a function on each element of an array and returns a new array containing only the elements for which that function returns true. In other words, it filters the array, based on the function passed to it. Like map, it does this without needing to modify the original array.
+
+        The callback function accepts three arguments. The first argument is the current element being processed. The second is the index of that element and the third is the array upon which the filter method was called.
+
+        See below for an example using the filter method on the users array to return a new array containing only the users under the age of 30. For simplicity, the example only uses the first argument of the callback.
+
+        const users = [
+            { name: 'John', age: 34 },
+            { name: 'Amy', age: 20 },
+            { name: 'camperCat', age: 10 }
+        ];
+
+        const usersUnder30 = users.filter(user => user.age < 30);
+        console.log(usersUnder30); // [ { name: 'Amy', age: 20 }, { name: 'camperCat', age: 10 } ]
+    }
+
+
+
+    Functional Programming: Implement the filter Method on a Prototype {
+
+        It would teach us a lot about the filter method if we try to implement a version of it that behaves exactly like Array.prototype.filter(). It can use either a for loop or Array.prototype.forEach().
+
+        Note: A pure function is allowed to alter local variables defined within its scope, although, it's preferable to avoid that as well.
+    }
+
+
+
+    Functional Programming: Return Part of an Array Using the slice Method {
+
+        The slice method returns a copy of certain elements of an array. It can take two arguments, the first gives the index of where to begin the slice, the second is the index for where to end the slice (and it's non-inclusive). If the arguments are not provided, the default is to start at the beginning of the array through the end, which is an easy way to make a copy of the entire array. The slice method does not mutate the original array, but returns a new one.
+
+        Here's an example:
+
+        var arr = ["Cat", "Dog", "Tiger", "Zebra"];
+        var newArray = arr.slice(1, 3);
+        // Sets newArray to ["Dog", "Tiger"]
+    }
+
+
+
+    Functional Programming: Remove Elements from an Array Using slice Instead of splice {
+
+        A common pattern while working with arrays is when you want to remove items and keep the rest of the array. JavaScript offers the splice method for this, which takes arguments for the index of where to start removing items, then the number of items to remove. If the second argument is not provided, the default is to remove items through the end. However, the splice method mutates the original array it is called on. Here's an example:
+
+        var cities = ["Chicago", "Delhi", "Islamabad", "London", "Berlin"];
+        cities.splice(3, 1); // Returns "London" and deletes it from the cities array
+        // cities is now ["Chicago", "Delhi", "Islamabad", "Berlin"]
+        As we saw in the last challenge, the slice method does not mutate the original array, but returns a new one which can be saved into a variable. Recall that the slice method takes two arguments for the indices to begin and end the slice (the end is non-inclusive), and returns those items in a new array. Using the slice method instead of splice helps to avoid any array-mutating side effects.
+    }
+
+
+
+    Functional Programming: Combine Two Arrays Using the concat Method {
+
+        Concatenation means to join items end to end. JavaScript offers the concat method for both strings and arrays that work in the same way. For arrays, the method is called on one, then another array is provided as the argument to concat, which is added to the end of the first array. It returns a new array and does not mutate either of the original arrays. Here's an example:
+
+        [1, 2, 3].concat([4, 5, 6]);
+        // Returns a new array [1, 2, 3, 4, 5, 6]
+    }
+
+
+
+    Functional Programming: Add Elements to the End of an Array Using concat Instead of push {
+
+        Functional programming is all about creating and using non-mutating functions.
+
+        The last challenge introduced the concat method as a way to combine arrays into a new one without mutating the original arrays. Compare concat to the push method. Push adds an item to the end of the same array it is called on, which mutates that array. Here's an example:
+
+        var arr = [1, 2, 3];
+        arr.push([4, 5, 6]);
+        // arr is changed to [1, 2, 3, [4, 5, 6]]
+        // Not the functional programming way
+
+        Concat offers a way to add new items to the end of an array without any mutating side effects.
+    }
+
+
+
+    Functional Programming: Use the reduce Method to Analyze Data {
+
+        Array.prototype.reduce(), or simply reduce(), is the most general of all array operations in JavaScript. You can solve almost any array processing problem using the reduce method.
+
+        The reduce method allows for more general forms of array processing, and it's possible to show that both filter and map can be derived as special applications of reduce. The reduce method iterates over each item in an array and returns a single value (i.e. string, number, object, array). This is achieved via a callback function that is called on each iteration.
+
+        The callback function accepts four arguments. The first argument is known as the accumulator, which gets assigned the return value of the callback function from the previous iteration, the second is the current element being processed, the third is the index of that element and the fourth is the array upon which reduce is called.
+
+        In addition to the callback function, reduce has an additional parameter which takes an initial value for the accumulator. If this second parameter is not used, then the first iteration is skipped and the second iteration gets passed the first element of the array as the accumulator.
+
+        See below for an example using reduce on the users array to return the sum of all the users' ages. For simplicity, the example only uses the first and second arguments.
+
+        const users = [
+            { name: 'John', age: 34 },
+            { name: 'Amy', age: 20 },
+            { name: 'camperCat', age: 10 }
+        ];
+
+        const sumOfAges = users.reduce((sum, user) => sum + user.age, 0);
+        console.log(sumOfAges); // 64
+        In another example, see how an object can be returned containing the names of the users as properties with their ages as values.
+
+        const users = [
+            { name: 'John', age: 34 },
+            { name: 'Amy', age: 20 },
+            { name: 'camperCat', age: 10 }
+        ];
+
+        const usersObj = users.reduce((obj, user) => {
+            obj[user.name] = usewr.age;
+            return obj;
+        }, {});
+        console.log(usersObj); // { John: 34, Amy: 20, camperCat: 10 }
+    }
+
+
+
+    Functional Programming: Sort an Array Alphabetically using the sort Method {
+
+        The sort method sorts the elements of an array according to the callback function.
+
+        For example:
+
+        function ascendingOrder(arr) {
+        return arr.sort(function(a, b) {
+            return a - b;
+        });
+        }
+        ascendingOrder([1, 5, 2, 3, 4]);
+        // Returns [1, 2, 3, 4, 5]
+
+        function reverseAlpha(arr) {
+        return arr.sort(function(a, b) {
+            return a === b ? 0 : a < b ? 1 : -1;
+        });
+        }
+        reverseAlpha(['l', 'h', 'z', 'b', 's']);
+        // Returns ['z', 's', 'l', 'h', 'b']
+
+        JavaScript's default sorting method is by string Unicode point value, which may return unexpected results. Therefore, it is encouraged to provide a callback function to specify how to sort the array items. When such a callback function, normally called compareFunction, is supplied, the array elements are sorted according to the return value of the compareFunction: If compareFunction(a,b) returns a value less than 0 for two elements a and b, then a will come before b. If compareFunction(a,b) returns a value greater than 0 for two elements a and b, then b will come before a. If compareFunction(a,b) returns a value equal to 0 for two elements a and b, then a and b will remain unchanged.
+    }
+
+
+
+    Functional Programming: Return a Sorted Array Without Changing the Original Array {
+        A side effect of the sort method is that it changes the order of the elements in the original array. In other words, it mutates the array in place. One way to avoid this is to first concatenate an empty array to the one being sorted (remember that slice and concat return a new array), then run the sort method.
+    }
+
+
+
+    Functional Programming: Split a String into an Array Using the split Method {
+        The split method splits a string into an array of strings. It takes an argument for the delimiter, which can be a character to use to break up the string or a regular expression. For example, if the delimiter is a space, you get an array of words, and if the delimiter is an empty string, you get an array of each character in the string.
+
+        Here are two examples that split one string by spaces, then another by digits using a regular expression:
+
+        var str = "Hello World";
+        var bySpace = str.split(" ");
+        // Sets bySpace to ["Hello", "World"]
+
+        var otherString = "How9are7you2today";
+        var byDigits = otherString.split(/\d/);
+        // Sets byDigits to ["How", "are", "you", "today"]
+        Since strings are immutable, the split method makes it easier to work with them.
+    }
+
+
+
+    Functional Programming: Combine an Array into a String Using the join Method {
+        The join method is used to join the elements of an array together to create a string. It takes an argument for the delimiter that is used to separate the array elements in the string.
+
+        Here's an example:
+
+        var arr = ["Hello", "World"];
+        var str = arr.join(" ");
+        // Sets str to "Hello World"
+    }
+
+
+
+    Functional Programming: Apply Functional Programming to Convert Strings to URL Slugs {
+
+        The last several challenges covered a number of useful array and string methods that follow functional programming principles. We've also learned about reduce, which is a powerful method used to reduce problems to simpler forms. From computing averages to sorting, any array operation can be achieved by applying it. Recall that map and filter are special cases of reduce.
+
+        Let's combine what we've learned to solve a practical problem.
+
+        Many content management sites (CMS) have the titles of a post added to part of the URL for simple bookmarking purposes. For example, if you write a Medium post titled "Stop Using Reduce", it's likely the URL would have some form of the title string in it (".../stop-using-reduce"). You may have already noticed this on the freeCodeCamp site.
+
+        Challenge:
+        Fill in the urlSlug function so it converts a string title and returns the hyphenated version for the URL. You can use any of the methods covered in this section, and don't use replace. Here are the requirements:
+
+        The input is a string with spaces and title-cased words //use .split(/\s+/)
+
+        The output is a string with the spaces between words replaced by a hyphen (-) //use .join("-")
+
+        The output should be all lower-cased letters //use .toLowerCase()
+
+        The output should not have any spaces //use .trim() to remove whitespaces
+    }
+
+
+
+    Functional Programming: Use the every Method to Check that Every Element in an Array Meets a Criteria {
+        The every method works with arrays to check if every element passes a particular test. It returns a Boolean value - true if all values meet the criteria, false if not.
+
+        For example, the following code would check if every element in the numbers array is less than 10:
+
+        var numbers = [1, 5, 8, 0, 10, 11];
+        numbers.every(function(currentValue) {
+            return currentValue < 10;
+        });
+        // Returns false
+    }
+
+
+
+    Functional Programming: Use the some Method to Check that Any Elements in an Array Meet a Criteria {
+
+        The some method works with arrays to check if any element passes a particular test. It returns a Boolean value - true if any of the values meet the criteria, false if not.
+
+        For example, the following code would check if any element in the numbers array is less than 10:
+
+        var numbers = [10, 50, 8, 220, 110, 11];
+        numbers.some(function(currentValue) {
+            return currentValue < 10;
+        });
+        // Returns true
+    }
+
+
+
+    Functional Programming: Introduction to Currying and Partial Application {
+
+        The arity of a function is the number of arguments it requires. Currying a function means to convert a function of N arity into N functions of arity 1.
+
+        In other words, it restructures a function so it takes one argument, then returns another function that takes the next argument, and so on.
+
+        Here's an example:
+
+        //Un-curried function
+        function unCurried(x, y) {
+            return x + y;
+        }
+
+        //Curried function
+        function curried(x) {
+            return function(y) {
+                return x + y;
+            }
+        }
+        //Alternative using ES6
+        const curried = x => y => x + y
+
+        curried(1)(2) // Returns 3
+
+        This is useful in your program if you can't supply all the arguments to a function at one time. You can save each function call into a variable, which will hold the returned function reference that takes the next argument when it's available. Here's an example using the curried function in the example above:
+
+        // Call a curried function in parts:
+        var funcForY = curried(1);
+        console.log(funcForY(2)); // Prints 3
+
+        Similarly, partial application can be described as applying a few arguments to a function at a time and returning another function that is applied to more arguments. Here's an example:
+
+        //Impartial function
+        function impartial(x, y, z) {
+            return x + y + z;
+        }
+        var partialFn = impartial.bind(this, 1, 2);
+        partialFn(10); // Returns 13
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BASIC ALGORITHM SCRIPTING: {
+
+    Introduction to Basic Algorithm Scripting {
+
+        A computer algorithm is a sequence of steps that is followed to achieve a particular outcome. To write an algorithm, you must first understand a problem, and then solve it with coding.
+
+        To make solving problems easier, it can be helpful to break them down into many chunks. Then, each chunk can be solved one by one. For example, if you are building a calculator, don't try to solve the problem as a whole. First, consider how to get inputs. Then, determine each arithmetic operation one by one. Finally, display the results.
+
+        In this section we will learn to solve basic algorithm problems using JavaScript. This will help you improve your problem solving skills and prepare you to later solve more complex problems.
+
+        Hint: If you get stuck, try using console.log() to log variable values to the console. This will help to debug problems.
+    }
+
+
+
+    Basic Algorithm Scripting: Find the Longest Word in a String {
+
+        Return the length of the longest word in the provided sentence.
+
+        Your response should be a number.
+
+        My answer:
+        function findLongestWordLength(str) {
+            const words = str
+                .split(" ")
+                .map(word => word.length)
+                .sort(function(a, b) { return a-b; })
+                .reverse();
+            
+            return words[0];
+        }
+
+        findLongestWordLength("The quick brown fox jumped over the lazy dog");
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+OBJECT ORIENTED PROGRAMMING: {
+    Introduction to the Object Oriented Programming Challenges {
+
+        At its core, software development solves a problem or achieves a result with computation. The software development process first defines a problem, then presents a solution. Object oriented programming is one of several major approaches to the software development process.
+
+        As its name implies, object oriented programming organizes code into object definitions. These are sometimes called classes, and they group together data with related behavior. The data is an object's attributes, and the behavior (or functions) are methods.
+
+        The object structure makes it flexible within a program. Objects can transfer information by calling and passing data to another object's methods. Also, new classes can receive, or inherit, all the features from a base or parent class. This helps to reduce repeated code.
+
+        Your choice of programming approach depends on a few factors. These include the type of problem, as well as how you want to structure your data and algorithms. This section covers object oriented programming principles in JavaScript.
+    }
+
+
+
+    Object Oriented Programming: Create a Basic JavaScript Object {
+
+        Think about things people see every day, like cars, shops, and birds. These are all objects: tangible things people can observe and interact with.
+
+        What are some qualities of these objects? A car has wheels. Shops sell items. Birds have wings.
+
+        These qualities, or properties, define what makes up an object. Note that similar objects share the same properties, but may have different values for those properties. For example, all cars have wheels, but not all cars have the same number of wheels.
+
+        Objects in JavaScript are used to model real-world objects, giving them properties and behavior just like their real-world counterparts. Here's an example using these concepts to create a duck object:
+
+        let duck = {
+            name: "Aflac",
+            numLegs: 2
+        };
+
+        This duck object has two property/value pairs: a name of "Aflac" and a numLegs of 2.
+    }
+
+
+
+    Object Oriented Programming: Use Dot Notation to Access the Properties of an Object {
+
+        The last challenge created an object with various properties. Now you'll see how to access the values of those properties. Here's an example:
+
+        let duck = {
+            name: "Aflac",
+            numLegs: 2
+        };
+        console.log(duck.name);
+        // This prints "Aflac" to the console
+
+        Dot notation is used on the object name, duck, followed by the name of the property, name, to access the value of "Aflac".
+    }
+
+
+
+    Object Oriented Programming: Create a Method on an Object {
+
+        Objects can have a special type of property, called a method.
+
+        Methods are properties that are functions. This adds different behavior to an object. Here is the duck example with a method:
+
+        let duck = {
+            name: "Aflac",
+            numLegs: 2,
+            sayName: function() {return "The name of this duck is " + duck.name + ".";}
+        };
+        duck.sayName();
+        // Returns "The name of this duck is Aflac."
+
+        The example adds the sayName method, which is a function that returns a sentence giving the name of the duck. Notice that the method accessed the name property in the return statement using duck.name. The next challenge will cover another way to do this.
+    }
+
+
+
+    Object Oriented Programming: Make Code More Reusable with the this Keyword {
+
+        The last challenge introduced a method to the duck object. It used duck.name dot notation to access the value for the name property within the return statement:
+
+        sayName: function() {return "The name of this duck is " + duck.name + ".";}
+
+        While this is a valid way to access the object's property, there is a pitfall here. If the variable name changes, any code referencing the original name would need to be updated as well. In a short object definition, it isn't a problem, but if an object has many references to its properties there is a greater chance for error.
+
+        A way to avoid these issues is with the this keyword:
+
+        let duck = {
+            name: "Aflac",
+            numLegs: 2,
+            sayName: function() {return "The name of this duck is " + this.name + ".";}
+        };
+
+        *********
+        this is a deep topic, and the above example is only one way to use it. In the current context, this refers to the object that the method is associated with: duck. If the object's name is changed to mallard, it is not necessary to find all the references to duck in the code. It makes the code reusable and easier to read.
+        *********
+    }
+
+
+
+    Object Oriented Programming: Define a Constructor Function {
+
+        Constructors are functions that create new objects. They define properties and behaviors that will belong to the new object. Think of them as a blueprint for the creation of new objects.
+
+        Here is an example of a constructor:
+
+        function Bird() {
+            this.name = "Albert";
+            this.color = "blue";
+            this.numLegs = 2;
+        }
+
+        This constructor defines a Bird object with properties name, color, and numLegs set to Albert, blue, and 2, respectively. Constructors follow a few conventions:
+
+        -   Constructors are defined with a capitalized name to distinguish them from other functions that are not constructors.
+        -   Constructors use the keyword this to set properties of the object they will create. Inside the constructor, this refers to the new object it will create.
+        -   Constructors define properties and behaviors instead of returning a value as other functions might.
+
+    }
+
+
+    Object Oriented Programming: Use a Constructor to Create Objects {
+
+        Here's the Bird constructor from the previous challenge:
+
+        function Bird() {
+            this.name = "Albert";
+            this.color  = "blue";
+            this.numLegs = 2;
+            // "this" inside the constructor always refers to the object being created
+        }
+
+        let blueBird = new Bird();
+
+        ********
+        Notice that the new operator is used when calling a constructor. This tells JavaScript to create a new instance of Bird called blueBird. Without the new operator, this inside the constructor would not point to the newly created object, giving unexpected results. Now blueBird has all the properties defined inside the Bird constructor:
+        ********
+
+        blueBird.name; // => Albert
+        blueBird.color; // => blue
+        blueBird.numLegs; // => 2
+
+        Just like any other object, its properties can be accessed and modified:
+
+        blueBird.name = 'Elvira';
+        blueBird.name; // => Elvira
+    }
+
+
+
+    Object Oriented Programming: Extend Constructors to Receive Arguments {
+
+        The Bird and Dog constructors from last challenge worked well. However, notice that all Birds that are created with the Bird constructor are automatically named Albert, are blue in color, and have two legs. What if you want birds with different values for name and color? It's possible to change the properties of each bird manually but that would be a lot of work:
+
+        let swan = new Bird();
+        swan.name = "Carlos";
+        swan.color = "white";
+
+        Suppose you were writing a program to keep track of hundreds or even thousands of different birds in an aviary. It would take a lot of time to create all the birds, then change the properties to different values for every one. To more easily create different Bird objects, you can design your Bird constructor to accept parameters:
+
+        function Bird(name, color) {
+            this.name = name;
+            this.color = color;
+            this.numLegs = 2;
+        }
+
+        Then pass in the values as arguments to define each unique bird into the Bird constructor: let cardinal = new Bird("Bruce", "red"); This gives a new instance of Bird with name and color properties set to Bruce and red, respectively. The numLegs property is still set to 2. The cardinal has these properties:
+
+        cardinal.name // => Bruce
+        cardinal.color // => red
+        cardinal.numLegs // => 2
+
+        The constructor is more flexible. It's now possible to define the properties for each Bird at the time it is created, which is one way that JavaScript constructors are so useful. They group objects together based on shared characteristics and behavior and define a blueprint that automates their creation.
+    }
+
+
+
+
+    Object Oriented Programming: Verify an Object's Constructor with instanceof {
+
+        Anytime a constructor function creates a new object, that object is said to be an instance of its constructor. JavaScript gives a convenient way to verify this with the instanceof operator. instanceof allows you to compare an object to a constructor, returning true or false based on whether or not that object was created with the constructor. Here's an example:
+
+        let Bird = function(name, color) {
+            this.name = name;
+            this.color = color;
+            this.numLegs = 2;
+        }
+
+        let crow = new Bird("Alexis", "black");
+
+        crow instanceof Bird; // => true
+
+        If an object is created without using a constructor, instanceof will verify that it is not an instance of that constructor:
+
+        let canary = {
+            name: "Mildred",
+            color: "Yellow",
+            numLegs: 2
+        };
+
+        canary instanceof Bird; // => false
+    }
+
+
+
+    Object Oriented Programming: Understand Own Properties {
+        In the following example, the Bird constructor defines two properties: name and numLegs:
+
+        function Bird(name) {
+            this.name  = name;
+            this.numLegs = 2;
+        }
+
+        let duck = new Bird("Donald");
+        let canary = new Bird("Tweety");
+
+        name and numLegs are called own properties, because they are defined directly on the instance object. That means that duck and canary each has its own separate copy of these properties. In fact every instance of Bird will have its own copy of these properties. The following code adds all of the own properties of duck to the array ownProps:
+
+        let ownProps = [];
+
+        for (let property in duck) {
+            if(duck.hasOwnProperty(property)) {
+                ownProps.push(property);
+            }
+        }
+
+        console.log(ownProps); // prints [ "name", "numLegs" ]
+    }
+
+
+
+    Object Oriented Programming: Use Prototype Properties to Reduce Duplicate Code {
+        Since numLegs will probably have the same value for all instances of Bird, you essentially have a duplicated variable numLegs inside each Bird instance.
+
+        This may not be an issue when there are only two instances, but imagine if there are millions of instances. That would be a lot of duplicated variables.
+
+        A better way is to use Bird’s prototype. Properties in the prototype are shared among ALL instances of Bird. Here's how to add numLegs to the Bird prototype:
+
+        Bird.prototype.numLegs = 2;
+        
+        Now all instances of Bird have the numLegs property.
+
+        console.log(duck.numLegs);  // prints 2
+        console.log(canary.numLegs);  // prints 2
+
+        Since all instances automatically have the properties on the prototype, think of a prototype as a "recipe" for creating objects. Note that the prototype for duck and canary is part of the Bird constructor as Bird.prototype. Nearly every object in JavaScript has a prototype property which is part of the constructor function that created it.
+    }
+
+
+
+
+    Object Oriented Programming: Iterate Over All Properties {
+
+        You have now seen two kinds of properties: own properties and prototype properties. Own properties are defined directly on the object instance itself. And prototype properties are defined on the prototype.
+
+        function Bird(name) {
+            this.name = name;  //own property
+        }
+
+        Bird.prototype.numLegs = 2; // prototype property
+
+        let duck = new Bird("Donald");
+
+        Here is how you add duck's own properties to the array ownProps and prototype properties to the array prototypeProps:
+
+        let ownProps = [];
+        let prototypeProps = [];
+
+        for (let property in duck) {
+            if(duck.hasOwnProperty(property)) {
+                ownProps.push(property);
+            } else {
+                prototypeProps.push(property);
+            }
+        }
+
+        console.log(ownProps); // prints ["name"]
+        console.log(prototypeProps); // prints ["numLegs"]
+    }
+
+
+
+    Object Oriented Programming: Understand the Constructor Property {
+
+        There is a special constructor property located on the object instances duck and beagle that were created in the previous challenges:
+
+        let duck = new Bird();
+        let beagle = new Dog();
+
+        console.log(duck.constructor === Bird);  //prints true
+        console.log(beagle.constructor === Dog);  //prints true
+
+        Note that the constructor property is a reference to the constructor function that created the instance. The advantage of the constructor property is that it's possible to check for this property to find out what kind of object it is. Here's an example of how this could be used:
+
+        function joinBirdFraternity(candidate) {
+            if (candidate.constructor === Bird) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        Note
+        Since the constructor property can be overwritten (which will be covered in the next two challenges) it’s generally better to use the instanceof method to check the type of an object.
+    }
+
+
+
+    Object Oriented Programming: Change the Prototype to a New Object {
+
+        Up until now you have been adding properties to the prototype individually:
+
+        Bird.prototype.numLegs = 2;
+
+        This becomes tedious after more than a few properties.
+
+        Bird.prototype.eat = function() {
+            console.log("nom nom nom");
+        }
+
+        Bird.prototype.describe = function() {
+            console.log("My name is " + this.name);
+        }
+
+        A more efficient way is to set the prototype to a new object that already contains the properties. This way, the properties are added all at once:
+
+        Bird.prototype = {
+            numLegs: 2, 
+            eat: function() {
+                console.log("nom nom nom");
+        },
+        describe: function() {
+            console.log("My name is " + this.name);
+           }
+        };
+    }
+
+
+
+    Object Oriented Programming: Remember to Set the Constructor Property when Changing the Prototype {
+
+        There is one crucial side effect of manually setting the prototype to a new object. It erases the constructor property! This property can be used to check which constructor function created the instance, but since the property has been overwritten, it now gives false results:
+
+        duck.constructor === Bird; // false -- Oops
+        duck.constructor === Object; // true, all objects inherit from Object.prototype
+        duck instanceof Bird; // true, still works
+
+        To fix this, whenever a prototype is manually set to a new object, remember to define the constructor property:
+
+        Bird.prototype = {
+            constructor: Bird, // define the constructor property
+            numLegs: 2,
+            eat: function() {
+                console.log("nom nom nom");
+            },
+            describe: function() {
+                console.log("My name is " + this.name); 
+            }
+        };
+    }
+
+
+
+    Object Oriented Programming: Understand the Prototype Chain {
+
+        All objects in JavaScript (with a few exceptions) have a prototype. Also, an object’s prototype itself is an object.
+
+        function Bird(name) {
+            this.name = name;
+        }
+
+        typeof Bird.prototype; // yields 'object'
+
+        Because a prototype is an object, a prototype can have its own prototype! In this case, the prototype of Bird.prototype is Object.prototype:
+
+        Object.prototype.isPrototypeOf(Bird.prototype); // returns true
+
+        How is this useful? You may recall the hasOwnProperty method from a previous challenge:
+
+        let duck = new Bird("Donald");
+        duck.hasOwnProperty("name"); // yields true
+
+        The hasOwnProperty method is defined in Object.prototype, which can be accessed by Bird.prototype, which can then be accessed by duck. This is an example of the prototype chain. In this prototype chain, Bird is the supertype for duck, while duck is the subtype. Object is a supertype for both Bird and duck. Object is a supertype for all objects in JavaScript. Therefore, any object can use the hasOwnProperty method.
+    }
+
+
+
+    Object Oriented Programming: Use Inheritance So You Don't Repeat Yourself {
+
+        There's a principle in programming called Don't Repeat Yourself (DRY). The reason repeated code is a problem is because any change requires fixing code in multiple places. This usually means more work for programmers and more room for errors.
+
+        Notice in the example below that the describe method is shared by Bird and Dog:
+
+        Bird.prototype = {
+            constructor: Bird,
+            describe: function() {
+                console.log("My name is " + this.name);
+            }
+        };
+
+        Dog.prototype = {
+            constructor: Dog,
+            describe: function() {
+                console.log("My name is " + this.name);
+            }
+        };
+
+        The describe method is repeated in two places. The code can be edited to follow the DRY principle by creating a supertype (or parent) called Animal:
+
+        function Animal() { };
+
+        Animal.prototype = {
+            constructor: Animal, 
+            describe: function() {
+                console.log("My name is " + this.name);
+            }
+        };
+
+        Since Animal includes the describe method, you can remove it from Bird and Dog:
+
+        Bird.prototype = {
+            constructor: Bird
+        };
+
+        Dog.prototype = {
+            constructor: Dog
+        };
+    }
+
+
+
+    Object Oriented Programming: Inherit Behaviors from a Supertype {
+
+        In the previous challenge, you created a supertype called Animal that defined behaviors shared by all animals:
+
+        function Animal() { }
+        Animal.prototype.eat = function() {
+            console.log("nom nom nom");
+        };
+
+        This and the next challenge will cover how to reuse Animal's methods inside Bird and Dog without defining them again. It uses a technique called inheritance. This challenge covers the first step: make an instance of the supertype (or parent). You already know one way to create an instance of Animal using the new operator:
+
+        let animal = new Animal();
+
+        There are some disadvantages when using this syntax for inheritance, which are too complex for the scope of this challenge. Instead, here's an alternative approach without those disadvantages:
+
+        let animal = Object.create(Animal.prototype);
+
+        Object.create(obj) creates a new object, and sets obj as the new object's prototype. Recall that the prototype is like the "recipe" for creating an object. By setting the prototype of animal to be Animal's prototype, you are effectively giving the animal instance the same "recipe" as any other instance of Animal.
+
+        animal.eat(); // prints "nom nom nom"
+        animal instanceof Animal; // => true
+    }
+
+
+
+    Object Oriented Programming: Set the Child's Prototype to an Instance of the Parent {
+
+        In the previous challenge you saw the first step for inheriting behavior from the supertype (or parent) Animal: making a new instance of Animal.
+
+        This challenge covers the next step: set the prototype of the subtype (or child)—in this case, Bird—to be an instance of Animal.
+
+        Bird.prototype = Object.create(Animal.prototype);
+
+        Remember that the prototype is like the "recipe" for creating an object. In a way, the recipe for Bird now includes all the key "ingredients" from Animal.
+
+        let duck = new Bird("Donald");
+        duck.eat(); // prints "nom nom nom"
+
+        duck inherits all of Animal's properties, including the eat method.
+    }
+
+
+
+    Object Oriented Programming: Reset an Inherited Constructor Property {
+
+        When an object inherits its prototype from another object, it also inherits the supertype's constructor property.
+
+        Here's an example:
+
+        function Bird() { }
+        Bird.prototype = Object.create(Animal.prototype);
+        let duck = new Bird();
+        duck.constructor // function Animal(){...}
+
+        But duck and all instances of Bird should show that they were constructed by Bird and not Animal. To do so, you can manually set Bird's constructor property to the Bird object:
+
+        Bird.prototype.constructor = Bird;
+        duck.constructor // function Bird(){...}
+    }
+
+
+
+
+    Object Oriented Programming: Add Methods After Inheritance {
+
+        A constructor function that inherits its prototype object from a supertype constructor function can still have its own methods in addition to inherited methods.
+
+        For example, Bird is a constructor that inherits its prototype from Animal:
+
+        function Animal() { }
+        Animal.prototype.eat = function() {
+            console.log("nom nom nom");
+        };
+        function Bird() { }
+        Bird.prototype = Object.create(Animal.prototype);
+        Bird.prototype.constructor = Bird;
+
+        In addition to what is inherited from Animal, you want to add behavior that is unique to Bird objects. Here, Bird will get a fly() function. Functions are added to Bird's prototype the same way as any constructor function:
+
+        Bird.prototype.fly = function() {
+            console.log("I'm flying!");
+        };
+
+        Now instances of Bird will have both eat() and fly() methods:
+
+        let duck = new Bird();
+        duck.eat(); // prints "nom nom nom"
+        duck.fly(); // prints "I'm flying!"
+    }
+
+
+
+    Object Oriented Programming: Override Inherited Methods {
+
+        In previous lessons, you learned that an object can inherit its behavior (methods) from another object by referencing its prototype object:
+
+        ChildObject.prototype = Object.create(ParentObject.prototype);
+
+        Then the ChildObject received its own methods by chaining them onto its prototype:
+
+        ChildObject.prototype.methodName = function() {...};
+
+        It's possible to override an inherited method. It's done the same way - by adding a method to ChildObject.prototype using the same method name as the one to override. Here's an example of Bird overriding the eat() method inherited from Animal:
+
+        function Animal() { }
+        Animal.prototype.eat = function() {
+            return "nom nom nom";
+        };
+        function Bird() { }
+
+        // Inherit all methods from Animal
+        Bird.prototype = Object.create(Animal.prototype);
+
+        // Bird.eat() overrides Animal.eat()
+        Bird.prototype.eat = function() {
+            return "peck peck peck";
+        };
+
+        If you have an instance let duck = new Bird(); and you call duck.eat(), this is how JavaScript looks for the method on duck’s prototype chain:
+
+            1. duck => Is eat() defined here? No.
+            2. Bird => Is eat() defined here? => Yes. Execute it and stop searching.
+            3. Animal => eat() is also defined, but JavaScript stopped searching before reaching this level.
+            4. Object => JavaScript stopped searching before reaching this level.
+    }
+
+
+
+
+    Object Oriented Programming: Use a Mixin to Add Common Behavior Between Unrelated Objects {
+
+        As you have seen, behavior is shared through inheritance. However, there are cases when inheritance is not the best solution. Inheritance does not work well for unrelated objects like Bird and Airplane. They can both fly, but a Bird is not a type of Airplane and vice versa.
+
+        For unrelated objects, it's better to use mixins. A mixin allows other objects to use a collection of functions.
+
+        let flyMixin = function(obj) {
+            obj.fly = function() {
+                console.log("Flying, wooosh!");
+            }
+        };
+
+        The flyMixin takes any object and gives it the fly method.
+
+        let bird = {
+            name: "Donald",
+            numLegs: 2
+        };
+
+        let plane = {
+            model: "777",
+            numPassengers: 524
+        };
+
+        flyMixin(bird);
+        flyMixin(plane);
+
+        Here bird and plane are passed into flyMixin, which then assigns the fly function to each object. Now bird and plane can both fly:
+
+        bird.fly(); // prints "Flying, wooosh!"
+        plane.fly(); // prints "Flying, wooosh!"
+
+        Note how the mixin allows for the same fly method to be reused by unrelated objects bird and plane.
+    }
+
+
+
+    Object Oriented Programming: Use Closure to Protect Properties Within an Object from Being Modified Externally {
+
+        In the previous challenge, bird had a public property name. It is considered public because it can be accessed and changed outside of bird's definition.
+
+        bird.name = "Duffy";
+
+        Therefore, any part of your code can easily change the name of bird to any value. Think about things like passwords and bank accounts being easily changeable by any part of your codebase. That could cause a lot of issues.
+
+        The simplest way to make this public property private is by creating a variable within the constructor function. This changes the scope of that variable to be within the constructor function versus available globally. This way, the variable can only be accessed and changed by methods also within the constructor function.
+
+        function Bird() {
+            let hatchedEgg = 10; // private variable
+
+            /* publicly available method that a bird object can use */
+            this.getHatchedEggCount = function() { 
+                return hatchedEgg;
+            };
+        }
+        let ducky = new Bird();
+        ducky.getHatchedEggCount(); // returns 10
+
+        Here getHatchedEggCount is a privileged method, because it has access to the private variable hatchedEgg. This is possible because hatchedEgg is declared in the same context as getHatchedEggCount. In JavaScript, a function always has access to the context in which it was created. This is called closure.
+    }
+
+
+
+    Object Oriented Programming: Understand the Immediately Invoked Function Expression (IIFE) {
+
+        A common pattern in JavaScript is to execute a function as soon as it is declared:
+
+        (function () {
+            console.log("Chirp, chirp!");
+        })(); // this is an anonymous function expression that executes right away
+        // Outputs "Chirp, chirp!" immediately
+
+        Note that the function has no name and is not stored in a variable. The two parentheses () at the end of the function expression cause it to be immediately executed or invoked. This pattern is known as an immediately invoked function expression or IIFE.
+    }
+
+
+
+    Object Oriented Programming: Use an IIFE to Create a Module {
+
+        An immediately invoked function expression (IIFE) is often used to group related functionality into a single object or module. For example, an earlier challenge defined two mixins:
+
+        function glideMixin(obj) {
+            obj.glide = function() {
+                console.log("Gliding on the water");
+            };
+        }
+        function flyMixin(obj) {
+            obj.fly = function() {
+                console.log("Flying, wooosh!");
+            };
+        }
+
+        We can group these mixins into a module as follows:
+
+        let motionModule = (function () {
+        return {
+            glideMixin: function(obj) {
+                obj.glide = function() {
+                    console.log("Gliding on the water");
+                };
+            },
+            flyMixin: function(obj) {
+                obj.fly = function() {
+                    console.log("Flying, wooosh!");
+                };
+            }
+        }
+        })(); // The two parentheses cause the function to be immediately invoked
+
+        Note that you have an immediately invoked function expression (IIFE) that returns an object motionModule. This returned object contains all of the mixin behaviors as properties of the object. The advantage of the module pattern is that all of the motion behaviors can be packaged into a single object that can then be used by other parts of your code. Here is an example using it:
+
+        motionModule.glideMixin(duck);
+        duck.glide();
+    }
+}
+
+
+
+
+
+
+
+
+
+//Side note: Learn the difference uses of .hasOwnProperty, .includes, and .indexOf
+
+
+

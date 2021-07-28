@@ -1,0 +1,447 @@
+HTML NOTES: {
+    *Each page should always have one (and only one) h1 element, which is the main subject of your content. This and the other headings are used in part by search engines to understand the topic of the page.
+
+    Another new HTML5 elements that adds semantic meaning to your markup is article. article is a sectioning element, and is used to wrap independent, self-contained content. The tag works well with blog entries, forum posts, or news articles. <article></article>
+
+    Note about section and div:
+    The section element is also new with HTML5, and has a slightly different semantic meaning than article. An article is for standalone content, and a section is for grouping thematically related content. They can be used within each other, as needed. For example, if a book is the article, then each chapter is a section. When there's no relationship between groups of content, then use a div.
+
+    The header is meant for use in the body tag of your HTML document. This is different than the head element, which contains the page's title, meta information, etc.
+
+    The footer is also meant to be inside the <body> tag.
+
+    Use <nav> instead of <div> for navbars.
+
+    HTML5 introduced the figure element, along with the related figcaption. Used together, these items wrap a visual representation (like an image, diagram, or chart) along with its caption. This gives a two-fold accessibility boost by both semantically grouping related content, and providing a text alternative that explains the figure.
+
+    The label tag wraps the text for a specific form control item, usually the name or label for a choice. This ties meaning to the item and makes the form more readable. The for attribute on a label tag explicitly associates that label with the form control and is used by screen readers.
+    The value of the for attribute must be the same as the value of the id attribute of the form control. Ex:
+    <form>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name">
+    </form>
+
+    The fieldset tag surrounds the entire grouping of radio buttons to achieve this. It often uses a legend tag to provide a description for the grouping, which is read by screen readers for each choice in the fieldset element.
+
+    The fieldset wrapper and legend tag are not necessary when the choices are self-explanatory, like a gender selection. Using a label with the for attribute for each radio button is sufficient.
+
+    HTML5 includes a date feature. Ex:
+    <label for="input1">Enter a date:</label>
+    <input type="date" id="input1" name="input1">
+
+    Continuing with the date theme, HTML5 also introduced the time element along with a datetime attribute to standardize times. This is an inline element that can wrap a date or time on a page. A valid format of that date is held by the datetime attribute. This is the value accessed by assistive devices. It helps avoid confusion by stating a standardized version of a time, even if it's written in an informal or colloquial manner in the text.
+
+    HTML offers the accesskey attribute to specify a shortcut key to activate or bring focus to an element. This can make navigation more efficient for keyboard-only users.
+    HTML5 allows this attribute to be used on any element, but it's particularly useful when it's used with interactive ones. This includes links, buttons, and form controls.
+    Here's an example:
+    <button accesskey="b">Important Button</button>
+
+    tabindex {
+        The HTML tabindex attribute has three distinct functions relating to an element's keyboard focus. When it's on a tag, it indicates that element can be focused on. The value (an integer that's positive, negative, or zero) determines the behavior.
+
+        Certain elements, such as links and form controls, automatically receive keyboard focus when a user tabs through a page. It's in the same order as the elements come in the HTML source markup. This same functionality can be given to other elements, such as div, span, and p, by placing a tabindex="0" attribute on them. Here's an example:
+
+        <div tabindex="0">I need keyboard focus!</div>
+
+        Note: A negative tabindex value (typically -1) indicates that an element is focusable, but is not reachable by the keyboard. This method is generally used to bring focus to content programmatically (like when a div used for a pop-up window is activated), and is beyond the scope of these challenges.
+
+        * using tabindex also enables the CSS pseudo-class :focus to work on the p tag.
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CSS NOTES: {
+    text-align: justify; causes all lines of text except the last line to meet the left and right edges of the line box.
+
+    text-align: center; centers the text
+
+    text-align: right; right-aligns the text
+
+    text-align: left; (the default) left-aligns the text.
+
+    in HTML: To make text bold, you can use the strong tag. This is often used to draw attention to text and symbolize that it is important. With the strong tag, the browser applies the CSS of font-weight: bold; to the element.
+
+    To underline text, you can use the u tag. This is often used to signify that a section of text is important, or something to remember. With the u tag, the browser applies the CSS of text-decoration: underline; to the element.
+
+    To emphasize text, you can use the em tag. This displays text as italicized, as the browser applies the CSS of font-style: italic; to the element.
+
+    To strikethrough text, which is when a horizontal line cuts across the characters, you can use the s tag. It shows that a section of text is no longer valid. With the s tag, the browser applies the CSS of text-decoration: line-through; to the element.
+
+    You can use the hr tag to add a horizontal line across the width of its containing element. This can be used to define a change in topic or to visually separate groups of content.
+
+    line-height allows us to change the height of each line in a block opf text. It changes the vertical space between each line.
+
+    When the position of an element is set to relative, it allows you to specify how CSS should move it relative to its current position in the normal flow of the page. It pairs with the CSS offset properties of left or right, and top or bottom. These say how many pixels, percentages, or ems to move the item away from where it is normally positioned.
+
+    The CSS position property absolute locks the element relative to its parent container. Unlike the relative position, this removes the element from the normal flow of the document, so surrounding items ignore it. The CSS offset properties (top or bottom and left or right) are used to adjust the position.
+    One nuance with absolute positioning is that it will be locked relative to its closest positioned ancestor. If you forget to add a position rule to the parent item, (this is typically done using position: relative;), the browser will keep looking up the chain and ultimately default to the body tag.
+
+    The CSS position property fixed locks an element relative to the browser window. Similar to absolute positioning, it's used with the CSS offset properties and also removes the element from the normal flow of the document. Other items no longer "realize" where it is positioned, which may require some layout adjustments elsewhere.
+    One key difference between the fixed and absolute positions is that an element with a fixed position won't move when the user scrolls.
+
+    Floating elements are removed from the normal flow of a document and pushed to either the left or right of their containing parent element. It's commonly used with the width property to specify how much horizontal space the floated element requires.
+
+    The z-index property can specify the order of how elements are stacked on top of one another. It must be an integer (i.e. a whole number and not a decimal), and higher values for the z-index property of an element move it higher in the stack than those with lower values.
+
+    Setting the margin to auto can center a block element horizontally. 
+
+    Colors have several characteristics including hue, saturation, and lightness. CSS3 introduced the hsl() property as an alternative way to pick a color by directly stating these characteristics.
+    -Hue is what people generally think of as 'color'. If you picture a spectrum of colors starting with red on the left, moving through green in the middle, and blue on right, the hue is where a color fits along this line. In hsl(), hue uses a color wheel concept instead of the spectrum, where the angle of the color on the circle is given as a value between 0 and 360.
+    -Saturation is the amount of gray in a color. A fully saturated color has no gray in it, and a minimally saturated color is almost completely gray. This is given as a percentage with 100% being fully saturated.
+    -Lightness is the amount of white or black in a color. A percentage is given ranging from 0% (black) to 100% (white), where 50% is the normal color.
+
+    Transform propery: {
+        To change the scale of an element, CSS has the transform property, along with its scale() function. ex:
+        p {
+            transform: scale(2);
+        }
+
+        The transform property has a variety of functions that let you scale, move, rotate, skew, etc., your elements. When used with pseudo-classes such as :hover that specify a certain state of an element, the transform property can easily add interactivity to your elements. ex:
+        p: hover {
+            transform: scale(1.1);
+        }
+        This can be useful to increase the size of a button or other when the cursor is hovering over an element.
+
+        The skew property of transform skews the element along its X (horizontal) axis by a given degree. ex:
+        p {
+            transform: skewX(-32deg);
+        }
+        Same idea can be applied along the y (vertical) axis with skewY(#deg).
+    }
+
+    Animations and @keyframes: {
+        @keyframes is how to specify exactly what happens within the animation over the duration. This is done by giving CSS properties for specific "frames" during the animation, with percentages ranging from 0% to 100%. If you compare this to a movie, the CSS properties for 0% is how the element displays in the opening scene. The CSS properties for 100% is how the element appears at the end, right before the credits roll. Then CSS applies the magic to transition the element over the given duration to act out the scene. 
+        
+        To set the name of the animation, use animation-name.
+
+        The duration of an animation is set by animation-duration.
+
+        Use animation-fill-mode: forwards; to keep something like a button highlighted after hovering over it.
+
+        Use opacity: 0.1; to make an animation fade as it moves over.
+
+        To keep something moving, to repeat an animation, use animation-iteration-count: infinite; or use a number for a designatied amount of times to repeat.        
+
+        In CSS animations, the animation-timing-function property controls how quickly an animated element changes over the duration of the animation. If the animation is a car moving from point A to point B in a given time (your animation-duration), the animation-timing-function says how the car accelerates and decelerates over the course of the drive.
+
+        There are a number of predefined keywords available for popular options. For example, the default value is ease, which starts slow, speeds up in the middle, and then slows down again in the end. Other options include ease-out, which is quick in the beginning then slows down, ease-in, which is slow in the beginning, then speeds up at the end, or linear, which applies a constant animation speed throughout.
+
+        Bezier {
+            In CSS animations, Bezier curves are used with the cubic-bezier function. The shape of the curve represents how the animation plays out. The curve lives on a 1 by 1 coordinate system. The X-axis of this coordinate system is the duration of the animation (think of it as a time scale), and the Y-axis is the change in the animation.
+
+            The cubic-bezier function consists of four main points that sit on this 1 by 1 grid: p0, p1, p2, and p3. p0 and p3 are set for you - they are the beginning and end points which are always located respectively at the origin (0, 0) and (1, 1). You set the x and y values for the other two points, and where you place them in the grid dictates the shape of the curve for the animation to follow. This is done in CSS by declaring the x and y values of the p1 and p2 "anchor" points in the form: (x1, y1, x2, y2). Pulling it all together, here's an example of a Bezier curve in CSS code:
+
+            animation-timing-function: cubic-bezier(0.25, 0.25, 0.75, 0.75);
+
+            In the example above, the x and y values are equivalent for each point (x1 = 0.25 = y1 and x2 = 0.75 = y2), which if you remember from geometry class, results in a line that extends from the origin to point (1, 1). This animation is a linear change of an element during the length of an animation, and is the same as using the linear keyword. In other words, it changes at a constant speed.
+        }
+    }
+
+    Note: The following CSS approaches will NOT do the same thing:
+
+    display: none; or visibility: hidden; hides content for everyone, including screen reader users
+    Zero values for pixel sizes, such as width: 0px; height: 0px; removes that element from the flow of your document, meaning screen readers will ignore it
+
+
+    Media and Different Display Sizes: {
+        Instead of using em or px to size text, you can use viewport units for responsive typography. Viewport units, like percentages, are relative units, but they are based off different items. Viewport units are relative to the viewport dimensions (width or height) of a device, and percentages are relative to the size of the parent container element.
+
+        The four different viewport units are:
+            vw (viewport width): 10vw would be 10% of the viewport's width.
+            vh (viewport height): 3vh would be 3% of the viewport's height.
+            vmin (viewport minimum): 70vmin would be 70% of the viewport's smaller dimension (height or width).
+            vmax (viewport maximum): 100vmax would be 100% of the viewport's bigger dimension (height or width).
+
+        Here is an example that sets a body tag to 30% of the viewport's width.
+        body { 
+            width: 30vw; 
+        }
+    }
+
+
+
+
+    FLEXBOX NOTES: {
+        Easy and clean way to arrange items within a container.
+        -  no floats
+        - mobile friendly
+        - positioning child elements is much easier
+        - flex container's margins do not collapse with the margin of its contents
+        - order of elements can easily be chaned without editing the source html
+
+
+        - flexbox is direction agnostic compared to block with vertical and horizontal (inline, etc)
+
+        display: flex | inline-flex; //goes on container element
+        flex-direction: row | column; ex: row-reverse //x y
+        flex-wrap: wrap | nowrap | wrapreverse //wordwrap
+        flex-basis: <length> //width
+        justify-conent: flex-start | flex-end | center | space-between //align left | align right | align center | space between the boxes
+        align-self: flex-start | flax-end | center //default alignment to be overriden for individual items
+        align-items: flex-start | flax-end | center //laid out along the cross axis
+        align-content: flex-start | flax-end | center //laid out along cross axis?
+        flex-grow: <number>; //different elements in the row different sizes
+        flex-shrink: <number>; //different elements in the row different sizes
+        flex: <integer>; //flex grow and flex shrink combined
+        order: <integer>;
+
+        justify-content: {
+            center: aligns items in the center.
+            flex-start: aligns items to the start of the flex container. For a row, this pushes the items to the left of the container. For a column, this pushes the items to the top of the container. This is the default alignment if no justify-content is specified.
+            flex-end: aligns items to the end of the flex container. For a row, this pushes the items to the right of the container. For a column, this pushes the items to the bottom of the container.
+            space-between: aligns items to the center of the main axis, with extra space placed between the items. The first and last items are pushed to the very edge of the flex container. For example, in a row the first item is against the left side of the container, the last item is against the right side of the container, then the remaining space is distributed evenly among the other items.
+            space-around: similar to space-between but the first and last items are not locked to the edges of the container, the space is distributed around all the items with a half space on either end of the flex container.
+            space-evenly: Distributes space evenly between the flex items with a full space at either end of the flex container
+        }
+
+        align-items: {
+            The align-items property is similar to justify-content. Recall that the justify-content property aligned flex items along the main axis. For rows, the main axis is a horizontal line and for columns it is a vertical line.
+
+            Flex containers also have a cross axis which is the opposite of the main axis. For rows, the cross axis is vertical and for columns, the cross axis is horizontal.
+
+            CSS offers the align-items property to align flex items along the cross axis. For a row, it tells CSS how to push the items in the entire row up or down within the container. And for a column, how to push all the items left or right within the container.
+
+            The different values available for align-items include:
+
+            flex-start: aligns items to the start of the flex container. For rows, this aligns items to the top of the container. For columns, this aligns items to the left of the container.
+            flex-end: aligns items to the end of the flex container. For rows, this aligns items to the bottom of the container. For columns, this aligns items to the right of the container.
+            center: align items to the center. For rows, this vertically aligns items (equal space above and below the items). For columns, this horizontally aligns them (equal space to the left and right of the items).
+            stretch: stretch the items to fill the flex container. For example, rows items are stretched to fill the flex container top-to-bottom. This is the default value if no align-items value is specified.
+            baseline: align items to their baselines. Baseline is a text concept, think of it as the line that the letters sit on.
+        }
+
+        flex-wrap: {
+            CSS flexbox has a feature to split a flex item into multiple rows (or columns). By default, a flex container will fit all flex items together. For example, a row will all be on one line.
+
+            However, using the flex-wrap property tells CSS to wrap items. This means extra items move into a new row or column. The break point of where the wrapping happens depends on the size of the items and the size of the container.
+
+            CSS also has options for the direction of the wrap:
+
+            nowrap: this is the default setting, and does not wrap items.
+            wrap: wraps items from left-to-right if they are in a row, or top-to-bottom if they are in a column.
+            wrap-reverse: wraps items from right-to-left if they are in a row, or bottom-to-top if they are in a column.
+        }
+
+        flex-shrink: {
+            CSS Flexbox: Use the flex-shrink Property to Shrink Items
+
+            The first is the flex-shrink property. When it's used, it allows an item to shrink if the flex container is too small. Items shrink when the width of the parent container is smaller than the combined widths of all the flex items within it.
+
+            The flex-shrink property takes numbers as values. The higher the number, the more it will shrink compared to the other items in the container. For example, if one item has a flex-shrink value of 1 and the other has a flex-shrink value of 3, the one with the value of 3 will shrink three times as much as the other.
+        }
+
+        flex-grow {
+            Similar idea as flex-shrink.
+        }
+
+        flex-basis: {
+            CSS Flexbox: Use the flex-basis Property to Set the Initial Size of an Item
+
+            The flex-basis property specifies the initial size of the item before CSS makes adjustments with flex-shrink or flex-grow.
+
+            The units used by the flex-basis property are the same as other size properties (px, em, %, etc.). The value auto sizes items based on the content.
+        }
+
+        flex: {
+            CSS Flexbox: Use the flex Shorthand Property
+
+            There is a shortcut available to set several flex properties at once. The flex-grow, flex-shrink, and flex-basis properties can all be set together by using the flex property.
+
+            For example, flex: 1 0 10px; will set the item to flex-grow: 1;, flex-shrink: 0;, and flex-basis: 10px;.
+
+            The default property settings are flex: 0 1 auto;.
+        }
+
+        order: {
+            CSS Flexbox: Use the order Property to Rearrange Items
+
+            The order property is used to tell CSS the order of how flex items appear in the flex container. By default, items will appear in the same order they come in the source HTML. The property takes numbers as values, and negative numbers can be used.
+        }
+
+        align-self: {
+            CSS Flexbox: Use the align-self Property
+
+            The final property for flex items is align-self. This property allows you to adjust each item's alignment individually, instead of setting them all at once. This is useful since other common adjustment techniques using the CSS properties float, clear, and vertical-align do not work on flex items.
+
+            align-self accepts the same values as align-items and will override any value set by the align-items property.
+        }
+    }
+    //end flexbox notes
+
+    CSS GRID: {
+        Turn any HTML element into a grid container by setting its display property to grid. This gives you the ability to use all the other properties associated with CSS Grid.
+        Note: In CSS Grid, the parent element is referred to as the container and its children are called items.
+
+        grid-template-columns & grid-template-rows: {
+            To add columns to the grid, use the grid-template-columns property on a grid container.
+            The grid will create rows automatically. To adjust the rows manually, use grid-template-rows.
+
+            You can use absolute and relative units like px and em in CSS Grid to define the size of rows and columns. You can use these as well:
+            - fr: sets the column or row to a fraction of the available space,
+            - auto: sets the column or row to the width or height of its content automatically,
+            - %: adjusts the column or row to the percent width of its container.
+
+            Ex: grid-template-columns: auto 50px 10% 2fr 1fr;
+            - This snippet creates five columns. The first column is as wide as its content, the second column is 50px, the third column is 10% of its container, and for the last two columns; the remaining space is divided into three sections, two are allocated for the fourth column, and one for the fifth.
+
+            CSS Grid: Reduce Repetition Using the repeat Function {
+
+                When you used grid-template-columns and grid-template-rows to define the structure of a grid, you entered a value for each row or column you created.
+
+                Let's say you want a grid with 100 rows of the same height. It isn't very practical to insert 100 values individually. Fortunately, there's a better way - by using the repeat function to specify the number of times you want your column or row to be repeated, followed by a comma and the value you want to repeat.
+
+                Here's an example that would create the 100 row grid, each row at 50px tall.
+                grid-template-rows: repeat(100, 50px);
+
+                You can also repeat multiple values with the repeat function and insert the function amongst other values when defining a grid structure. Here's what that looks like:
+                grid-template-columns: repeat(2, 1fr 50px) 20px;
+
+                This translates to:
+                grid-template-columns: 1fr 50px 1fr 50px 20px;
+
+                Note: The 1fr 50px is repeated twice followed by 20px.
+            }
+
+            CSS Grid: Limit Item Size Using the minmax Function {
+
+                There's another built-in function to use with grid-template-columns and grid-template-rows called minmax. It's used to limit the size of items when the grid container changes size. To do this you need to specify the acceptable size range for your item. Here is an example:
+                grid-template-columns: 100px minmax(50px, 200px);
+
+                In the code above, grid-template-columns is set to create two columns; the first is 100px wide, and the second has the minimum width of 50px and the maximum width of 200px.
+            }
+        }
+
+        Gaps between: {
+            To put a gap between columns use grid-column-gap: #px;
+            To put a gap between rows use grid-row-gap: #px;
+
+            grid-gap is a shorthand property for grid-row-gap and grid-column-gap that's more convenient to use. If grid-gap has one value, it will create a gap between all rows and columns. However, if there are two values, it will use the first one to set the gap between the rows and the second value for the columns.
+
+        }
+
+        To control the amount of columns an item will consume, you can use the grid-column property in conjunction with the line numbers you want the item to start and stop at.
+        Ex: grid-column: 1 / 3;
+        This will make the item start at the first vertical line of the grid on the left and span to the 3rd line of the grid, consuming two columns.
+        Ex: grid-column: 2 / 4;
+        This will make the item fit the last two columns;
+
+        justify-self: {
+            Aligns an item horizontally.
+            In CSS Grid, the content of each item is located in a box which is referred to as a cell. You can align the content's position within its cell horizontally using the justify-self property on a grid item. By default, this property has a value of stretch, which will make the content fill the whole width of the cell. This CSS Grid property accepts other values as well:
+
+            start: aligns the content at the left of the cell,
+            center: aligns the content in the center of the cell,
+            end: aligns the content at the right of the cell.
+        }
+
+        align-self: Aligns an item vertically. Uses all the same values as justify-self.
+
+        justify-items: Aligns all items to share the same alignment horizontally.
+
+        align-items: Aligns all items to share the same alignment vertically.
+
+        grid-template-areas: {
+            CSS Grid: Divide the Grid Into an Area Template
+
+            You can group cells of your grid together into an area and give the area a custom name. Do this by using grid-template-areas on the container like this:
+            grid-template-areas:
+            "header header header"
+            "advert content content"
+            "footer footer footer";
+
+            The code above merges the top three cells together into an area named header, the bottom three cells into a footer area, and it makes two areas in the middle row; advert and content. Note: Every word in the code represents a cell and every pair of quotation marks represent a row. In addition to custom labels, you can use a period (.) to designate an empty cell in the grid.
+        }
+
+        grid-area: {
+            CSS Grid: Place Items in Grid Areas Using the grid-area Property
+
+            After creating an area's template for your grid container you can place an item in your custom area by referencing the name you gave it. To do this, you use the grid-area property on an item like this:
+            .item1 {
+            grid-area: header;
+            }
+            This lets the grid know that you want the item1 class to go in the area named header. In this case, the item will use the entire top row because that whole row is named as the header area.
+
+            CSS Grid: Use grid-area Without Creating an Areas Template
+
+            If your grid doesn't have an areas template to reference, you can create an area on the fly for an item to be placed like this:
+            item1 { grid-area: 1/1/2/4; }
+            This is using the line numbers you learned about earlier to define where the area for this item will be. The numbers in the example above represent these values:
+
+            grid-area: horizontal line to start at / vertical line to start at / horizontal line to end at / vertical line to end at;
+
+            So the item in the example will consume the rows between lines 1 and 2, and the columns between lines 1 and 4.
+        }
+
+        CSS Grid: Create Flexible Layouts Using auto-fill {
+            The repeat function comes with an option called auto-fill. This allows you to automatically insert as many rows or columns of your desired size as possible depending on the size of the container. You can create flexible layouts when combining auto-fill with minmax, like this:
+
+            repeat(auto-fill, minmax(60px, 1fr));
+
+            When the container changes size, this setup keeps inserting 60px columns and stretching them until it can insert another one. Note: If your container can't fit all your items on one row, it will move them down to a new one.
+        }
+
+        CSS Grid: Create Flexible Layouts Using auto-fit {
+            auto-fit works almost identically to auto-fill. The only difference is that when the container's size exceeds the size of all the items combined, auto-fill keeps inserting empty rows or columns and pushes your items to the side, while auto-fit collapses those empty rows or columns and stretches your items to fit the size of the container.
+
+            Note: If your container can't fit all your items on one row, it will move them down to a new one.
+        }
+
+        CSS Grid: Use Media Queries to Create Responsive Layouts {
+            CSS Grid can be an easy way to make your site more responsive by using media queries to rearrange grid areas, change dimensions of a grid, and rearrange the placement of items.
+
+            In the preview, when the viewport width is 300px or more, the number of columns changes from 1 to 2. The advertisement area then occupies the left column completely.
+        }
+
+        CSS Grid: Create Grids within Grids {
+            Turning an element into a grid only affects the behavior of its direct descendants. So by turning a direct descendant into a grid, you have a grid within a grid.
+            For example, by setting the display and grid-template-columns properties of the element with the item3 class, you create a grid within your grid.
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+SETTING UP SERVER NOTES: {
+    In bash, type "npm init -y" will give us a basic boilerplate package.json
+    For dependencies, then type, "npm i express mongoose ejs"
+    - express allows us to create our server
+    - mongoose is for our database
+    - ejs is for our different views
+    Then install dev dependencies by typing, "npm i --save-dev nodemon"
+    - this'll allow us to automatically refresh our webpage everytime we make a change to our code
+    - in order to run nodemon, create a simple script in package.json under scripts:
+        "scripts": {
+            "devStart": "nodemon server.js"
+        }
+
+    A "./" is used for a relative path. Example: require("./routes/articles.js");
+}
