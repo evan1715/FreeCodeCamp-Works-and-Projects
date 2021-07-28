@@ -13,6 +13,7 @@ function whatIsInAName(collection, source) {
 whatIsInAName([{ first: "Romeo", last: "Montague" }, { first: "Mercutio", last: null }, { first: "Tybalt", last: "Capulet" }], { last: "Capulet" });
 
 
+
 //Spinal Tap Case
 function spinalCase(str) {
     //To search or extract a pattern more than once, you can use the g flag.
@@ -29,5 +30,20 @@ function spinalCase(str) {
     return str;
 }
 spinalCase('This Is Spinal Tap');
+
+
+
+//Pig Latin
+function translatePigLatin(str) {
+    const consonants = str.match(/^[^aeiou]+/);
+
+    if (consonants) {
+      return str.concat(consonants + 'ay').replace(consonants, '');
+    } else if (str.match(/^[aeiou]/)) {
+      return str.concat('way')
+    }
+}
+translatePigLatin("consonant");
+
 
 
