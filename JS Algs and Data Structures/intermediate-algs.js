@@ -183,3 +183,71 @@ function sumFibs(num) {
     return sum;
 }
 sumFibs(1000);
+
+
+
+//Sum All Primes -- not working
+function sumPrimes(num) {
+    let nums = [];
+    let primeNums = [2, 3];
+    let sum = 0;
+
+    //Create a range of numbers.
+    for (var j = 1; j <= num; j++) {
+        nums.push(j)
+    }
+
+    //Square root all of the nums
+    const sqrtNums = nums.map(x => Math.floor(Math.sqrt(x)));
+
+    //Create an array for prime numbers of the range.
+    for (var i = 0; i < nums.length; i++) {
+        for (var k = 2; k <= sqrtNums[i]; k++) {
+          // console.log(nums[i], ":", nums[i]%k)
+            if ((nums[i] % k) == 0) {
+                break;
+            } else {
+              primeNums.push(nums[i]);
+            }
+        }
+    }
+    
+    //Remove that extra number at the end.
+    // primeNums.pop();
+
+    // for (var p = 0; p < primeNums.length; p++)
+
+    console.log(primeNums)
+  
+    return num;
+}
+sumPrimes(23);
+
+//Sum of all primes using Sieves
+function sumPrimes(num) {
+    let sieve = [];
+    let primeNums = [];
+    let sum = 0;
+
+    //Create prime numbers.
+    for (var i = 2; i <= num; i++) {
+        //if i has not been marked -- it is prime
+        if (!sieve[i]) {
+            primeNums.push(i);
+            for (var j = i << 1; j <= num; j += i) {
+                sieve[j] = true;
+            }
+        }
+    }
+    
+    //Calculate the sum of the prime numbers.
+    for (var k = 0; k < primeNums.length; k++) {
+        sum += primeNums[k];
+    }
+
+    return sum;
+}
+sumPrimes(10);
+
+
+
