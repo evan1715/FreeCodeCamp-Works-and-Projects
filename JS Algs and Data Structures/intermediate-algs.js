@@ -147,3 +147,39 @@ function convertHTML(str) {
     return value;
 }
 convertHTML("Dolce & Gabbana");
+
+
+
+//Sum All Odd Fibonacci Numbers
+function sumFibs(num) {
+    let fibNums = [1, 1];
+    let oddNums = [];
+    let sum = 0;
+  
+    //Get all Fibonacci sequence numbers.
+    for (var i = 2; i < num; i++) {
+        fibNums.push(fibNums[i - 1] + fibNums[i - 2]);
+    }
+
+    //Filter all numbers to odd only.
+    for (var j = 0; j < fibNums.length; j++) {
+        if ((fibNums[j] % 2) !== 0) {
+        oddNums.push(fibNums[j]);
+        }
+    }
+
+    //If the number is less than or equal to num, then add the sum.
+    for (var k = 0; k < oddNums.length; k++) {
+        if (oddNums[k] <= num) {
+        sum += oddNums[k];
+        }
+    }
+
+    //If there's only 1 in num, return 1.
+    if (num === 1) {
+        sum = 1;
+    }
+
+    return sum;
+}
+sumFibs(1000);
