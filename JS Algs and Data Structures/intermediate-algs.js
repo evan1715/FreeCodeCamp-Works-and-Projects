@@ -282,3 +282,25 @@ function dropElements(arr, func) {
     return array;
 }
 dropElements([1, 2, 3], function(n) {return n < 3; });
+
+
+
+//Steamroller
+
+
+
+
+//Binary Agents
+function binaryAgent(str) {
+    //First split the string into an array
+    const binary = str.split(" ");
+    //Then convert into decimal using parseInt with 2 as the second argument for English.
+    const decimal = binary.map(x => parseInt(x, 2));
+    //Third, the string will be converted with String.fromCharCode.
+    const chars = decimal.map(x => String.fromCharCode(x));
+    //Finally, it'll be converted from an array to a string.
+    const string = chars.join("");
+  
+    return string;
+}
+binaryAgent("01000001 01110010 01100101 01101110 00100111 01110100 00100000 01100010 01101111 01101110 01100110 01101001 01110010 01100101 01110011 00100000 01100110 01110101 01101110 00100001 00111111");
