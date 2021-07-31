@@ -266,3 +266,19 @@ function smallestCommons(arr) {
     return j;
 }
 smallestCommons([1,5]);
+
+
+
+//Drop it
+function dropElements(arr, func) {
+    let array = [];
+  
+    for (var i = 0; i < arr.length; i++) {
+        if (func(arr[i])) {
+            array = arr.slice(i, arr.length);
+            break;
+        }
+    }
+    return array;
+}
+dropElements([1, 2, 3], function(n) {return n < 3; });
