@@ -190,7 +190,6 @@ sumFibs(1000);
 function sumPrimes(num) {
     let nums = [];
     let primeNums = [2, 3];
-    let sum = 0;
 
     //Create a range of numbers.
     for (var j = 1; j <= num; j++) {
@@ -203,7 +202,6 @@ function sumPrimes(num) {
     //Create an array for prime numbers of the range.
     for (var i = 0; i < nums.length; i++) {
         for (var k = 2; k <= sqrtNums[i]; k++) {
-          // console.log(nums[i], ":", nums[i]%k)
             if ((nums[i] % k) == 0) {
                 break;
             } else {
@@ -211,13 +209,6 @@ function sumPrimes(num) {
             }
         }
     }
-    
-    //Remove that extra number at the end.
-    // primeNums.pop();
-
-    // for (var p = 0; p < primeNums.length; p++)
-
-    console.log(primeNums)
   
     return num;
 }
@@ -231,7 +222,6 @@ function sumPrimes(num) {
 
     //Create prime numbers.
     for (var i = 2; i <= num; i++) {
-        //if i has not been marked -- it is prime
         if (!sieve[i]) {
             primeNums.push(i);
             for (var j = i << 1; j <= num; j += i) {
@@ -251,3 +241,28 @@ sumPrimes(10);
 
 
 
+//Smallest Common Multiple
+function smallestCommons(arr) {
+    const greaterNum = arr[0] > arr[1] ? arr[0] : arr[1];
+    const lesserNum = arr[0] < arr[1] ? arr[0] : arr[1];
+    const difference = greaterNum - lesserNum;
+    let range = [];
+    var j = greaterNum; //start at the highest
+  
+    while (range.length <= difference) {
+        for (var i = lesserNum; i <= greaterNum; i++) {
+            if (j % i === 0) {
+                range.push(i);
+            }
+        }
+
+        //If the range is not full & valid, add the next one to try and reset the range.
+        if (range.length !== difference + 1) {
+            j++;
+            range = [];
+        }
+    }
+  
+    return j;
+}
+smallestCommons([1,5]);
