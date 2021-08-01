@@ -285,8 +285,21 @@ dropElements([1, 2, 3], function(n) {return n < 3; });
 
 
 
-//Steamroller
-
+//Steamroller -- need to learn more
+function steamrollArray(arr) {
+    let flat = [];
+    
+    for (var i = 0; i < arr.length; i++) {
+        if (Array.isArray(arr[i])) {
+            flat.push(...steamrollArray(arr[i]));
+        } else {
+            flat.push(arr[i])
+        }
+    }
+  
+    return flat;
+}
+steamrollArray([1, [2], [3, [[4]]]]);
 
 
 
