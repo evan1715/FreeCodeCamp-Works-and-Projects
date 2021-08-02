@@ -332,3 +332,25 @@ function truthCheck(collection, pre) {
     return true;
 }
 truthCheck([{"user": "Tinky-Winky", "sex": "male"}, {"user": "Dipsy", "sex": "male"}, {"user": "Laa-Laa", "sex": "female"}, {"user": "Po", "sex": "female"}], "sex");
+
+
+
+//Arguments Optional
+function addTogether() {
+    const a = Number.isFinite(arguments[0]) ? arguments[0] : false;
+    const b = Number.isFinite(arguments[1]) ? arguments[1] : false;
+  
+    const outsideArg = (c) => {
+        if (Number.isFinite(c)) {
+            return a + c;
+        }
+    }
+  
+    if (a && b) {
+        return a + b;
+    } else if (a && arguments.length === 1) {
+        return outsideArg;
+    }
+}
+addTogether(5)(7);
+  
