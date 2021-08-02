@@ -372,8 +372,9 @@ var Person = function(firstAndLast) {
         return b = name;
     }
   
-    this.setFullName = function() {
-        return firstAndLast;
+    this.setFullName = function(name) {
+        a = name.split(" ")[0];
+        b = name.split(" ")[1];
     }
   
   
