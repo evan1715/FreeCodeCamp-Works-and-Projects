@@ -353,4 +353,55 @@ function addTogether() {
     }
 }
 addTogether(5)(7);
+
+
+
+//Make a Person
+var Person = function(firstAndLast) {
+    // Only change code below this line
+    // Complete the method below and implement the others similarly
+    let a = firstAndLast.split(" ")[0];
+    let b = firstAndLast.split(" ")[1];
   
+    //Set section
+    this.setFirstName = function(name) {    
+        return a = name;
+    }
+  
+    this.setLastName = function(name) {
+        return b = name;
+    }
+  
+    this.setFullName = function() {
+        return firstAndLast;
+    }
+  
+  
+    //Get section
+    this.getFirstName = function() {
+        return a;
+    }
+  
+    this.getLastName = function () {
+        return b;
+    }
+  
+    this.getFullName = function() {
+        return a +" " +b;
+    }
+}
+var bob = new Person('Bob Ross');
+console.log("Bob:", bob.getFirstName());
+console.log("Ross:", bob.getLastName());
+console.log("Bob Ross:", bob.getFullName() +"\n");
+
+bob.setFirstName("Haskell");
+console.log("Haskell:", bob.getFirstName() +"\n");
+
+bob.setLastName("Curry");
+console.log("Curry:", bob.getLastName() +"\n");
+
+bob.setFullName("Haskell Curry");
+console.log("Haskell Curry:", bob.getFullName());
+console.log("Haskell:", bob.getFirstName());
+console.log("Curry:", bob.getLastName());
