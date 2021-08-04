@@ -410,3 +410,17 @@ console.log("Curry:", bob.getLastName());
 
 
 //Map the Debris
+function orbitalPeriod(arr) {
+    var GM = 398600.4418;
+    var earthRadius = 6367.4447;
+    let newArray = [];
+  
+    for (var i = 0; i < arr.length; i++) {
+        let T = (2 * Math.PI) * Math.sqrt(Math.pow(earthRadius + arr[i].avgAlt, 3) / (GM));
+        T = Math.round(T);
+        newArray.push({ name: arr[i].name, orbitalPeriod: T });
+    }
+
+    return newArray;
+}
+orbitalPeriod([{name : "sputnik", avgAlt : 35873.5553}]);
