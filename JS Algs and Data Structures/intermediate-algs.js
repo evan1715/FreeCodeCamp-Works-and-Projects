@@ -406,3 +406,7 @@ bob.setFullName("Haskell Curry");
 console.log("Haskell Curry:", bob.getFullName());
 console.log("Haskell:", bob.getFirstName());
 console.log("Curry:", bob.getLastName());
+
+
+
+//Map the Debris
